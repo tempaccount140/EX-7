@@ -1,2 +1,2 @@
 # EX-7
-Unlimited Script Execution | Utility GitHub
+Unrestricted Script Execution | Utility GitHub
