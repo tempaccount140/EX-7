@@ -1,0 +1,2008 @@
+-- params : ...
+
+wait(0.016666666666667)
+script.Name = "Chaos"
+local Player = game.Players.LocalPlayer
+local Character = Player.Character
+--[[
+	repeat
+		wait()
+	until game:GetService("ReplicatedStorage"):FindFirstChild("ScopeGui")
+	game:GetService("ReplicatedStorage"):FindFirstChild("ScopeGui"):Clone().Parent = Player.PlayerGui
+]]
+g1 = Instance.new("ScreenGui", Player.PlayerGui)
+g1.Name = "ScopeGui"
+o1 = Instance.new("Frame", g1)
+o1.BackgroundColor3 = Color3.new(0.847059, 0.866667, 0.423529)
+o1.BackgroundTransparency = 0.89999997615814
+o1.BorderColor3 = Color3.new(0.105882, 0.164706, 0.207843)
+o1.BorderSizePixel = 0
+o1.Name = "FrameLens"
+o1.Size = UDim2.new(1, 8, 1, 8)
+o1.Visible = false
+o2 = Instance.new("ImageLabel", g1)
+o2.BackgroundColor3 = Color3.new(1, 1, 1)
+o2.BackgroundTransparency = 1
+o2.BorderColor3 = Color3.new(0.105882, 0.164706, 0.207843)
+o2.Position = UDim2.new(0, 0, -0.03999999910593, 0)
+o2.Size = UDim2.new(1, 0, 1, 0)
+o2.Visible = false
+o2.Image = "rbxassetid://262984011"
+o3 = Instance.new("Frame", g1)
+o3.BackgroundColor3 = Color3.new(0, 0, 0)
+o3.BorderColor3 = Color3.new(0.105882, 0.164706, 0.207843)
+o3.BorderSizePixel = 0
+o3.Name = "FrameBackground"
+o3.Position = UDim2.new(0, 0, 0.93999999761581, 0)
+o3.Size = UDim2.new(1, 8, 0.20000000298023, 0)
+o3.Visible = false
+	local Effects = {}
+	local Character = Player.Character
+	local Humanoid = Character.Humanoid
+	local mouse = Player:GetMouse()
+	local m = Instance.new("Model", Character)
+	m.Name = "WeaponModel"
+	local LeftArm = Character["Left Arm"]
+	local RightArm = Character["Right Arm"]
+	local LeftLeg = Character["Left Leg"]
+	local RightLeg = Character["Right Leg"]
+	local Head = Character.Head
+	local Torso = Character.Torso
+	local cam = game.Workspace.CurrentCamera
+	local RootPart = Character.HumanoidRootPart
+	local RootJoint = RootPart.RootJoint
+	local equipped = false
+	local attack = false
+	local Anim = "Idle"
+	local idle = 0
+	local attacktype = 1
+	local Torsovelocity = (RootPart.Velocity * Vector3.new(1, 0, 1)).magnitude
+	local velocity = RootPart.Velocity.y
+	local sine = 0
+	local change = 1
+	local mana = 0
+	local it = Instance.new
+	vt = Vector3.new
+	local grabbed = false
+	local cf = CFrame.new
+	local mr = math.rad
+	local angles = CFrame.Angles
+	local ud = UDim2.new
+	local c3 = Color3.new
+	local NeckCF = cf(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 1, 0)
+	Humanoid.Animator:Destroy()
+	Character.Animate:Destroy()
+	local RootCF = CFrame.fromEulerAnglesXYZ(-1.57, 0, 3.14)
+	local RHCF = CFrame.fromEulerAnglesXYZ(0, 1.6, 0)
+	local LHCF = (CFrame.fromEulerAnglesXYZ(0, -1.6, 0))
+	RSH = nil
+	RW = Instance.new("Weld")
+	LW = Instance.new("Weld")
+	RH = Torso["Right Hip"]
+	LH = Torso["Left Hip"]
+	RSH = Torso["Right Shoulder"]
+	LSH = Torso["Left Shoulder"]
+	RSH.Parent = nil
+	LSH.Parent = nil
+	RW.Name = "RW"
+	RW.Part0 = Torso
+	RW.C0 = cf(1.5, 0.5, 0)
+	RW.C1 = cf(0, 0.5, 0)
+	RW.Part1 = RightArm
+	RW.Parent = Torso
+	LW.Name = "LW"
+	LW.Part0 = Torso
+	LW.C0 = cf(-1.5, 0.5, 0)
+	LW.C1 = cf(0, 0.5, 0)
+	LW.Part1 = LeftArm
+	LW.Parent = Torso
+	clerp = function(a, b, t)
+	
+	return a:lerp(b, t)
+end
+
+	local RbxUtility = LoadLibrary("RbxUtility")
+	local Create = RbxUtility.Create
+	RemoveOutlines = function(part)
+	
+	part.TopSurface = 10
+end
+
+	CreatePart = function(Parent, Material, Reflectance, Transparency, BColor, Name, Size)
+	
+	local Part = Create("Part")({Parent = Parent, Reflectance = Reflectance, Transparency = Transparency, CanCollide = false, Locked = true, BrickColor = BrickColor.new(tostring(BColor)), Name = Name, Size = Size, Material = Material})
+	RemoveOutlines(Part)
+	return Part
+end
+
+	CreatePart2 = function(Parent, Material, PartType, Reflectance, Transparency, BColor, Name, Size)
+	
+	if PartType == "Part" then
+		local Part = Create("Part")({Parent = Parent, Reflectance = Reflectance, Transparency = Transparency, CanCollide = false, Locked = true, BrickColor = BrickColor.new(tostring(BColor)), Name = Name, Size = Size, Material = Material})
+		RemoveOutlines(Part)
+		return Part
+	else
+		do
+			if PartType == "WedgePart" then
+				local Part = Create("WedgePart")({Parent = Parent, Reflectance = Reflectance, Transparency = Transparency, CanCollide = false, Locked = true, BrickColor = BrickColor.new(tostring(BColor)), Name = Name, Size = Size, Material = Material})
+				RemoveOutlines(Part)
+				return Part
+			end
+		end
+	end
+end
+
+	CreateMesh = function(Mesh, Part, MeshType, MeshId, OffSet, Scale)
+	
+	local Msh = Create(Mesh)({Parent = Part, Offset = OffSet, Scale = Scale})
+	if Mesh == "SpecialMesh" then
+		Msh.MeshType = MeshType
+		Msh.MeshId = MeshId
+	end
+	return Msh
+end
+
+	local co1 = 5
+	local co2 = 15
+	local co3 = 15
+	local co4 = 20
+	local cooldown1 = 0
+	local cooldown2 = 0
+	local cooldown3 = 0
+	local cooldown4 = 0
+	local co5 = 5
+	local co6 = 10
+	local co7 = 6
+	local co8 = 45
+	local cooldown5 = 0
+	local cooldown6 = 0
+	local cooldown7 = 0
+	local cooldown8 = 0
+	local skillcolorscheme = BrickColor.new("Crimson").Color
+	local scrn = Instance.new("ScreenGui", Player.PlayerGui)
+	makeframe = function(par, trans, pos, size, color)
+	
+	local frame = Instance.new("Frame", par)
+	frame.BackgroundTransparency = trans
+	frame.BorderSizePixel = 0
+	frame.Position = pos
+	frame.Size = size
+	frame.BackgroundColor3 = color
+	return frame
+end
+
+	makelabel = function(par, text)
+	
+	local label = Instance.new("TextLabel", par)
+	label.BackgroundTransparency = 1
+	label.Size = UDim2.new(1, 0, 1, 0)
+	label.Position = UDim2.new(0, 0, 0, 0)
+	label.TextColor3 = Color3.new(255, 255, 255)
+	label.TextStrokeTransparency = 0
+	label.FontSize = Enum.FontSize.Size32
+	label.Font = Enum.Font.SourceSansLight
+	label.BorderSizePixel = 0
+	label.TextScaled = true
+	label.Text = text
+end
+
+	framesk1 = makeframe(scrn, 0.5, UDim2.new(0.8, 0, 0.85, 0), UDim2.new(0.16, 0, 0.1, 0), skillcolorscheme)
+	framesk2 = makeframe(scrn, 0.5, UDim2.new(0.8, 0, 0.74, 0), UDim2.new(0.16, 0, 0.1, 0), skillcolorscheme)
+	framesk3 = makeframe(scrn, 0.5, UDim2.new(0.8, 0, 0.63, 0), UDim2.new(0.16, 0, 0.1, 0), skillcolorscheme)
+	framesk4 = makeframe(scrn, 0.5, UDim2.new(0.8, 0, 0.52, 0), UDim2.new(0.16, 0, 0.1, 0), skillcolorscheme)
+	bar1 = makeframe(framesk1, 0, UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 1, 0), skillcolorscheme)
+	bar2 = makeframe(framesk2, 0, UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 1, 0), skillcolorscheme)
+	bar3 = makeframe(framesk3, 0, UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 1, 0), skillcolorscheme)
+	bar4 = makeframe(framesk4, 0, UDim2.new(0, 0, 0, 0), UDim2.new(1, 0, 1, 0), skillcolorscheme)
+	text1 = Instance.new("TextLabel", framesk1)
+	text1.BackgroundTransparency = 1
+	text1.Size = UDim2.new(1, 0, 1, 0)
+	text1.Position = UDim2.new(0, 0, 0, 0)
+	text1.TextColor3 = Color3.new(255, 255, 255)
+	text1.TextStrokeTransparency = 0
+	text1.FontSize = Enum.FontSize.Size18
+	text1.Font = Enum.Font.SourceSansLight
+	text1.BorderSizePixel = 0
+	text1.TextScaled = true
+	text1.Text = "[Z]\n Explosive Shot"
+	text2 = Instance.new("TextLabel", framesk2)
+	text2.BackgroundTransparency = 1
+	text2.Size = UDim2.new(1, 0, 1, 0)
+	text2.Position = UDim2.new(0, 0, 0, 0)
+	text2.TextColor3 = Color3.new(255, 255, 255)
+	text2.TextStrokeTransparency = 0
+	text2.FontSize = Enum.FontSize.Size18
+	text2.Font = Enum.Font.SourceSansLight
+	text2.BorderSizePixel = 0
+	text2.TextScaled = true
+	text2.Text = "[X]\n Poison Shot"
+	text3 = Instance.new("TextLabel", framesk3)
+	text3.BackgroundTransparency = 1
+	text3.Size = UDim2.new(1, 0, 1, 0)
+	text3.Position = UDim2.new(0, 0, 0, 0)
+	text3.TextColor3 = Color3.new(255, 255, 255)
+	text3.TextStrokeTransparency = 0
+	text3.FontSize = Enum.FontSize.Size18
+	text3.Font = Enum.Font.SourceSansLight
+	text3.BorderSizePixel = 0
+	text3.TextScaled = false
+	text3.Text = "[C]\n Stun Shot"
+	text4 = Instance.new("TextLabel", framesk4)
+	text4.BackgroundTransparency = 1
+	text4.Size = UDim2.new(1, 0, 1, 0)
+	text4.Position = UDim2.new(0, 0, 0, 0)
+	text4.TextColor3 = Color3.new(255, 255, 255)
+	text4.TextStrokeTransparency = 0
+	text4.FontSize = Enum.FontSize.Size18
+	text4.Font = Enum.Font.SourceSansLight
+	text4.BorderSizePixel = 0
+	text4.TextScaled = true
+	text4.Text = "[V]\n The Silencer"
+	ArtificialHB = Instance.new("BindableEvent", Player.PlayerGui)
+	ArtificialHB.Name = "Heartbeat"
+	Player.PlayerGui:WaitForChild("Heartbeat")
+	frame = 0.033333333333333
+	tf = 0
+	allowframeloss = false
+	tossremainder = false
+	lastframe = tick()
+	Player.PlayerGui.Heartbeat:Fire()
+	local gg = false
+	game:GetService("RunService").Heartbeat:connect(function(s, p)
+	
+	if Player.PlayerGui:FindFirstChild("Heartbeat") == nil then
+		gg = true
+	end
+	if gg == true then
+		return 
+	end
+	tf = tf + s
+	if frame <= tf then
+		if allowframeloss then
+			Player.PlayerGui.Heartbeat:Fire()
+			lastframe = tick()
+		else
+			for i = 1, math.floor(tf / frame) do
+				Player.PlayerGui.Heartbeat:Fire()
+			end
+			lastframe = tick()
+		end
+		if tossremainder then
+			tf = 0
+		else
+			tf = tf - frame * math.floor(tf / frame)
+		end
+	end
+end
+)
+	swait = function(num)
+	
+	if num == 0 or num == nil then
+		ArtificialHB.Event:wait()
+	else
+		for i = 0, num do
+			ArtificialHB.Event:wait()
+		end
+	end
+end
+
+	CreateWeld = function(Parent, Part0, Part1, C0, C1)
+	
+	local Weld = Create("Weld")({Parent = Parent, Part0 = Part0, Part1 = Part1, C0 = C0, C1 = C1})
+	return Weld
+end
+
+	rayCast = function(Position, Direction, Range, Ignore)
+	
+	return game:service("Workspace"):FindPartOnRay(Ray.new(Position, Direction.unit * (Range or 999.999)), Ignore)
+end
+
+	CreateSound = function(id, par, vol, pit)
+	
+	coroutine.resume(coroutine.create(function()
+		
+		local sou = Instance.new("Sound", par or workspace)
+		sou.Volume = vol
+		sou.Pitch = pit or 1
+		sou.SoundId = id
+		swait()
+		sou:play()
+		game:GetService("Debris"):AddItem(sou, 6)
+	end
+))
+end
+
+	local getclosest = function(obj, distance)
+	
+	local last, lastx = distance + 1, nil
+	for i,v in pairs(workspace:GetChildren()) do
+		if v:IsA("Model") and v ~= Character and v:findFirstChild("Humanoid") and v:findFirstChild("Torso") and v:findFirstChild("Humanoid").Health > 0 then
+			local t = v.Torso
+			local dist = (t.Position - obj.Position).magnitude
+			if dist <= distance and dist < last then
+				last = dist
+				lastx = v
+			end
+		end
+	end
+	return lastx
+end
+
+	local Sheathed = true
+	Handle2 = CreatePart2(m, Enum.Material.Metal, "Part", 0, 1, "Dark stone grey", "Handle2", Vector3.new(0.389999986, 1.19000006, 0.400000006))
+	HandleWeld2 = CreateWeld(m, Character["Right Arm"], Handle2, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-0.960716486, -0.00518226624, 0.000381469727, 0, -0.999993026, 0.00373700005, 0, -0.00373700005, -0.999993026, 1, 0, 0))
+	FakeHandle2 = CreatePart2(m, Enum.Material.Metal, "Part", 0, 1, "Dark stone grey", "FakeHandle2", Vector3.new(0.389999986, 1.19000006, 0.400000006))
+	FakeHandle2Weld = CreateWeld(m, Handle2, FakeHandle2, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1))
+	Barrel = CreatePart2(m, Enum.Material.Metal, "Part", 0, 0, "Really black", "Barrel", Vector3.new(0.200000003, 0.200000003, 0.200000003))
+	BarrelWeld = CreateWeld(m, FakeHandle2, Barrel, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-6.21626282, -0.341072083, 0.363529205, 0, 1, 0, -0.684287846, 2.98023224e-08, 0.729212046, 0.729212165, -2.98023224e-08, 0.684287846))
+	Part = CreatePart2(m, Enum.Material.Metal, "Part", 0, 0, "Dark stone grey", "Part", Vector3.new(0.200000003, 0.200000003, 0.340000004))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-0.996109009, -0.628494263, 0, 0, 1, 0, -1, 0, 0, 0, 0, 1))
+	Part = CreatePart2(m, Enum.Material.Metal, "Part", 0, 0, "Dark stone grey", "Part", Vector3.new(1, 0.200000003, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-1.1960907, -0.82849884, 0, 0, 1, 0, -1, 0, 0, 0, 0, 1))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "Part", 0, 0, "Black", "Part", Vector3.new(0.600000024, 0.25, 0.289999992))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-1.1960144, -1.05355072, 0.00462341309, 0, 1, 0, -1, 0, 0, 0, 0, 1))
+	Part = CreatePart2(m, Enum.Material.Metal, "Part", 0, 0, "Dark stone grey", "Part", Vector3.new(0.400000006, 0.200000003, 0.340000004))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-1.6960907, -0.628494263, 0, 0, 1, 0, -1, 0, 0, 0, 0, 1))
+	Part = CreatePart2(m, Enum.Material.Metal, "Part", 0, 0, "Dark stone grey", "Part", Vector3.new(0.550000072, 0.200000003, 0.400000006))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(1.10888672, -0.278556824, -0.000368118286, 0, 1, 0, -1, 0, 0, 0, 0, 1))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "Part", 0, 0, "Black", "Part", Vector3.new(1.20000005, 0.200000003, 0.400000006))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(1.10394287, 0.24143219, -0.000368118286, 0, 1, 0, -1, 0, 0, 0, 0, 1))
+	Part = CreatePart2(m, Enum.Material.Metal, "Part", 0, 0, "Dark stone grey", "Part", Vector3.new(0.800000072, 0.200000003, 0.400000006))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(1.23397827, -0.158561707, -0.000368118286, 0, 1, 0, -1, 0, 0, 0, 0, 1))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "Part", 0, 0, "Black", "Part", Vector3.new(1.80000007, 0.200000003, 0.400000006))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(0.803985596, 0.0414352417, -0.000368118286, 0, 1, 0, -1, 0, 0, 0, 0, 1))
+	Part = CreatePart2(m, Enum.Material.Metal, "Part", 0, 0, "Dark stone grey", "Part", Vector3.new(0.200000003, 0.680000007, 0.400000006))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(1.8039856, 0.201438904, -0.000368118286, 0, 1, 0, -1, 0, 0, 0, 0, 1))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "Part", 0, 0, "Black", "Part", Vector3.new(2.73000002, 0.200000003, 0.25999999))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-1.53109741, -0.498497009, 0, 0, 1, 0, -1, 0, 0, 0, 0, 1))
+	Part = CreatePart2(m, Enum.Material.Metal, "Part", 0, 0, "Dark stone grey", "Part", Vector3.new(2.80000019, 0.200000003, 0.400000006))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-1.49609375, -0.35849762, 0, 0, 1, 0, -1, 0, 0, 0, 0, 1))
+	Part = CreatePart2(m, Enum.Material.Metal, "Part", 0, 0, "Black", "Part", Vector3.new(1.4000001, 0.200000003, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-4.39624023, -0.359542847, 0.359558105, 0, 1, 0, -0.707106352, -2.98023224e-08, 0.707107186, 0.707107246, 0, 0.707106352))
+	Part = CreatePart2(m, Enum.Material.Metal, "Part", 0, 0, "Black", "Part", Vector3.new(1.13000035, 0.200000003, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-5.72996521, -0.508499146, 0.113895416, 3.81469727e-06, 0.999733329, 0.0230940115, -1.00000012, 3.84449959e-06, 4.81778484e-09, -8.56816769e-08, -0.0230940115, 0.999733329))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "Part", 0, 0, "Black", "Part", Vector3.new(0.800000012, 0.200000003, 0.51000005))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-1.09611511, 0.0414581299, -0.00500488281, 0, 1, 0, -1, 0, 0, 0, 0, 1))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "Part", 0, 0, "Black", "Part", Vector3.new(0.800000012, 0.200000003, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-3.34611511, -0.446655273, -0.181793213, 0, 1, 0, -0.965925813, -2.98023224e-08, -0.258819133, -0.258819133, 0, 0.965925872))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "Part", 0, 0, "Black", "Part", Vector3.new(0.400000036, 0.200000003, 0.400000006))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(0.388175964, 0.00126647949, -0.000368118286, -0.619425058, 0.785055876, 0, -0.785055876, -0.619425058, 0, 0, 0, 1))
+	Part = CreatePart2(m, Enum.Material.Metal, "Part", 0, 0, "Black", "Part", Vector3.new(1.39999998, 0.200000003, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-4.39624023, -0.508483887, 1.52587891e-05, 0, 1, 0, -1, 0, 0, 0, 0, 1))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "Part", 0, 0, "Black", "Part", Vector3.new(0.600000024, 0.240000024, 0.51000005))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-4.03604126, -0.0785598755, -0.00523376465, 0, 1, 0, -1, 0, 0, 0, 0, 1))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "Part", 0, 0, "Black", "Part", Vector3.new(0.800000012, 0.200000003, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-3.38349915, -0.214805603, 0, -0.0988941789, 0.995097995, 0, -0.995097995, -0.0988941789, 0, 0, 0, 1))
+	Part = CreatePart2(m, Enum.Material.Metal, "Part", 0, 0, "Dark stone grey", "Part", Vector3.new(0.200000003, 0.310000032, 0.400000006))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(1.50627899, -1.11392212, -0.000368118286, -0.499997795, 0.866026759, 0, -0.866026759, -0.499997795, 0, 0, 0, 1))
+	Part = CreatePart2(m, Enum.Material.Metal, "Part", 0, 0, "Dark stone grey", "Part", Vector3.new(1, 0.200000003, 0.400000006))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-1.19606018, -0.158500671, 0, 0, 1, 0, -1, 0, 0, 0, 0, 1))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "Part", 0, 0, "Black", "Part", Vector3.new(1.80000019, 0.200000003, 0.51000005))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-2.5960083, -0.318557739, -0.00527954102, 0, 1, 0, -1, 0, 0, 0, 0, 1))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "Part", 0, 0, "Black", "Part", Vector3.new(0.800000012, 0.200000003, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-3.34611511, -0.446655273, 0.18179512, 0, 1, 0, -0.965925813, -2.98023224e-08, 0.258819133, 0.258819133, 0, 0.965925872))
+	Part = CreatePart2(m, Enum.Material.Metal, "Part", 0, 0, "Black", "Part", Vector3.new(1.13000047, 0.200000003, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(5.71598816, -0.527112961, 0.359550476, -0.0240575075, -0.99942112, -0.024060009, -0.706699729, 0.0340242684, -0.70669502, 0.707104504, 1.87754631e-06, -0.707109094))
+	Part = CreatePart2(m, Enum.Material.Metal, "Part", 0, 0, "Black", "Part", Vector3.new(1.33000052, 0.200000003, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-5.64379883, -0.366882324, 1.52587891e-05, -0.0286721289, 0.999588907, 0, -0.999588907, -0.0286721289, 0, 0, 0, 1))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "Part", 0, 0, "Black", "Part", Vector3.new(0.200000092, 0.200000003, 0.400000006))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-0.196029663, 0.0414505005, -0.000368118286, 0, 1, 0, -1, 0, 0, 0, 0, 1))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "Part", 0, 0, "Black", "Part", Vector3.new(1.20000017, 0.200000003, 0.51000005))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-4.0960083, -0.298553467, -0.00527954102, 0, 1, 0, -1, 0, 0, 0, 0, 1))
+	Part = CreatePart2(m, Enum.Material.Metal, "Part", 0, 0, "Dark stone grey", "Part", Vector3.new(0.200000003, 0.200000003, 0.400000006))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-0.596069336, -0.158561707, -1.52587891e-05, 0, 1, 0, -1, 0, 0, 0, 0, 1))
+	Part = CreatePart2(m, Enum.Material.Metal, "Part", 0, 0, "Black", "Part", Vector3.new(1.33000052, 0.200000003, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-5.61312866, -0.659599304, 0, 0.0306950808, 0.999528885, 0, -0.999528885, 0.0306950808, 0, 0, 0, 1))
+	Part = CreatePart2(m, Enum.Material.Metal, "Part", 0, 0, "Black", "Part", Vector3.new(1.33000052, 0.200000003, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(5.61752319, -0.359565735, 0.512573242, -0.0219676197, -0.999517381, 0.0219639931, -0.707104266, 2.41398811e-06, -0.707109392, 0.706768036, -0.0310643613, -0.706763029))
+	Part = CreatePart2(m, Enum.Material.Metal, "Part", 0, 0, "Black", "Part", Vector3.new(1.33000052, 0.200000003, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(5.62921143, 0.143918991, 0.508468628, -2.08616257e-07, -0.999574006, 0.0291880108, -1.78162009e-06, -0.0291880146, -0.999574006, 1, -2.68220901e-07, -1.77477204e-06))
+	Part = CreatePart2(m, Enum.Material.Metal, "Part", 0, 0, "Black", "Part", Vector3.new(1.13000047, 0.200000003, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(5.73861694, -0.359542847, 0.23815918, 0.0173905194, -0.999697566, -0.0173879918, -0.707105279, -1.75833702e-06, -0.707108378, 0.706894457, 0.0245921314, -0.706891418))
+	Part = CreatePart2(m, Enum.Material.Metal, "Part", 0, 0, "Black", "Part", Vector3.new(1.33000052, 0.200000003, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(5.63934326, -0.221271515, 0.359550476, 0.019811213, -0.999607563, 0.0198099986, -0.706842601, -0.0280164182, -0.706815958, 0.707093477, 3.57627869e-07, -0.70712018))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "Part", 0, 0, "Sand blue", "Part", Vector3.new(0.27000007, 0.200000003, 0.400000006))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-1.04354858, -0.0359802246, 0.000194549561, -1, 0, -5.70000011e-05, 0, 1, 2.7e-05, 5.70000011e-05, 2.69999982e-05, -1))
+	CreateMesh("CylinderMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(1, 1, 1))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "Part", 0, 0, "Black", "Part", Vector3.new(0.360000074, 0.259999633, 0.400000006))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-1.03852081, -0.0760345459, 0.00020980835, -1, 0, -5.70000011e-05, 0, 1, 2.7e-05, 5.70000011e-05, 2.69999982e-05, -1))
+	CreateMesh("CylinderMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(1, 1, 1))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "Part", 0, 0, "Black", "Part", Vector3.new(0.27000007, 2, 0.400000006))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-1.04354858, -1.0960083, 0.00018119812, -1, 0, -5.70000011e-05, 0, 1, 2.7e-05, 5.70000011e-05, 2.69999982e-05, -1))
+	CreateMesh("CylinderMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(1, 1, 1))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "Part", 0, 0, "Sand blue", "Part", Vector3.new(0.470000088, 0.200000003, 0.400000006))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-1.03355408, -2.88598633, 0.000164031982, -1, 0, -5.70000011e-05, 0, 1, 2.7e-05, 5.70000011e-05, 2.69999982e-05, -1))
+	CreateMesh("CylinderMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(1, 1, 1))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "Part", 0, 0, "Black", "Part", Vector3.new(0.200000003, 0.399999678, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-0.468475342, -2.94610596, -5.34057617e-05, -1, 0, -5.70000011e-05, 0, 1, 2.7e-05, 5.70000011e-05, 2.69999982e-05, -1))
+	CreateMesh("CylinderMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(1, 1, 1))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "Part", 0, 0, "Black", "Part", Vector3.new(0.330000103, 0.200000003, 0.400000006))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-1.04351044, -0.596038818, 0.000196456909, -1, 0, -5.70000011e-05, 0, 1, 2.7e-05, 5.70000011e-05, 2.69999982e-05, -1))
+	CreateMesh("CylinderMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(1, 1, 1))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "Part", 0, 0, "Black", "Part", Vector3.new(0.400000006, 0.200000003, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-0.000385284424, 1.22858429, -1.04606628, 2.83153204e-05, 4.94696142e-05, 1, 1, -3.0040741e-05, -2.83138343e-05, 3.00109386e-05, 1, -4.94704655e-05))
+	CreateMesh("CylinderMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(1, 1, 1))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "Part", 0, 0, "Black", "Part", Vector3.new(0.49000001, 0.799999654, 0.800000012))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-1.03353882, -2.57603455, 0.000356674194, -1, 0, -5.70000011e-05, 0, 1, 2.7e-05, 5.70000011e-05, 2.69999982e-05, -1))
+	CreateMesh("CylinderMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(1, 1, 1))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "Part", 0, 0, "Black", "Part", Vector3.new(0.400000006, 0.400000006, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-1.05857849, -0.000429153442, -1.04605103, -1, 2.56001949e-05, 0, 1.50248525e-09, 5.86683309e-05, 1, 2.56001949e-05, 1, -5.86683345e-05))
+	CreateMesh("CylinderMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(1, 1, 1))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "Part", 0, 0, "Black", "Part", Vector3.new(0.340000063, 0.200000003, 0.400000006))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(1.03855896, -2.036026, -0.000295639038, 1, 0, 5.70000011e-05, 0, 1, -2.7e-05, -5.70000047e-05, 2.70000019e-05, 1))
+	CreateMesh("CylinderMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(1, 1, 1))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "Part", 0, 0, "Black", "Part", Vector3.new(0.290000081, 0.400000006, 0.400000006))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(1.04354858, -1.9760437, -0.000293731689, 1, 0, 5.70000011e-05, 0, 1, -2.7e-05, -5.70000047e-05, 2.70000019e-05, 1))
+	CreateMesh("CylinderMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(1, 1, 1))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "Part", 0, 0, "Black", "Part", Vector3.new(0.49000001, 0.200000003, 0.800000012))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-0.26184845, 3.13115692, -0.000383377075, -0.924782038, -0.380497724, -6.20000064e-05, 0.380497724, -0.924782038, 1.8477444e-12, -5.73364778e-05, -2.35908592e-05, 1))
+	CreateMesh("CylinderMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(1, 1, 1))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "Part", 0, 0, "Black", "Part", Vector3.new(0.430000037, 0.399999619, 0.400000006))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-1.03353882, -2.31604004, 0.000364303589, -1, 0, -5.70000011e-05, 0, 1, 2.7e-05, 5.70000011e-05, 2.69999982e-05, -1))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "WedgePart", 0, 0, "Black", "Part", Vector3.new(0.51000011, 0.26000002, 0.239999995))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(0.00536346436, 3.61605835, -0.0785217285, 3.90549576e-05, -2.23542011e-05, -1, 0, -1, 2.23542011e-05, -1, 0, -3.90549576e-05))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "WedgePart", 0, 0, "Black", "Part", Vector3.new(0.400000095, 0.400000036, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(0.000329971313, -0.295974731, 0.158569336, 3.76858152e-05, 0.000144349513, -1, 0, 1, 0.000144349513, 1, 0, 3.76858152e-05))
+	Part = CreatePart2(m, Enum.Material.Metal, "WedgePart", 0, 0, "Dark stone grey", "Part", Vector3.new(0.200000003, 0.200000003, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-0.000228881836, -1.79605103, 0.82849884, 3.76858152e-05, 0.000144349513, -1, 0, 1, 0.000144349513, 1, 0, 3.76858152e-05))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "WedgePart", 0, 0, "Black", "Part", Vector3.new(0.51000011, 0.400000006, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-0.00490188599, -0.896148682, 0.101448059, -3.76858152e-05, -0.000144349513, 1, 0, 1, 0.000144349513, -1, 0, -3.76858152e-05))
+	Part = CreatePart2(m, Enum.Material.Metal, "WedgePart", 0, 0, "Dark stone grey", "Part", Vector3.new(0.400000066, 0.400000036, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(7.2479248e-05, 0.296035767, -0.158531189, -0.000133918817, -0.000119225631, -1, 0, -1, 0.000119225624, -1, 2.98023224e-08, 0.000133918817))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "WedgePart", 0, 0, "Black", "Part", Vector3.new(0.51000005, 0.200000003, 0.360000014))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-0.00535964966, 1.59609985, 0.238586426, -0.000144349513, 3.76858152e-05, 1, 0, -1, 3.76858152e-05, 1, 0, 0.000144349513))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "WedgePart", 0, 0, "Black", "Part", Vector3.new(0.51000011, 0.360000014, 0.239999995))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-0.00461578369, -4.51602173, -0.0785751343, -3.76858152e-05, -0.000144349513, 1, 0, 1, 0.000144349513, -1, 0, -3.76858152e-05))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "WedgePart", 0, 0, "Black", "Part", Vector3.new(0.400000066, 1.39999998, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-0.000123977661, 0.00390625, 0.0414428711, 3.76858152e-05, 0.000144349513, 1, 0, 1, -0.000144349513, -1, 0, 3.76858152e-05))
+	Part = CreatePart2(m, Enum.Material.Metal, "WedgePart", 0, 0, "Dark stone grey", "Part", Vector3.new(0.400000036, 0.200000003, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-0.000591278076, -1.48394775, 0.278541565, -3.76858152e-05, -0.000144349513, 1, 0, -1, -0.000144349513, 1, 0, 3.76858152e-05))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "WedgePart", 0, 0, "Black", "Part", Vector3.new(0.50999999, 0.890000165, 0.400000036))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-0.00483131409, -2.05114746, -0.0285568237, -3.76858152e-05, -0.000144349513, 1, 0, 1, 0.000144349513, -1, 0, -3.76858152e-05))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "WedgePart", 0, 0, "Black", "Part", Vector3.new(0.400000095, 1.39999998, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(0.000333786011, 0.00399780273, -0.0414428711, 3.76858152e-05, 0.000144349513, -1, 0, 1, 0.000144349513, 1, 0, 3.76858152e-05))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "WedgePart", 0, 0, "Black", "Part", Vector3.new(0.51000005, 1.45000017, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-0.00492668152, -2.37106323, -0.158538818, -3.76858152e-05, -0.000144349513, 1, 0, 1, 0.000144349513, -1, 0, -3.76858152e-05))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "WedgePart", 0, 0, "Black", "Part", Vector3.new(0.500000119, 0.400000155, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(0.0098285675, 1.29615784, 0.201461792, 3.76858152e-05, 0.000144349513, -1, 0, -1, -0.000144349513, -1, 0, -3.76858152e-05))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "WedgePart", 0, 0, "Black", "Part", Vector3.new(0.400000095, 0.600000024, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-0.000360488892, 0.203933716, 0.241439819, -2.08293113e-05, 1.19222404e-05, 1, 0, 1, -1.19222404e-05, -1, 0, -2.08293113e-05))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "WedgePart", 0, 0, "Black", "Part", Vector3.new(0.51000011, 0.400000215, 0.370000035))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-0.00483131409, -1.69618225, 0.116447449, -3.76858152e-05, -0.000144349513, 1, 0, 1, 0.000144349513, -1, 0, -3.76858152e-05))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "WedgePart", 0, 0, "Black", "Part", Vector3.new(0.400000036, 1.20000005, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-0.000177383423, 1.10392761, 0.441436768, 3.76858152e-05, 0.000144349513, 1, 0, 1, -0.000144349513, -1, 0, 3.76858152e-05))
+	Part = CreatePart2(m, Enum.Material.SmoothPlastic, "WedgePart", 0, 0, "Black", "Part", Vector3.new(0.400000095, 0.600000024, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle2, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-0.000308990479, -0.20401001, 0.158561707, -3.76858152e-05, -0.000144349513, 1, 0, -1, -0.000144349513, 1, 0, 3.76858152e-05))
+	Handle = CreatePart(m, Enum.Material.SmoothPlastic, 0, 1, "Light stone grey", "Handle", Vector3.new(0.474830985, 1.82664037, 0.373666197))
+	HandleWeld = CreateWeld(m, Character.Torso, Handle, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-0.796961546, 2.48477173, 0.597694397, -0.004668999, -0.999959767, -0.00765799824, -0.999926627, 0.00458291033, 0.0112209953, -0.0111854468, 0.00770982681, -0.999907732))
+	if Sheathed == true then
+		HandleWeld.Part0 = Torso
+		HandleWeld.C1 = CFrame.new(-0.796961546, 2.48477173, 0.597694397, -0.004668999, -0.999959767, -0.00765799824, -0.999926627, 0.00458291033, 0.0112209953, -0.0111854468, 0.00770982681, -0.999907732)
+	else
+		if Sheathed == false then
+			HandleWeld.Part0 = RightArm
+			HandleWeld.C1 = CFrame.new(-1.03242755, -0.0340976715, 0.0901641846, -0.00770399813, -0.999959767, 0.0045949989, 0.0019699987, 0.00457994919, 0.999987543, -0.999968469, 0.00771295466, 0.0019346358)
+		end
+	end
+	FakeHandle = CreatePart(m, Enum.Material.SmoothPlastic, 0, 1, "Light stone grey", "FakeHandle", Vector3.new(0.474830985, 1.82664037, 0.373666197))
+	FakeHandleWeld = CreateWeld(m, Handle, FakeHandle, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(0, 0, 0, 1, -3.3651304e-11, 0, -3.3651304e-11, 0.99999994, 0, 0, 0, 1.00000012))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0.30000001192093, 0, "Black", "Part", Vector3.new(1.4199903, 1.43589687, 0.224068895))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(0.00119400024, -1.98269272, 0.00439453125, 1, -3.3651304e-11, 0, -3.3651304e-11, 0.99999994, 0, 0, 0, 1.00000012))
+	CreateMesh("BlockMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(1, 1, 1))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0.30000001192093, 0, "Black", "Part", Vector3.new(1.08213222, 4.13876152, 0.224068895))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(0.00118899345, -4.76996613, 0.00442504883, 1, -3.3651304e-11, 0, -3.3651304e-11, 0.99999994, 0, 0, 0, 1.00000012))
+	CreateMesh("BlockMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(1, 1, 1))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0.20000000298023, 0, "Bright red", "Part", Vector3.new(0.200000003, 4.15745974, 0.224068895))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-0.500924349, -4.754282, 0.00437927246, 1, -3.3651304e-11, 0, -3.3651304e-11, 0.99999994, 0, 0, 0, 1.00000012))
+	CreateMesh("BlockMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(0.337858081, 1, 1.02999997))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0.20000000298023, 0, "Bright red", "Part", Vector3.new(0.200000003, 0.200000003, 0.224068895))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-2.65413666, 0.564500093, 0.00437927246, 9.51308721e-07, 0.99999994, -7.68341124e-09, -1, 9.5102132e-07, -9.97912139e-07, -9.97912139e-07, 7.68341124e-09, 1.00000012))
+	CreateMesh("BlockMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(0.337858081, 0.968968809, 1.02999997))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0.20000000298023, 0, "Bright red", "Part", Vector3.new(0.200000003, 1.42192638, 0.224068895))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-0.675780535, -1.97748184, 0.00448608398, 1, -3.3651304e-11, 0, -3.3651304e-11, 0.99999994, 0, 0, 0, 1.00000012))
+	CreateMesh("BlockMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(0.337858081, 1, 1.02999997))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0.20000000298023, 0, "Sand red", "Part", Vector3.new(0.338468343, 0.328171432, 0.334714621))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-0.00192523003, -1.37490082, 0.00114440918, 1, -3.3651304e-11, 0, -3.3651304e-11, 0.99999994, 0, 0, 0, 1.00000012))
+	CreateMesh("BlockMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(0.899999976, 1, 0.899999976))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0.20000000298023, 0, "Sand red", "Part", Vector3.new(0.265685409, 0.417332441, 0.334714621))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-0.00199365616, -1.73918152, 0.0011138916, 1, -3.3651304e-11, 0, -3.3651304e-11, 0.99999994, 0, 0, 0, 1.00000012))
+	CreateMesh("BlockMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(0.899999976, 1, 0.899999976))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0.20000000298023, 0, "Bright red", "Part", Vector3.new(0.200000003, 4.15745974, 0.224068895))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-0.507714987, -4.7560997, -0.00437927246, -1, 3.3651304e-11, 0, -3.3651304e-11, 0.99999994, 0, 0, 0, -1.00000012))
+	CreateMesh("BlockMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(0.337858081, 1, 1.02999997))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0.20000000298023, 0, "Bright red", "Part", Vector3.new(0.200000003, 1.42545259, 0.224068895))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(0.678707361, -1.97924232, 0.00439453125, 1, -3.3651304e-11, 0, -3.3651304e-11, 0.99999994, 0, 0, 0, 1.00000012))
+	CreateMesh("BlockMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(0.337858081, 1, 1.02999997))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0.20000000298023, 0, "Bright red", "Part", Vector3.new(0.200000003, 0.200000003, 0.224068895))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-2.65589905, 0.563244104, -0.00437927246, 9.51308721e-07, 0.99999994, -7.68341124e-09, 1, -9.5102132e-07, 9.97912139e-07, 9.97912139e-07, -7.68341124e-09, -1.00000012))
+	CreateMesh("BlockMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(0.337858081, 0.888151348, 1.02999997))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0, 0, "Medium stone grey", "Part", Vector3.new(0.474830985, 0.200000003, 0.373666197))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-0.071896553, -0.59330368, 4.57763672e-05, 0.99273777, 0.120297872, -7.06315041e-06, -0.120297886, 0.992737889, -5.30621037e-07, 6.94813207e-06, 1.37649477e-06, 1.00000012))
+	CreateMesh("CylinderMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(1, 0.0844645426, 0.420000017))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0, 0, "Medium stone grey", "Part", Vector3.new(0.474830985, 0.200000003, 0.373666197))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-0.0420770645, -0.293716431, -6.10351563e-05, 0.989891589, 0.141826257, -3.72342765e-06, -0.141826272, 0.989891589, -1.28638931e-06, 3.50363553e-06, 1.80141069e-06, 1.00000012))
+	CreateMesh("CylinderMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(1, 0.0844645426, 0.420000017))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0, 0, "Medium stone grey", "Part", Vector3.new(0.474830985, 0.200000003, 0.373666197))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(6.67572021e-06, -0.726385117, -3.05175781e-05, 1, -3.3651304e-11, 0, -3.3651304e-11, 0.99999994, 0, 0, 0, 1.00000012))
+	CreateMesh("CylinderMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(1, 0.0844645426, 0.420000017))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0.20000000298023, 0, "Sand red", "Part", Vector3.new(0.474830985, 0.244768858, 0.373666197))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(3.12328339e-05, -0.991594315, -4.57763672e-05, 1, -3.3651304e-11, 0, -3.3651304e-11, 0.99999994, 0, 0, 0, 1.00000012))
+	CreateMesh("CylinderMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(1, 1, 0.5))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0.20000000298023, 0, "Sand red", "Part", Vector3.new(0.474830985, 0.200000003, 0.373666197))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(4.86373901e-05, -1.15346909, -4.57763672e-05, 1, -3.3651304e-11, 0, -3.3651304e-11, 0.99999994, 0, 0, 0, 1.00000012))
+	CreateMesh("CylinderMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(1, 0.591251612, 0.600000024))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0, 0, "Medium stone grey", "Part", Vector3.new(0.474830985, 0.200000003, 0.373666197))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(0.0599017143, -0.513751984, 3.05175781e-05, 0.993276894, -0.115763545, -7.2568655e-06, 0.115763538, 0.993276775, -9.0803951e-08, 7.21868128e-06, -7.49947503e-07, 1.00000012))
+	CreateMesh("CylinderMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(1, 0.0844645426, 0.420000017))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0.40000000596046, 0, "Sand red", "Part", Vector3.new(0.200000003, 0.369837761, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(0.00485682487, -0.00445556641, 1.77791977, -1, 3.3651304e-11, 0, 0, -3.36533412e-06, -1.00000012, -1.18234311e-10, -0.99999994, 3.36510129e-06))
+	CreateMesh("CylinderMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(0.844645202, 1, 0.506787121))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0.20000000298023, 0, "Sand red", "Part", Vector3.new(0.474830985, 0.200000003, 0.373666197))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(5.96046448e-06, 0.975160599, 6.10351563e-05, 1, -3.3651304e-11, 0, -3.3651304e-11, 0.99999994, 0, 0, 0, 1.00000012))
+	CreateMesh("CylinderMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(1, 0.844645441, 0.5))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0, 0, "Medium stone grey", "Part", Vector3.new(0.474830985, 0.200000003, 0.373666197))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(1.69277191e-05, 0.622785568, -1.52587891e-05, 1, -3.3651304e-11, 0, -3.3651304e-11, 0.99999994, 0, 0, 0, 1.00000012))
+	CreateMesh("CylinderMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(1, 0.0844645426, 0.420000017))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0, 0, "Medium stone grey", "Part", Vector3.new(0.474830985, 0.200000003, 0.373666197))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(0.152982712, 0.805297852, -1.52587891e-05, 0.982438743, 0.186584964, -3.13576311e-06, -0.186584994, 0.982438922, -1.14692375e-06, 2.86707655e-06, 1.71200372e-06, 1.00000012))
+	CreateMesh("CylinderMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(1, 0.0844645426, 0.420000017))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0, 0, "Medium stone grey", "Part", Vector3.new(0.474830985, 0.200000003, 0.373666197))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-0.0483036041, 0.333536148, -3.05175781e-05, 0.989669442, -0.143368334, -1.84495002e-06, 0.143368363, 0.989669442, 3.13768396e-06, 1.3760291e-06, -3.36952507e-06, 1.00000012))
+	CreateMesh("CylinderMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(1, 0.0844645426, 0.420000017))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0.20000000298023, 0, "Sand red", "Part", Vector3.new(0.474830985, 0.200000003, 0.373666197))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(4.45842743e-05, 1.00304985, 0, 1, -3.3651304e-11, 0, -3.3651304e-11, 0.99999994, 0, 0, 0, 1.00000012))
+	CreateMesh("CylinderMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(0.899999976, 0.591251791, 0.800000012))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0, 0, "Medium stone grey", "Part", Vector3.new(0.474830985, 0.200000003, 0.373666197))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(0.021265626, -0.165622711, -7.62939453e-05, 0.991885602, -0.127134278, -4.93880361e-06, 0.127134278, 0.991885543, -5.42664202e-06, 5.58933243e-06, 4.75463457e-06, 1.00000012))
+	CreateMesh("CylinderMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(1, 0.0844645426, 0.420000017))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0, 0, "Medium stone grey", "Part", Vector3.new(0.474830985, 0.200000003, 0.373666197))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-9.77516174e-06, 0.0564212799, 0, 1, -3.3651304e-11, 0, -3.3651304e-11, 0.99999994, 0, 0, 0, 1.00000012))
+	CreateMesh("CylinderMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(1, 0.0844645426, 0.420000017))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0, 0, "Light stone grey", "Part", Vector3.new(0.474830985, 1.82664037, 0.373666197))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(0, 0, 0, 1, -3.3651304e-11, 0, -3.3651304e-11, 0.99999994, 0, 0, 0, 1.00000012))
+	CreateMesh("CylinderMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(1, 1, 0.400000006))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0.40000000596046, 0, "Sand red", "Part", Vector3.new(0.200000003, 0.369837761, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(0.00484871864, -0.00439453125, 1.59759712, -1, 3.3651304e-11, 0, 0, -3.36533412e-06, -1.00000012, -1.18234311e-10, -0.99999994, 3.36510129e-06))
+	CreateMesh("CylinderMesh", Part, "", "", Vector3.new(0, 0, 0), Vector3.new(0.844645202, 1, 0.506787121))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0.30000001192093, 0, "Black", "Part", Vector3.new(1.43799496, 0.200000003, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-1.98199654, -0.793210268, 0.0473632813, 9.51308721e-07, 0.99999994, -7.68341124e-09, 1, -9.5102132e-07, 9.97912139e-07, 9.97912139e-07, -7.68341124e-09, -1.00000012))
+	CreateMesh("SpecialMesh", Part, Enum.MeshType.Wedge, "", Vector3.new(0, 0, 0), Vector3.new(1, 0.844645202, 0.624124706))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0.30000001192093, 0, "Black", "Part", Vector3.new(1.43629348, 0.200000003, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-1.98350906, -0.795782328, 0.055557251, 9.51308721e-07, 0.99999994, -7.68341124e-09, -1, 9.5102132e-07, -9.97912139e-07, -9.97912139e-07, 7.68341124e-09, 1.00000012))
+	CreateMesh("SpecialMesh", Part, Enum.MeshType.Wedge, "", Vector3.new(0, 0, 0), Vector3.new(1, 0.844645202, 0.624124706))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0.30000001192093, 0, "Black", "Part", Vector3.new(1.43640804, 0.200000003, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(1.98422813, -0.795779467, 0.0573730469, -9.51308721e-07, -0.99999994, 7.68341124e-09, -1, 9.5102132e-07, -9.97912139e-07, 9.97912139e-07, -7.68341124e-09, -1.00000012))
+	CreateMesh("SpecialMesh", Part, Enum.MeshType.Wedge, "", Vector3.new(0, 0, 0), Vector3.new(1, 0.844645202, 0.515216053))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0.30000001192093, 0, "Black", "Part", Vector3.new(4.1733532, 0.200000003, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-4.75252914, -0.626221895, 0.0575866699, 9.51308721e-07, 0.99999994, -7.68341124e-09, -1, 9.5102132e-07, -9.97912139e-07, -9.97912139e-07, 7.68341124e-09, 1.00000012))
+	CreateMesh("SpecialMesh", Part, Enum.MeshType.Wedge, "", Vector3.new(0, 0, 0), Vector3.new(1, 0.844645202, 0.591251612))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0.30000001192093, 0, "Black", "Part", Vector3.new(4.15603876, 0.200000003, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(4.76140785, -0.626243353, 0.0506286621, -9.51308721e-07, -0.99999994, 7.68341124e-09, -1, 9.5102132e-07, -9.97912139e-07, 9.97912139e-07, -7.68341124e-09, -1.00000012))
+	CreateMesh("SpecialMesh", Part, Enum.MeshType.Wedge, "", Vector3.new(0, 0, 0), Vector3.new(1, 0.844645202, 0.515216053))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0.20000000298023, 0, "Sand red", "Part", Vector3.new(0.302471429, 0.201985165, 0.41171059))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(0.00080871582, -0.217378616, 1.74365616, 5.96698374e-06, 3.33786011e-06, 1.00000012, -1, -1.01196474e-06, 5.96651807e-06, 1.01207843e-06, -0.99999994, 3.33786011e-06))
+	CreateMesh("SpecialMesh", Part, Enum.MeshType.Wedge, "", Vector3.new(0, 0, 0), Vector3.new(1, 1, 1))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0.20000000298023, 0, "Sand red", "Part", Vector3.new(0.302471429, 0.200000003, 0.3272461))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-0.000701904297, -0.233916759, -1.3747673, -5.96698374e-06, -3.33786011e-06, -1.00000012, -1, -1.01196474e-06, 5.96651807e-06, -1.01207843e-06, 0.99999994, -3.33786011e-06))
+	CreateMesh("SpecialMesh", Part, Enum.MeshType.Wedge, "", Vector3.new(0, 0, 0), Vector3.new(1, 0.844645202, 1))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0.30000001192093, 0, "Black", "Part", Vector3.new(4.1733532, 0.200000003, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-4.75333023, -0.622936964, 0.0473632813, 9.51308721e-07, 0.99999994, -7.68341124e-09, 1, -9.5102132e-07, 9.97912139e-07, 9.97912139e-07, -7.68341124e-09, -1.00000012))
+	CreateMesh("SpecialMesh", Part, Enum.MeshType.Wedge, "", Vector3.new(0, 0, 0), Vector3.new(1, 0.844645202, 0.624124706))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0.30000001192093, 0, "Black", "Part", Vector3.new(1.44005954, 0.200000003, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(1.98180389, -0.793211699, 0.0655670166, -9.51308721e-07, -0.99999994, 7.68341124e-09, 1, -9.5102132e-07, 9.97912139e-07, -9.97912139e-07, 7.68341124e-09, 1.00000012))
+	CreateMesh("SpecialMesh", Part, Enum.MeshType.Wedge, "", Vector3.new(0, 0, 0), Vector3.new(1, 0.844645202, 0.515216053))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0.30000001192093, 0, "Black", "Part", Vector3.new(4.15603876, 0.200000003, 0.200000003))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(4.7621212, -0.62295413, 0.0656585693, -9.51308721e-07, -0.99999994, 7.68341124e-09, 1, -9.5102132e-07, 9.97912139e-07, -9.97912139e-07, 7.68341124e-09, 1.00000012))
+	CreateMesh("SpecialMesh", Part, Enum.MeshType.Wedge, "", Vector3.new(0, 0, 0), Vector3.new(1, 0.844645202, 0.515216053))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0.20000000298023, 0, "Sand red", "Part", Vector3.new(0.302471429, 0.200000003, 0.3272461))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(0.000686645508, -0.237636089, -1.37509918, 4.96674329e-06, 3.34251672e-06, 1.00000012, 1.00000012, 1.00999387e-06, -4.96627763e-06, -1.01025125e-06, 0.99999994, -3.34251672e-06))
+	CreateMesh("SpecialMesh", Part, Enum.MeshType.Wedge, "", Vector3.new(0, 0, 0), Vector3.new(1, 0.844645202, 1))
+	Part = CreatePart(m, Enum.Material.SmoothPlastic, 0.20000000298023, 0, "Sand red", "Part", Vector3.new(0.302471429, 0.201985165, 0.41171059))
+	PartWeld = CreateWeld(m, FakeHandle, Part, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-0.000610351563, -0.220431089, 1.74446106, -4.96674329e-06, -3.34251672e-06, -1.00000012, 1.00000012, 1.00999387e-06, -4.96627763e-06, 1.01025125e-06, -0.99999994, 3.34251672e-06))
+	CreateMesh("SpecialMesh", Part, Enum.MeshType.Wedge, "", Vector3.new(0, 0, 0), Vector3.new(1, 1, 1))
+	Hitbox = CreatePart(m, Enum.Material.SmoothPlastic, 0.30000001192093, 1, "Black", "Hitbox", Vector3.new(1.79213226, 5.57876158, 0.224068895))
+	HitboxWeld = CreateWeld(m, FakeHandle, Hitbox, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(0.0062417984, -4.05001831, 0.00436401367, 1, -3.3651304e-11, 0, -3.3651304e-11, 0.99999994, 0, 0, 0, 1.00000012))
+	Pistol = CreatePart(m, Enum.Material.Plastic, 0, 1, "Fossil", "Pistol", Vector3.new(0.200000003, 0.800000012, 0.879999995))
+	PistolWeld = CreateWeld(m, Character["Left Arm"], Pistol, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-0.0399932861, -1.48996353, -0.420043945, 0.999997973, 1.49010475e-07, 1.74156685e-06, 1.56453552e-07, -0.999994993, 1.16231274e-06, 2.14762622e-06, -1.90735182e-06, -1))
+	mosh = CreateMesh("SpecialMesh", Pistol, Enum.MeshType.FileMesh, "http://www.roblox.com/asset/?id=72012879", Vector3.new(0, 0, 0), Vector3.new(2, 2, 2))
+	mosh.TextureId = "rbxassetid://72012859"
+	mosh.VertexColor = Vector3.new(1, 0, 0)
+	Barrel2 = CreatePart(m, Enum.Material.Plastic, 0, 1, "Fossil", "Barrel2", Vector3.new(0.200000003, 0.200000003, 0.200000003))
+	Barrel2Weld = CreateWeld(m, Pistol, Barrel2, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(0, -0.8099944, -0.440002441, 1, -7.4458546e-09, -4.06056472e-07, 7.44555173e-09, 1, -7.45037369e-07, 4.06056472e-07, 7.45037312e-07, 1))
+	Shotgun = CreatePart(m, Enum.Material.Plastic, 0, 1, "Maroon", "Shotgun", Vector3.new(0.250000119, 0.200000003, 0.200000003))
+	ShotgunWeld = CreateWeld(m, Character["Left Arm"], Shotgun, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-1.97496712, -0.190038681, -0.0949249268, 0, -1, 0, 0, 0, -1, 1, 0, 0))
+	CreateMesh("SpecialMesh", Shotgun, Enum.MeshType.FileMesh, "rbxassetid://436156307", Vector3.new(0, 0, 0), Vector3.new(0.100000001, 0.100000001, 0.100000001))
+	Barrel3 = CreatePart(m, Enum.Material.Plastic, 0, 1, "Medium stone grey", "Barrel3", Vector3.new(0.250000119, 0.200000003, 0.200000003))
+	Barrel3Weld = CreateWeld(m, Shotgun, Barrel3, CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1), CFrame.new(-1.33999896, -0.500005722, 0.0199737549, 1, 0, 0, 0, 1, 0, 0, 0, 1))
+	Damagefunc = function(Part, hit, minim, maxim, knockback, Type, Property, Delay, HitSound, HitPitch)
+	
+	if hit.Parent == nil then
+		return 
+	end
+	local h = hit.Parent:FindFirstChild("Humanoid")
+	for _,v in pairs(hit.Parent:children()) do
+		if v:IsA("Humanoid") then
+			h = v
+		end
+	end
+	if h ~= nil and hit.Parent.Name ~= Character.Name and hit.Parent:FindFirstChild("Torso") ~= nil then
+		if hit.Parent:findFirstChild("DebounceHit") ~= nil and hit.Parent.DebounceHit.Value == true then
+			return 
+		end
+		local c = Create("ObjectValue")({Name = "creator", Value = game:service("Players").LocalPlayer, Parent = h})
+		game:GetService("Debris"):AddItem(c, 0.5)
+		if HitSound ~= nil and HitPitch ~= nil then
+			CreateSound(HitSound, hit, 1, HitPitch)
+		end
+		local Damage = math.random(minim, maxim)
+		local blocked = false
+		local block = hit.Parent:findFirstChild("Block")
+		if block ~= nil and block.className == "IntValue" and block.Value > 0 then
+			blocked = true
+			block.Value = block.Value - 1
+			print(block.Value)
+		end
+		if blocked == false then
+			HitHealth = h.Health
+			h.Health = h.Health - Damage
+			if HitHealth ~= h.Health and HitHealth ~= 0 and h.Health <= 0 and h.Parent.Name ~= "Hologram" then
+				print("gained spree")
+				game.Players.LocalPlayer:FindFirstChild("leaderstats").Spree.Value = game.Players.LocalPlayer.leaderstats.Spree.Value + 1
+			end
+			ShowDamage(Part.CFrame * CFrame.new(0, 0, Part.Size.Z / 2).p + Vector3.new(0, 1.5, 0), -Damage, 1.5, Part.BrickColor.Color)
+		else
+			h.Health = h.Health - Damage / 2
+			ShowDamage(Part.CFrame * CFrame.new(0, 0, Part.Size.Z / 2).p + Vector3.new(0, 1.5, 0), -Damage, 1.5, Part.BrickColor.Color)
+		end
+		if Type == "Knockdown" then
+			local hum = hit.Parent.Humanoid
+			hum.PlatformStand = true
+			coroutine.resume(coroutine.create(function(HHumanoid)
+		
+		swait(1)
+		HHumanoid.PlatformStand = false
+	end
+), hum)
+			local angle = hit.Position - (Property.Position + Vector3.new(0, 0, 0)).unit
+			local bodvol = Create("BodyVelocity")({velocity = angle * knockback, P = 5000, maxForce = Vector3.new(8000, 8000, 8000), Parent = hit})
+			local rl = Create("BodyAngularVelocity")({P = 3000, maxTorque = Vector3.new(500000, 500000, 500000) * 50000000000000, angularvelocity = Vector3.new(math.random(-10, 10), math.random(-10, 10), math.random(-10, 10)), Parent = hit})
+			game:GetService("Debris"):AddItem(bodvol, 0.5)
+			game:GetService("Debris"):AddItem(rl, 0.5)
+		else
+			do
+				if Type == "Normal" then
+					local vp = Create("BodyVelocity")({P = 500, maxForce = Vector3.new(math.huge, 0, math.huge), velocity = Property.CFrame.lookVector * knockback + Property.Velocity / 1.05})
+					if knockback > 0 then
+						vp.Parent = hit.Parent.Torso
+					end
+					game:GetService("Debris"):AddItem(vp, 0.5)
+				else
+					do
+						if Type == "Up" then
+							local bodyVelocity = Create("BodyVelocity")({velocity = vt(0, 20, 0), P = 5000, maxForce = Vector3.new(8000, 8000, 8000), Parent = hit})
+							game:GetService("Debris"):AddItem(bodyVelocity, 0.5)
+						else
+							do
+								if Type == "DarkUp" then
+									coroutine.resume(coroutine.create(function()
+		
+		for i = 0, 1, 0.1 do
+			swait()
+			BlockEffect(BrickColor.new("Black"), hit.Parent.Torso.CFrame, 5, 5, 5, 1, 1, 1, 0.08, 1)
+		end
+	end
+))
+									local bodyVelocity = Create("BodyVelocity")({velocity = vt(0, 20, 0), P = 5000, maxForce = Vector3.new(8000, 8000, 8000), Parent = hit})
+									game:GetService("Debris"):AddItem(bodyVelocity, 1)
+								else
+									do
+										if Type == "Snare" then
+											local bp = Create("BodyPosition")({P = 2000, D = 100, maxForce = Vector3.new(math.huge, math.huge, math.huge), position = hit.Parent.Torso.Position, Parent = hit.Parent.Torso})
+											game:GetService("Debris"):AddItem(bp, 1)
+										else
+											do
+												if Type == "Curse" then
+													CreateSound("http://roblox.com/asset/?id=283389706", Torso, 1, 1)
+													for i = 0, 1, 0.025 do
+														swait(30)
+														SphereEffect(BrickColor.new("Bright violet"), hit.Parent.Torso.CFrame, 1, 1, 1, 3, 3, 3, 0.07)
+														hit.Parent.Humanoid:TakeDamage(1)
+													end
+												else
+													do
+														if Type == "Freeze" then
+															local BodPos = Create("BodyPosition")({P = 50000, D = 1000, maxForce = Vector3.new(math.huge, math.huge, math.huge), position = hit.Parent.Torso.Position, Parent = hit.Parent.Torso})
+															local BodGy = Create("BodyGyro")({maxTorque = Vector3.new(400000, 400000, 400000) * math.huge, P = 20000, Parent = hit.Parent.Torso, cframe = hit.Parent.Torso.CFrame})
+															hit.Parent.Torso.Anchored = true
+															coroutine.resume(coroutine.create(function(Part)
+		
+		swait(1.5)
+		Part.Anchored = false
+	end
+), hit.Parent.Torso)
+															game:GetService("Debris"):AddItem(BodPos, 2)
+															game:GetService("Debris"):AddItem(BodGy, 2)
+														end
+														do
+															local debounce = Create("BoolValue")({Name = "DebounceHit", Parent = hit.Parent, Value = true})
+															game:GetService("Debris"):AddItem(debounce, Delay)
+															c = Instance.new("ObjectValue")
+															c.Name = "creator"
+															c.Value = Player
+															c.Parent = h
+															game:GetService("Debris"):AddItem(c, 0.5)
+														end
+													end
+												end
+											end
+										end
+									end
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+end
+
+	ShowDamage = function(Pos, Text, Time, Color)
+	
+	local Rate = 0.033333333333333
+	if not Pos then
+		local Pos = Vector3.new(0, 0, 0)
+	end
+	local Text = Text or ""
+	local Time = Time or 2
+	if not Color then
+		local Color = Color3.new(1, 0, 1)
+	end
+	local EffectPart = CreatePart(workspace, "SmoothPlastic", 0, 1, BrickColor.new(Color), "Effect", vt(0, 0, 0))
+	EffectPart.Anchored = true
+	local BillboardGui = Create("BillboardGui")({Size = UDim2.new(3, 0, 3, 0), Adornee = EffectPart, Parent = EffectPart})
+	local TextLabel = Create("TextLabel")({BackgroundTransparency = 1, Size = UDim2.new(1, 0, 1, 0), Text = Text, TextColor3 = Color, TextScaled = true, Font = Enum.Font.ArialBold, Parent = BillboardGui})
+	game.Debris:AddItem(EffectPart, Time + 0.1)
+	EffectPart.Parent = game:GetService("Workspace")
+	delay(0, function()
+		
+		local Frames = Time / Rate
+		for Frame = 1, Frames do
+			wait(Rate)
+			local Percent = Frame / Frames
+			EffectPart.CFrame = CFrame.new(Pos) + Vector3.new(0, Percent, 0)
+			TextLabel.TextTransparency = Percent
+		end
+		if EffectPart and EffectPart.Parent then
+			EffectPart:Destroy()
+		end
+	end
+)
+end
+
+	MagniDamage = function(Part, magni, mindam, maxdam, knock, Type)
+	
+	for _,c in pairs(workspace:children()) do
+		local hum = c:findFirstChild("Humanoid")
+		if hum ~= nil then
+			local head = c:findFirstChild("Torso")
+			if head ~= nil then
+				local targ = head.Position - Part.Position
+				local mag = targ.magnitude
+				if mag <= magni and c.Name ~= Player.Name then
+					Damagefunc(head, head, mindam, maxdam, knock, Type, RootPart, 0.1, "http://www.roblox.com/asset/?id=231917784", 1)
+				end
+			end
+		end
+	end
+end
+
+	BlockEffect = function(brickcolor, cframe, x1, y1, z1, x3, y3, z3, delay, Type)
+	
+	local prt = CreatePart(workspace, "SmoothPlastic", 0, 0, brickcolor, "Effect", Vector3.new())
+	prt.Anchored = true
+	prt.CFrame = cframe
+	local msh = CreateMesh("BlockMesh", prt, "", "", Vector3.new(0, 0, 0), Vector3.new(x1, y1, z1))
+	game:GetService("Debris"):AddItem(prt, 10)
+	if Type == 1 or Type == nil then
+		table.insert(Effects, {prt, "Block1", delay, x3, y3, z3, msh})
+	else
+		if Type == 2 then
+			table.insert(Effects, {prt, "Block2", delay, x3, y3, z3, msh})
+		end
+	end
+end
+
+	DeathBlockEffect = function(brickcolor, cframe, x1, y1, z1, x3, y3, z3, delay, Type)
+	
+	local prt = CreatePart(workspace, "SmoothPlastic", 0, 0, brickcolor, "Effect", Vector3.new())
+	prt.Anchored = true
+	prt.CFrame = cframe
+	local msh = CreateMesh("BlockMesh", prt, "", "", Vector3.new(0, 0, 0), Vector3.new(x1, y1, z1))
+	game:GetService("Debris"):AddItem(prt, 10)
+	if Type == 1 or Type == nil then
+		table.insert(Effects, {prt, "BlockDeath", delay, x3, y3, z3, msh})
+	else
+		if Type == 2 then
+			table.insert(Effects, {prt, "Block2", delay, x3, y3, z3, msh})
+		end
+	end
+end
+
+	SphereEffect = function(brickcolor, cframe, x1, y1, z1, x3, y3, z3, delay)
+	
+	local prt = CreatePart(workspace, "SmoothPlastic", 0, 0, brickcolor, "Effect", Vector3.new())
+	prt.Anchored = true
+	prt.CFrame = cframe
+	local msh = CreateMesh("SpecialMesh", prt, "Sphere", "", Vector3.new(0, 0, 0), Vector3.new(x1, y1, z1))
+	game:GetService("Debris"):AddItem(prt, 10)
+	table.insert(Effects, {prt, "Cylinder", delay, x3, y3, z3, msh})
+end
+
+	RingEffect = function(brickcolor, cframe, x1, y1, z1, x3, y3, z3, delay)
+	
+	local prt = CreatePart(workspace, "SmoothPlastic", 0, 0, brickcolor, "Effect", Vector3.new(0.5, 0.5, 0.5))
+	prt.Anchored = true
+	prt.CFrame = cframe * CFrame.new(x1, y1, z1)
+	local msh = CreateMesh("SpecialMesh", prt, "FileMesh", "rbxassetid://3270017", Vector3.new(0, 0, 0), Vector3.new(x1, y1, z1))
+	game:GetService("Debris"):AddItem(prt, 10)
+	table.insert(Effects, {prt, "Cylinder", delay, x3, y3, z3, msh})
+end
+
+	CylinderEffect = function(brickcolor, cframe, x1, y1, z1, x3, y3, z3, delay)
+	
+	local prt = CreatePart(workspace, "SmoothPlastic", 0, 0, brickcolor, "Effect", Vector3.new())
+	prt.Anchored = true
+	prt.CFrame = cframe
+	local msh = CreateMesh("CylinderMesh", prt, "", "", Vector3.new(0, 0, 0), Vector3.new(x1, y1, z1))
+	game:GetService("Debris"):AddItem(prt, 10)
+	table.insert(Effects, {prt, "Cylinder", delay, x3, y3, z3, msh})
+end
+
+	WaveEffect = function(brickcolor, cframe, x1, y1, z1, x3, y3, z3, delay)
+	
+	local prt = CreatePart(workspace, "SmoothPlastic", 0, 0, brickcolor, "Effect", Vector3.new())
+	prt.Anchored = true
+	prt.CFrame = cframe
+	local msh = CreateMesh("SpecialMesh", prt, "FileMesh", "rbxassetid://20329976", Vector3.new(0, 0, 0), Vector3.new(x1, y1, z1))
+	game:GetService("Debris"):AddItem(prt, 10)
+	table.insert(Effects, {prt, "Cylinder", delay, x3, y3, z3, msh})
+end
+
+	SpecialEffect = function(brickcolor, cframe, x1, y1, z1, x3, y3, z3, delay)
+	
+	local prt = CreatePart(workspace, "SmoothPlastic", 0, 0, brickcolor, "Effect", Vector3.new())
+	prt.Anchored = true
+	prt.CFrame = cframe
+	local msh = CreateMesh("SpecialMesh", prt, "FileMesh", "rbxassetid://24388358", Vector3.new(0, 0, 0), Vector3.new(x1, y1, z1))
+	game:GetService("Debris"):AddItem(prt, 10)
+	table.insert(Effects, {prt, "Cylinder", delay, x3, y3, z3, msh})
+end
+
+	BreakEffect = function(brickcolor, cframe, x1, y1, z1)
+	
+	local prt = CreatePart(workspace, "SmoothPlastic", 0, 0, brickcolor, "Effect", Vector3.new(0.5, 0.5, 0.5))
+	prt.Anchored = true
+	prt.CFrame = cframe * CFrame.fromEulerAnglesXYZ(math.random(-50, 50), math.random(-50, 50), math.random(-50, 50))
+	local msh = CreateMesh("SpecialMesh", prt, "Sphere", "", Vector3.new(0, 0, 0), Vector3.new(x1, y1, z1))
+	local num = math.random(10, 50) / 1000
+	game:GetService("Debris"):AddItem(prt, 10)
+	table.insert(Effects, {prt, "Shatter", num, prt.CFrame, math.random() - math.random(), 0, math.random(50, 100) / 100})
+end
+
+	local attok = false
+	EquipSword = function()
+	
+	attack = true
+	attok = true
+	for i = 0, 1, 0.1 do
+		swait()
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(10), math.rad(0), math.rad(0)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1, 0.5, -0.5) * angles(math.rad(0), math.rad(130), math.rad(90)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-1, 0.5, -0.5) * angles(math.rad(0), math.rad(-130), math.rad(-90)), 0.3)
+		RH.C0 = clerp(RH.C0, cf(1, -1, 0) * RHCF * angles(math.rad(0), math.rad(20), math.rad(0)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1, 0) * LHCF * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(50), math.rad(0), math.rad(0)), 0.3)
+	end
+	HandleWeld2.Part0 = LeftArm
+	for i = 0, 1, 0.1 do
+		swait()
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(0), math.rad(0), math.rad(-50)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5, 0) * angles(math.rad(-30), math.rad(-90), math.rad(0)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5, 0) * angles(math.rad(-30), math.rad(0), math.rad(20)), 0.3)
+		RH.C0 = clerp(RH.C0, cf(1, -1, 0) * RHCF * angles(math.rad(0), math.rad(20), math.rad(0)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1, 0) * LHCF * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(50), math.rad(0), math.rad(70)), 0.3)
+		FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(-10), math.rad(0), math.rad(0)), 0.3)
+	end
+	HandleWeld.Part0 = RightArm
+	HandleWeld.C1 = CFrame.new(-1.03242755, -0.0340976715, 0.0901641846, -0.00770399813, -0.999959767, 0.0045949989, 0.0019699987, 0.00457994919, 0.999987543, -0.999968469, 0.00771295466, 0.0019346358)
+	HandleWeld2.Part0 = Torso
+	HandleWeld2.C1 = CFrame.new(-0.223129272, 1.38671875, -0.633836746, 0.503682792, -0.863888681, 0, 0.863888681, 0.503682792, 0, 0, 0, 1)
+	for i = 0, 1, 0.1 do
+		swait()
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(0), math.rad(0), math.rad(-50)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5, 0) * angles(math.rad(0), math.rad(0), math.rad(10)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5, 0) * angles(math.rad(0), math.rad(0), math.rad(-20)), 0.3)
+		RH.C0 = clerp(RH.C0, cf(1, -1, 0) * RHCF * angles(math.rad(0), math.rad(20), math.rad(0)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1, 0) * LHCF * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+	end
+	attok = false
+	Sheathed = false
+	attack = false
+end
+
+	EquipGun = function()
+	
+	attack = true
+	for i = 0, 1, 0.1 do
+		swait()
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(0), math.rad(0), math.rad(50)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5, 0) * angles(math.rad(0), math.rad(0), math.rad(10)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5, 0) * angles(math.rad(0), math.rad(0), math.rad(-20)), 0.3)
+		RH.C0 = clerp(RH.C0, cf(1, -1, 0) * RHCF * angles(math.rad(0), math.rad(20), math.rad(0)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1, 0) * LHCF * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(50), math.rad(0), math.rad(0)), 0.3)
+		FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+	end
+	HandleWeld2.Part0 = LeftArm
+	for i = 0, 1, 0.1 do
+		swait()
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(10), math.rad(0), math.rad(50)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5, 0) * angles(math.rad(-30), math.rad(-90), math.rad(0)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5, 0) * angles(math.rad(-30), math.rad(0), math.rad(20)), 0.3)
+		RH.C0 = clerp(RH.C0, cf(1, -1, 0) * RHCF * angles(math.rad(0), math.rad(20), math.rad(0)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1, 0) * LHCF * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, -2) * angles(math.rad(50), math.rad(0), math.rad(0)), 0.3)
+		FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(-10), math.rad(0), math.rad(0)), 0.3)
+	end
+	HandleWeld.Part0 = Torso
+	HandleWeld.C1 = CFrame.new(-0.796961546, 2.48477173, 0.597694397, -0.004668999, -0.999959767, -0.00765799824, -0.999926627, 0.00458291033, 0.0112209953, -0.0111854468, 0.00770982681, -0.999907732)
+	for i = 0, 1, 0.15 do
+		swait()
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(0), math.rad(0), math.rad(-50)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5, -0.5) * angles(math.rad(0), math.rad(130), math.rad(90)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5, -0.5) * angles(math.rad(0), math.rad(-130), math.rad(-90)), 0.3)
+		RH.C0 = clerp(RH.C0, cf(1, -1, 0) * RHCF * angles(math.rad(0), math.rad(20), math.rad(0)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1, 0) * LHCF * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(1, -1, 0) * angles(math.rad(50), math.rad(0), math.rad(0)), 0.3)
+	end
+	HandleWeld2.Part0 = RightArm
+	HandleWeld2.C1 = CFrame.new(-0.960716486, -0.00518226624, 0.000381469727, 0, -0.999993026, 0.00373700005, 0, -0.00373700005, -0.999993026, 1, 0, 0)
+	Sheathed = true
+	attack = false
+end
+
+	attackone = function()
+	
+	attack = true
+	local con = Hitbox.Touched:connect(function(hit)
+		
+		Damagefunc(Hitbox, hit, 10, 16, math.random(1, 5), "Normal", RootPart, 0.2, "rbxassetid://199149221", 0.8)
+	end
+)
+	for i = 0, 1, 0.1 do
+		swait()
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(-80)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(10), math.rad(0), math.rad(80)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5, 0) * angles(math.rad(30), math.rad(0), math.rad(90)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-0.7, 0.5, -0.5) * angles(math.rad(0), math.rad(-150), math.rad(-75)), 0.3)
+		RH.C0 = clerp(RH.C0, cf(1, -1.2, 0) * RHCF * angles(math.rad(0), math.rad(-20), math.rad(0)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1, 0) * LHCF * angles(math.rad(0), math.rad(10), math.rad(0)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(-50), math.rad(0), math.rad(20)), 0.3)
+	end
+	CreateSound("http://www.roblox.com/asset/?id=320557413", RootPart, 1, 0.7)
+	for i = 0, 1, 0.1 do
+		swait()
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(80)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(10), math.rad(0), math.rad(-80)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5, 0) * angles(math.rad(90), math.rad(0), math.rad(-30)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-0.7, 0.5, -0.5) * angles(math.rad(0), math.rad(-150), math.rad(-75)), 0.3)
+		RH.C0 = clerp(RH.C0, cf(1, -1.2, 0) * RHCF * angles(math.rad(0), math.rad(-20), math.rad(0)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1, 0) * LHCF * angles(math.rad(0), math.rad(10), math.rad(0)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(-90), math.rad(0), math.rad(-30)), 0.3)
+	end
+	con:disconnect()
+	attack = false
+end
+
+	local aiming = false
+	aim = function()
+	
+	attack = true
+	aiming = true
+	Humanoid.AutoRotate = false
+	for i = 0, 1, 0.1 do
+		swait()
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0 - 0.1 * math.cos(sine / 4)) * angles(math.rad(0), math.rad(0), math.rad(-90)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(0), math.rad(0), math.rad(90)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5 - 0.1 * math.cos(sine / 7), -0.2) * angles(math.rad(90), math.rad(0), math.rad(-50)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5 - 0.1 * math.cos(sine / 7), -0.2) * angles(math.rad(80), math.rad(0), math.rad(-90)), 0.3)
+		RH.C0 = clerp(RH.C0, cf(1, -1 + 0.1 * math.cos(sine / 4), 0) * RHCF * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1 + 0.1 * math.cos(sine / 4), 0) * LHCF * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(30), math.rad(-50)), 0.3)
+		FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0 - 0.1 * math.cos(sine / 4)) * angles(math.rad(0), math.rad(0), math.rad(-90)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(20), math.rad(0), math.rad(90)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1, 0.5 - 0.1 * math.cos(sine / 7), -1) * angles(math.rad(90), math.rad(0), math.rad(-90)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5 - 0.1 * math.cos(sine / 7), -0.2) * angles(math.rad(80), math.rad(0), math.rad(-70)), 0.3)
+		RH.C0 = clerp(RH.C0, cf(1, -1 + 0.1 * math.cos(sine / 4), 0) * RHCF * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1 + 0.1 * math.cos(sine / 4), 0) * LHCF * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(10), math.rad(-90)), 0.3)
+		FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+	end
+end
+
+	Laser = function(brickcolor, cframe, x1, y1, z1, x3, y3, z3, delay)
+	
+	local prt = CreatePart(workspace, "Neon", 0, 0, brickcolor, "Effect", Vector3.new(0.5, 0.5, 0.5))
+	prt.Anchored = true
+	prt.CFrame = cframe
+	prt.Material = "Neon"
+	local msh = CreateMesh("CylinderMesh", prt, "", "", Vector3.new(0, 0, 0), Vector3.new(x1, y1, z1))
+	game:GetService("Debris"):AddItem(prt, 10)
+	coroutine.resume(coroutine.create(function(Part, Mesh)
+		
+		for i = 0, 1, delay do
+			swait()
+			Part.Transparency = i
+			Mesh.Scale = Mesh.Scale + Vector3.new(x3, y3, z3)
+		end
+		Part.Parent = nil
+	end
+), prt, msh)
+end
+
+	shoottrail = function(mouse, partt, SpreadAmount, multiply)
+	
+	local SpreadVectors = Vector3.new(math.random(-SpreadAmount, SpreadAmount), math.random(-SpreadAmount, SpreadAmount), math.random(-SpreadAmount, SpreadAmount))
+	local MainPos = partt.Position
+	local MainPos2 = mouse.Hit.p + SpreadVectors
+	local MouseLook = CFrame.new((MainPos + MainPos2) / 2, MainPos2)
+	local speed = 1000
+	local num = 20
+	coroutine.resume(coroutine.create(function()
+		
+		repeat
+			swait()
+			local hit, pos = rayCast(MainPos, MouseLook.lookVector, speed, RootPart.Parent)
+			local mag = (MainPos - pos).magnitude
+			Laser(BrickColor.new("Bright yellow"), CFrame.new((MainPos + pos) / 2, pos) * angles(1.57, 0, 0), 1, mag * (speed / (speed / 2)), 1, -0.175, 0, -0.175, 0.15)
+			MainPos = MainPos + MouseLook.lookVector * speed
+			num = num - 1
+			MouseLook = MouseLook * angles(math.rad(-1), 0, 0)
+			if hit ~= nil then
+				num = 0
+				local refpart = CreatePart(workspace, "SmoothPlastic", 0, 1, BrickColor.new("Really black"), "Effect", Vector3.new())
+				refpart.Anchored = true
+				refpart.CFrame = CFrame.new(pos)
+				game:GetService("Debris"):AddItem(refpart, 2)
+			end
+			do
+				if num <= 0 then
+					local refpart = CreatePart(workspace, "SmoothPlastic", 0, 1, BrickColor.new("Really black"), "Effect", Vector3.new())
+					refpart.Anchored = true
+					refpart.CFrame = CFrame.new(pos)
+					if hit ~= nil then
+						if hit.Name == "Head" or hit.Name == "Handle" then
+							MagniDamage(refpart, 5, 18 * multiply, 28 * multiply, 0, "Normal")
+						else
+							MagniDamage(refpart, 5, 9 * multiply, 18 * multiply, 0, "Normal")
+						end
+					end
+					game:GetService("Debris"):AddItem(refpart, 0)
+				end
+			end
+		until num <= 0
+	end
+))
+end
+
+	shoottraildd = function(mouse, partt, SpreadAmount, multiply, Type)
+	
+	local SpreadVectors = Vector3.new(math.random(-SpreadAmount, SpreadAmount), math.random(-SpreadAmount, SpreadAmount), math.random(-SpreadAmount, SpreadAmount))
+	local MainPos = partt.Position
+	local MainPos2 = mouse.Hit.p + SpreadVectors
+	local MouseLook = CFrame.new((MainPos + MainPos2) / 2, MainPos2)
+	local speed = 500
+	local num = 20
+	coroutine.resume(coroutine.create(function()
+		
+		repeat
+			swait()
+			local hit, pos = rayCast(MainPos, MouseLook.lookVector, speed, RootPart.Parent)
+			local mag = (MainPos - pos).magnitude
+			if Type == "Explosive" then
+				Laser(BrickColor.new("Bright red"), CFrame.new((MainPos + pos) / 2, pos) * angles(1.57, 0, 0), 1, mag * (speed / (speed / 2)), 1, -0.175, 0, -0.175, 0.15)
+				BlockEffect(BrickColor.new("Bright red"), CFrame.new((MainPos + pos) / 2, pos), 1, 1, 1, 10, 10, 10, 0.07)
+			else
+				if Type == "Poison" then
+					Laser(BrickColor.new("Bright violet"), CFrame.new((MainPos + pos) / 2, pos) * angles(1.57, 0, 0), 1, mag * (speed / (speed / 2)), 1, -0.175, 0, -0.175, 0.15)
+					SphereEffect(BrickColor.new("Bright violet"), CFrame.new((MainPos + pos) / 2, pos), 1, 1, 1, 2, 2, 2, 0.07)
+				else
+					if Type == "Stun" then
+						Laser(BrickColor.new("White"), CFrame.new((MainPos + pos) / 2, pos) * angles(1.57, 0, 0), 1, mag * (speed / (speed / 2)), 1, -0.175, 0, -0.175, 0.15)
+					end
+				end
+			end
+			MainPos = MainPos + MouseLook.lookVector * speed
+			num = num - 1
+			MouseLook = MouseLook * angles(math.rad(-1), 0, 0)
+			if hit ~= nil then
+				num = 0
+				local refpart = CreatePart(workspace, "SmoothPlastic", 0, 1, BrickColor.new("Really black"), "Effect", Vector3.new())
+				refpart.Anchored = true
+				refpart.CFrame = CFrame.new(pos)
+				game:GetService("Debris"):AddItem(refpart, 2)
+			end
+			do
+				if num <= 0 then
+					local refpart = CreatePart(workspace, "SmoothPlastic", 0, 1, BrickColor.new("Really black"), "Effect", Vector3.new())
+					refpart.Anchored = true
+					refpart.CFrame = CFrame.new(pos)
+					if hit ~= nil then
+						if Type == "Explosive" then
+							BlockEffect(BrickColor.new("Bright red"), refpart.CFrame, 1, 1, 1, 10, 10, 10, 0.07)
+							MagniDamage(refpart, 15, 10 * multiply, 10 * multiply, 0, "Normal")
+						else
+							if Type == "Poison" then
+								if hit.Name == "Head" then
+									SphereEffect(BrickColor.new("Bright violet"), refpart.CFrame, 1, 1, 1, 1, 1, 1, 0.07)
+									MagniDamage(refpart, 5, 18 * multiply, 20 * multiply, 0, "Curse")
+								else
+									SphereEffect(BrickColor.new("Bright violet"), refpart.CFrame, 1, 1, 1, 1, 1, 1, 0.07)
+									MagniDamage(refpart, 5, 3 * multiply, 3 * multiply, 0, "Curse")
+								end
+							else
+								if Type == "Stun" then
+									BlockEffect(BrickColor.new("White"), refpart.CFrame, 1, 1, 1, 1, 1, 1, 0.07)
+									MagniDamage(refpart, 5, 10 * multiply, 10 * multiply, 0, "Freeze")
+								end
+							end
+						end
+					end
+					game:GetService("Debris"):AddItem(refpart, 0)
+				end
+			end
+		until num <= 0
+	end
+))
+end
+
+	Fire = function()
+	
+	if attok == true then
+		return 
+	end
+	attack = true
+	aiming = false
+	attok = true
+	BlockEffect(BrickColor.new("Bright yellow"), Barrel.CFrame, 1, 1, 1, 1, 1, 1, 0.07)
+	shoottrail(mouse, Barrel, 0, 2)
+	CreateSound("http://www.roblox.com/asset/?id=288233304", Barrel, 1, 1.2)
+	for i = 0, 1, 0.05 do
+		swait()
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0 - 0.1 * math.cos(sine / 4)) * angles(math.rad(0), math.rad(0), math.rad(-90)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(0), math.rad(0), math.rad(90)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1, 0.5 - 0.1 * math.cos(sine / 7), -1) * angles(math.rad(90), math.rad(-20), math.rad(-90)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5 - 0.1 * math.cos(sine / 7), -0.2) * angles(math.rad(80), math.rad(-20), math.rad(-70)), 0.3)
+		RH.C0 = clerp(RH.C0, cf(1, -1 + 0.1 * math.cos(sine / 4), 0) * RHCF * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1 + 0.1 * math.cos(sine / 4), 0) * LHCF * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(10), math.rad(-90)), 0.3)
+		FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+	end
+	for i = 0, 1, 0.025 do
+		swait()
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0 - 0.1 * math.cos(sine / 4)) * angles(math.rad(0), math.rad(0), math.rad(-90)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(20), math.rad(0), math.rad(90)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1, 0.5 - 0.1 * math.cos(sine / 7), -1) * angles(math.rad(90), math.rad(0), math.rad(-90)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5 - 0.1 * math.cos(sine / 7), -0.2) * angles(math.rad(80), math.rad(0), math.rad(-70)), 0.3)
+		RH.C0 = clerp(RH.C0, cf(1, -1 + 0.1 * math.cos(sine / 4), 0) * RHCF * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1 + 0.1 * math.cos(sine / 4), 0) * LHCF * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(10), math.rad(-90)), 0.3)
+		FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+	end
+	attok = false
+	aiming = true
+end
+
+	Explode = function()
+	
+	attack = true
+	attok = true
+	aiming = false
+	CreateSound("http://www.roblox.com/asset/?id=240799211", Barrel, 1, 1.5)
+	BlockEffect(BrickColor.new("Bright red"), Barrel.CFrame, 1, 1, 1, 1, 1, 1, 0.07)
+	shoottraildd(mouse, Barrel, 0, 2, "Explosive")
+	for i = 0, 1, 0.05 do
+		swait()
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0 - 0.1 * math.cos(sine / 4)) * angles(math.rad(0), math.rad(0), math.rad(-90)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(0), math.rad(0), math.rad(90)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1, 0.5 - 0.1 * math.cos(sine / 7), -1) * angles(math.rad(90), math.rad(-20), math.rad(-90)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5 - 0.1 * math.cos(sine / 7), -0.2) * angles(math.rad(80), math.rad(-20), math.rad(-70)), 0.3)
+		RH.C0 = clerp(RH.C0, cf(1, -1 + 0.1 * math.cos(sine / 4), 0) * RHCF * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1 + 0.1 * math.cos(sine / 4), 0) * LHCF * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(10), math.rad(-90)), 0.3)
+		FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0 - 0.1 * math.cos(sine / 4)) * angles(math.rad(0), math.rad(0), math.rad(-90)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(20), math.rad(0), math.rad(90)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1, 0.5 - 0.1 * math.cos(sine / 7), -1) * angles(math.rad(90), math.rad(0), math.rad(-90)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5 - 0.1 * math.cos(sine / 7), -0.2) * angles(math.rad(80), math.rad(0), math.rad(-70)), 0.3)
+		RH.C0 = clerp(RH.C0, cf(1, -1 + 0.1 * math.cos(sine / 4), 0) * RHCF * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1 + 0.1 * math.cos(sine / 4), 0) * LHCF * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(10), math.rad(-90)), 0.3)
+		FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+	end
+	attok = false
+	aiming = true
+end
+
+	Stun = function()
+	
+	CreateSound("http://www.roblox.com/asset/?id=279675650", Barrel, 1, 1.5)
+	attack = true
+	attok = true
+	aiming = false
+	BlockEffect(BrickColor.new("White"), Barrel.CFrame, 1, 1, 1, 1, 1, 1, 0.07)
+	shoottraildd(mouse, Barrel, 0, 2, "Stun")
+	for i = 0, 1, 0.05 do
+		swait()
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0 - 0.1 * math.cos(sine / 4)) * angles(math.rad(0), math.rad(0), math.rad(-90)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(0), math.rad(0), math.rad(90)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1, 0.5 - 0.1 * math.cos(sine / 7), -1) * angles(math.rad(90), math.rad(-20), math.rad(-90)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5 - 0.1 * math.cos(sine / 7), -0.2) * angles(math.rad(80), math.rad(-20), math.rad(-70)), 0.3)
+		RH.C0 = clerp(RH.C0, cf(1, -1 + 0.1 * math.cos(sine / 4), 0) * RHCF * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1 + 0.1 * math.cos(sine / 4), 0) * LHCF * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(10), math.rad(-90)), 0.3)
+		FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0 - 0.1 * math.cos(sine / 4)) * angles(math.rad(0), math.rad(0), math.rad(-90)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(20), math.rad(0), math.rad(90)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1, 0.5 - 0.1 * math.cos(sine / 7), -1) * angles(math.rad(90), math.rad(0), math.rad(-90)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5 - 0.1 * math.cos(sine / 7), -0.2) * angles(math.rad(80), math.rad(0), math.rad(-70)), 0.3)
+		RH.C0 = clerp(RH.C0, cf(1, -1 + 0.1 * math.cos(sine / 4), 0) * RHCF * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1 + 0.1 * math.cos(sine / 4), 0) * LHCF * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(10), math.rad(-90)), 0.3)
+		FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+	end
+	attok = false
+	aiming = true
+end
+
+	Poison = function()
+	
+	CreateSound("http://www.roblox.com/asset/?id=201243255", Barrel, 1, 1.5)
+	attack = true
+	attok = true
+	aiming = false
+	BlockEffect(BrickColor.new("Bright violet"), Barrel.CFrame, 1, 1, 1, 1, 1, 1, 0.07)
+	shoottraildd(mouse, Barrel, 0, 2, "Poison")
+	for i = 0, 1, 0.05 do
+		swait()
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0 - 0.1 * math.cos(sine / 4)) * angles(math.rad(0), math.rad(0), math.rad(-90)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(0), math.rad(0), math.rad(90)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1, 0.5 - 0.1 * math.cos(sine / 7), -1) * angles(math.rad(90), math.rad(-20), math.rad(-90)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5 - 0.1 * math.cos(sine / 7), -0.2) * angles(math.rad(80), math.rad(-20), math.rad(-70)), 0.3)
+		RH.C0 = clerp(RH.C0, cf(1, -1 + 0.1 * math.cos(sine / 4), 0) * RHCF * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1 + 0.1 * math.cos(sine / 4), 0) * LHCF * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(10), math.rad(-90)), 0.3)
+		FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0 - 0.1 * math.cos(sine / 4)) * angles(math.rad(0), math.rad(0), math.rad(-90)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(20), math.rad(0), math.rad(90)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1, 0.5 - 0.1 * math.cos(sine / 7), -1) * angles(math.rad(90), math.rad(0), math.rad(-90)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5 - 0.1 * math.cos(sine / 7), -0.2) * angles(math.rad(80), math.rad(0), math.rad(-70)), 0.3)
+		RH.C0 = clerp(RH.C0, cf(1, -1 + 0.1 * math.cos(sine / 4), 0) * RHCF * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1 + 0.1 * math.cos(sine / 4), 0) * LHCF * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(10), math.rad(-90)), 0.3)
+		FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+	end
+	attok = false
+	aiming = true
+end
+
+	attacktwo = function()
+	
+	attack = true
+	local con = Hitbox.Touched:connect(function(hit)
+		
+		Damagefunc(Hitbox, hit, 10, 17, math.random(1, 5), "Normal", RootPart, 0.2, "rbxassetid://199149221", 0.8)
+	end
+)
+	for i = 0, 1, 0.1 do
+		swait()
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0) * angles(math.rad(20), math.rad(0), math.rad(-90)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(0), math.rad(-20), math.rad(90)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5, 0) * angles(math.rad(0), math.rad(0), math.rad(90)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-0.5, 0.5, -0.5) * angles(math.rad(0), math.rad(-150), math.rad(-75)), 0.3)
+		RH.C0 = clerp(RH.C0, cf(1, -1.2, 0) * RHCF * angles(math.rad(0), math.rad(-20), math.rad(-60)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1, 0) * LHCF * angles(math.rad(0), math.rad(10), math.rad(-20)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(-50), math.rad(0), math.rad(20)), 0.3)
+	end
+	CreateSound("http://www.roblox.com/asset/?id=320557413", RootPart, 1, 0.9)
+	for i = 0, 1, 0.5 do
+		swait()
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(10)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(0), math.rad(0), math.rad(10)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-0.5, 0.5, -0.5) * angles(math.rad(0), math.rad(-150), math.rad(-45)), 0.3)
+		RH.C0 = clerp(RH.C0, cf(1, -1.2, 0) * RHCF * angles(math.rad(0), math.rad(-20), math.rad(0)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1, 0) * LHCF * angles(math.rad(0), math.rad(10), math.rad(0)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(60), math.rad(0), math.rad(20)), 0.3)
+	end
+	for i = 0, 1, 0.1 do
+		swait()
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(90)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(0), math.rad(-10), math.rad(-90)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5, 0) * angles(math.rad(180), math.rad(0), math.rad(0)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-0.7, 0.5, -0.5) * angles(math.rad(0), math.rad(-150), math.rad(-100)), 0.3)
+		RH.C0 = clerp(RH.C0, cf(1, -1.2, 0) * RHCF * angles(math.rad(0), math.rad(-20), math.rad(0)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1, 0) * LHCF * angles(math.rad(0), math.rad(10), math.rad(0)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(-90), math.rad(0), math.rad(-40)), 0.3)
+	end
+	con:disconnect()
+	attack = false
+end
+
+	attackthree = function()
+	
+	attack = true
+	local con = Hitbox.Touched:connect(function(hit)
+		
+		Damagefunc(Hitbox, hit, 10, 17, math.random(1, 5), "Normal", RootPart, 0.2, "rbxassetid://199149221", 0.8)
+	end
+)
+	for i = 0, 1, 0.1 do
+		swait()
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(90)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(10), math.rad(0), math.rad(-90)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5, 0) * angles(math.rad(90), math.rad(0), math.rad(0)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-0.7, 0.5, -0.5) * angles(math.rad(0), math.rad(-150), math.rad(-75)), 0.3)
+		RH.C0 = clerp(RH.C0, cf(1, -1.2, 0) * RHCF * angles(math.rad(0), math.rad(-20), math.rad(0)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1, 0) * LHCF * angles(math.rad(0), math.rad(10), math.rad(0)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(-90), math.rad(0), math.rad(-180)), 0.3)
+	end
+	CreateSound("http://www.roblox.com/asset/?id=320557413", RootPart, 1, 0.6)
+	for i = 0, 1, 0.1 do
+		swait()
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(-80)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(10), math.rad(0), math.rad(80)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5, 0) * angles(math.rad(90), math.rad(0), math.rad(-30)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-0.7, 0.5, -0.5) * angles(math.rad(0), math.rad(-150), math.rad(-75)), 0.3)
+		RH.C0 = clerp(RH.C0, cf(1, -1.2, 0) * RHCF * angles(math.rad(0), math.rad(-20), math.rad(0)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1, 0) * LHCF * angles(math.rad(0), math.rad(10), math.rad(0)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(-90), math.rad(0), math.rad(-30)), 0.3)
+	end
+	con:disconnect()
+	attack = false
+end
+
+	boolet = function()
+	
+	attack = true
+	aiming = true
+	Humanoid.AutoRotate = false
+	Pistol.Transparency = 0
+	BlockEffect(BrickColor.new("Really red"), Pistol.CFrame, 5, 5, 5, 1, 1, 1, 0.07)
+	for i = 0, 1, 0.1 do
+		swait()
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0 - 0.1 * math.cos(sine / 4)) * angles(math.rad(0), math.rad(0), math.rad(-90)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(0), math.rad(0), math.rad(90)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5 + 0.1 * math.cos(sine / 5), 0) * angles(math.rad(30), math.rad(0), math.rad(-30)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5 + 0.1 * math.cos(sine / 5), 0) * angles(math.rad(180), math.rad(0), math.rad(0)), 0.3)
+		RH.C0 = clerp(RH.C0, cf(1, -1.2 + 0.1 * math.cos(sine / 4), 0) * RHCF * angles(math.rad(0), math.rad(-20), math.rad(0)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1 + 0.1 * math.cos(sine / 4), 0) * LHCF * angles(math.rad(0), math.rad(10), math.rad(0)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(-50), math.rad(0), math.rad(20 + 3 * math.cos(sine / 5))), 0.3)
+	end
+	for i = 1, 3 do
+		for i = 0, 1, 0.2 do
+			swait()
+			RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0 - 0.1 * math.cos(sine / 4)) * angles(math.rad(0), math.rad(0), math.rad(-90)), 0.3)
+			Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(0), math.rad(0), math.rad(90)), 0.3)
+			RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5 + 0.1 * math.cos(sine / 5), 0) * angles(math.rad(30), math.rad(0), math.rad(-30)), 0.3)
+			LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5 + 0.1 * math.cos(sine / 5), 0) * angles(math.rad(90), math.rad(0), math.rad(-90)), 0.3)
+			RH.C0 = clerp(RH.C0, cf(1, -1.2 + 0.1 * math.cos(sine / 4), 0) * RHCF * angles(math.rad(0), math.rad(-20), math.rad(0)), 0.3)
+			LH.C0 = clerp(LH.C0, cf(-1, -1 + 0.1 * math.cos(sine / 4), 0) * LHCF * angles(math.rad(0), math.rad(10), math.rad(0)), 0.3)
+			FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+			FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(-50), math.rad(0), math.rad(20 + 3 * math.cos(sine / 5))), 0.3)
+		end
+		BlockEffect(BrickColor.new("Bright yellow"), Barrel2.CFrame, 1, 1, 1, 1, 1, 1, 0.09)
+		CreateSound("http://www.roblox.com/asset/?id=131205975", Barrel2, 1, 1)
+		shoottrail(mouse, Barrel2, 0.3, 0.5)
+		for i = 0, 1, 0.2 do
+			swait()
+			RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0 - 0.1 * math.cos(sine / 4)) * angles(math.rad(0), math.rad(0), math.rad(-90)), 0.3)
+			Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(0), math.rad(0), math.rad(90)), 0.3)
+			RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5 + 0.1 * math.cos(sine / 5), 0) * angles(math.rad(30), math.rad(0), math.rad(-30)), 0.3)
+			LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5 + 0.1 * math.cos(sine / 5), 0) * angles(math.rad(90), math.rad(-30), math.rad(-90)), 0.3)
+			RH.C0 = clerp(RH.C0, cf(1, -1.2 + 0.1 * math.cos(sine / 4), 0) * RHCF * angles(math.rad(0), math.rad(-20), math.rad(0)), 0.3)
+			LH.C0 = clerp(LH.C0, cf(-1, -1 + 0.1 * math.cos(sine / 4), 0) * LHCF * angles(math.rad(0), math.rad(10), math.rad(0)), 0.3)
+			FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+			FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(-50), math.rad(0), math.rad(20 + 3 * math.cos(sine / 5))), 0.3)
+		end
+	end
+	aiming = false
+	BlockEffect(BrickColor.new("Really red"), Pistol.CFrame, 5, 5, 5, 1, 1, 1, 0.07)
+	Pistol.Transparency = 1
+	attack = false
+end
+
+	DoT = function()
+	
+	attack = true
+	for i = 0, 1, 0.1 do
+		swait()
+		BlockEffect(BrickColor.new("Bright violet"), Pistol.CFrame, 5, 5, 5, 1, 1, 1, 0.07)
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0 - 0.1 * math.cos(sine / 4)) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(10), math.rad(0), math.rad(0)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5 + 0.1 * math.cos(sine / 5), 0) * angles(math.rad(30), math.rad(0), math.rad(-30)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5 + 0.1 * math.cos(sine / 5), 0) * angles(math.rad(180), math.rad(0), math.rad(0)), 0.1)
+		RH.C0 = clerp(RH.C0, cf(1, -1.2 + 0.1 * math.cos(sine / 4), 0) * RHCF * angles(math.rad(0), math.rad(-20), math.rad(0)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1 + 0.1 * math.cos(sine / 4), 0) * LHCF * angles(math.rad(0), math.rad(10), math.rad(0)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(-50), math.rad(0), math.rad(20 + 3 * math.cos(sine / 5))), 0.3)
+	end
+	for i = 0, 1, 0.2 do
+		swait()
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0 - 0.1 * math.cos(sine / 4)) * angles(math.rad(0), math.rad(0), math.rad(-90)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(0), math.rad(10), math.rad(90)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5 + 0.1 * math.cos(sine / 5), 0) * angles(math.rad(30), math.rad(0), math.rad(-30)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5 + 0.1 * math.cos(sine / 5), 0) * angles(math.rad(0), math.rad(0), math.rad(-60)), 0.3)
+		RH.C0 = clerp(RH.C0, cf(1, -1.2 + 0.1 * math.cos(sine / 4), 0) * RHCF * angles(math.rad(0), math.rad(-20), math.rad(0)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1 + 0.1 * math.cos(sine / 4), 0) * LHCF * angles(math.rad(0), math.rad(10), math.rad(0)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(-50), math.rad(0), math.rad(20 + 3 * math.cos(sine / 5))), 0.3)
+	end
+	for i = 0, 1, 0.2 do
+		swait()
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0 - 0.1 * math.cos(sine / 4)) * angles(math.rad(0), math.rad(0), math.rad(-90)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(0), math.rad(0), math.rad(90)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5 + 0.1 * math.cos(sine / 5), 0) * angles(math.rad(30), math.rad(0), math.rad(-30)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5 + 0.1 * math.cos(sine / 5), 0) * angles(math.rad(90), math.rad(0), math.rad(-40)), 0.3)
+		RH.C0 = clerp(RH.C0, cf(1, -1.2 + 0.1 * math.cos(sine / 4), 0) * RHCF * angles(math.rad(0), math.rad(-20), math.rad(0)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1 + 0.1 * math.cos(sine / 4), 0) * LHCF * angles(math.rad(0), math.rad(10), math.rad(0)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(-50), math.rad(0), math.rad(20 + 3 * math.cos(sine / 5))), 0.3)
+	end
+	DeathBlockEffect(BrickColor.new("Bright violet"), Pistol.CFrame * cf(0, 2, 0), 5, 5, 5, 1, 1, 1, 0.005)
+	Shotgun.Transparency = 1
+	attack = false
+end
+
+	shutgan = function()
+	
+	attack = true
+	aiming = true
+	Humanoid.AutoRotate = false
+	Shotgun.Transparency = 0
+	BlockEffect(BrickColor.new("Bright red"), Pistol.CFrame, 5, 5, 5, 1, 1, 1, 0.07)
+	for i = 0, 1, 0.1 do
+		swait()
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0 - 0.1 * math.cos(sine / 4)) * angles(math.rad(0), math.rad(0), math.rad(-90)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(0), math.rad(0), math.rad(90)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5 + 0.1 * math.cos(sine / 5), 0) * angles(math.rad(30), math.rad(0), math.rad(-30)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5 + 0.1 * math.cos(sine / 5), 0) * angles(math.rad(90), math.rad(0), math.rad(0)), 0.1)
+		RH.C0 = clerp(RH.C0, cf(1, -1.2 + 0.1 * math.cos(sine / 4), 0) * RHCF * angles(math.rad(0), math.rad(-20), math.rad(0)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1 + 0.1 * math.cos(sine / 4), 0) * LHCF * angles(math.rad(0), math.rad(10), math.rad(0)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(-50), math.rad(0), math.rad(20 + 3 * math.cos(sine / 5))), 0.3)
+	end
+	for i = 0, 1, 0.2 do
+		swait()
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0 - 0.1 * math.cos(sine / 4)) * angles(math.rad(0), math.rad(0), math.rad(-90)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(0), math.rad(0), math.rad(90)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5 + 0.1 * math.cos(sine / 5), 0) * angles(math.rad(30), math.rad(0), math.rad(-30)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5 + 0.1 * math.cos(sine / 5), 0) * angles(math.rad(90), math.rad(0), math.rad(-90)), 0.3)
+		RH.C0 = clerp(RH.C0, cf(1, -1.2 + 0.1 * math.cos(sine / 4), 0) * RHCF * angles(math.rad(0), math.rad(-20), math.rad(0)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1 + 0.1 * math.cos(sine / 4), 0) * LHCF * angles(math.rad(0), math.rad(10), math.rad(0)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(-50), math.rad(0), math.rad(20 + 3 * math.cos(sine / 5))), 0.3)
+	end
+	BlockEffect(BrickColor.new("Bright yellow"), Barrel2.CFrame, 1, 1, 1, 1, 1, 1, 0.09)
+	for i = 1, 3 do
+		CreateSound("http://www.roblox.com/asset/?id=131073013", Barrel2, 1, 1)
+		shoottrail(mouse, Barrel3, 2, 1)
+	end
+	for i = 0, 1, 0.2 do
+		swait()
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0 - 0.1 * math.cos(sine / 4)) * angles(math.rad(0), math.rad(0), math.rad(-90)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(0), math.rad(0), math.rad(90)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5 + 0.1 * math.cos(sine / 5), 0) * angles(math.rad(30), math.rad(0), math.rad(-30)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5 + 0.1 * math.cos(sine / 5), 0) * angles(math.rad(90), math.rad(-30), math.rad(-90)), 0.3)
+		RH.C0 = clerp(RH.C0, cf(1, -1.2 + 0.1 * math.cos(sine / 4), 0) * RHCF * angles(math.rad(0), math.rad(-20), math.rad(0)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1 + 0.1 * math.cos(sine / 4), 0) * LHCF * angles(math.rad(0), math.rad(10), math.rad(0)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(-50), math.rad(0), math.rad(20 + 3 * math.cos(sine / 5))), 0.3)
+	end
+	aiming = false
+	BlockEffect(BrickColor.new("Really red"), Pistol.CFrame, 5, 5, 5, 1, 1, 1, 0.07)
+	Shotgun.Transparency = 1
+	attack = false
+end
+
+	Kaigattack = function()
+	
+	attack = true
+	local con = Hitbox.Touched:connect(function(hit)
+		
+		Damagefunc(Hitbox, hit, 10, 17, math.random(1, 5), "Normal", RootPart, 0.2, "rbxassetid://199149221", 0.8)
+	end
+)
+	for i = 0, 1, 0.1 do
+		swait()
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(-90)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(0), math.rad(0), math.rad(90)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5, 0) * angles(math.rad(90), math.rad(0), math.rad(0)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-0.5, 0.5, -0.5) * angles(math.rad(0), math.rad(-150), math.rad(-90)), 0.3)
+		RH.C0 = clerp(RH.C0, cf(1, -1.2, 0) * RHCF * angles(math.rad(0), math.rad(-20), math.rad(0)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1, 0) * LHCF * angles(math.rad(0), math.rad(10), math.rad(0)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(-50), math.rad(0), math.rad(20)), 0.3)
+	end
+	for i = 0, 1, 0.5 do
+		swait()
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(10)), 0.3)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(0), math.rad(0), math.rad(10)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-0.5, 0.5, -0.5) * angles(math.rad(0), math.rad(-150), math.rad(-45)), 0.3)
+		RH.C0 = clerp(RH.C0, cf(1, -1.2, 0) * RHCF * angles(math.rad(0), math.rad(-20), math.rad(0)), 0.3)
+		LH.C0 = clerp(LH.C0, cf(-1, -1, 0) * LHCF * angles(math.rad(0), math.rad(10), math.rad(0)), 0.3)
+		FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+		FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(60), math.rad(0), math.rad(20)), 0.3)
+	end
+	Torso.Velocity = RootPart.CFrame.lookVector * 75
+	for i = 1, 5 do
+		CreateSound("http://www.roblox.com/asset/?id=320557413", RootPart, 1, 0.7)
+		for i = 0, 1, 0.2 do
+			swait()
+			RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(70)), 0.3)
+			Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(10), math.rad(0), math.rad(-70)), 0.3)
+			RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5, 0) * angles(math.rad(0), math.rad(30), math.rad(90)), 0.3)
+			LW.C0 = clerp(LW.C0, CFrame.new(-0.7, 0.5, -0.5) * angles(math.rad(0), math.rad(-150), math.rad(-100)), 0.3)
+			RH.C0 = clerp(RH.C0, cf(1, -1.2, 0) * RHCF * angles(math.rad(0), math.rad(-20), math.rad(0)), 0.3)
+			LH.C0 = clerp(LH.C0, cf(-1, -1, 0) * LHCF * angles(math.rad(0), math.rad(10), math.rad(0)), 0.3)
+			FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+			FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(-90), math.rad(0), math.rad(0 - 360 * i)), 0.4)
+		end
+	end
+	con:disconnect()
+	attack = false
+end
+
+	R0LL = function()
+	
+	attack = true
+	local AntiJump = Humanoid.Changed:connect(function()
+		
+		Humanoid.Jump = false
+	end
+)
+	for i = 0, 1, 0.1 do
+		swait()
+		RootPart.Velocity = RootPart.CFrame.lookVector * 50
+		RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, -1.3) * angles(6 * i, math.rad(0), math.rad(0)), 0.6)
+		Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(20), math.rad(0), math.rad(0)), 0.3)
+		RW.C0 = clerp(RW.C0, CFrame.new(1.3, 0.5, -0.5) * angles(math.rad(20), math.rad(50), math.rad(-2)), 0.3)
+		LW.C0 = clerp(LW.C0, CFrame.new(-1.1, 0.5, -0.5) * angles(math.rad(0), math.rad(-140), math.rad(-50)), 0.3)
+		RH.C0 = clerp(RH.C0, cf(1, 0, -1) * RHCF * angles(math.rad(-2), math.rad(0), math.rad(-20)), 0.2)
+		LH.C0 = clerp(LH.C0, cf(-1, 0, -1) * LHCF * angles(math.rad(-2), math.rad(0), math.rad(20)), 0.2)
+	end
+	AntiJump:disconnect()
+	attack = false
+end
+
+	mouse.Button1Down:connect(function()
+	
+	if Sheathed == false then
+		if attack == false and attacktype == 1 then
+			attacktype = 2
+			attackone()
+		else
+			if attack == false and attacktype == 2 then
+				attacktype = 3
+				attacktwo()
+			else
+				if attack == false and attacktype == 3 then
+					attacktype = 1
+					attackthree()
+				end
+			end
+		end
+	else
+		if Sheathed == true and aiming == true then
+			Fire()
+		end
+	end
+end
+)
+	mouse.KeyDown:connect(function(k)
+	
+	k = k:lower()
+	if attack == false and k == "f" and Sheathed == true then
+		EquipSword()
+	else
+		if attack == false and Sheathed == false and k == "f" then
+			EquipGun()
+		else
+			if attack == false and k == "z" and Sheathed == true and co1 <= cooldown1 then
+				cooldown1 = 0
+				R0LL()
+			else
+				if attack == true and k == "x" and Sheathed == true and attok == false and co2 <= cooldown2 then
+					cooldown2 = 0
+					Explode()
+				else
+					if attack == true and Sheathed == true and k == "c" and attok == false and co3 <= cooldown3 then
+						Poison()
+						cooldown3 = 0
+					else
+						if attack == true and Sheathed == true and k == "v" and attok == false and co4 <= cooldown4 then
+							Stun()
+							cooldown4 = 0
+						else
+							if attack == false and k == "z" and Sheathed == false and co5 <= cooldown5 then
+								boolet()
+								cooldown5 = 0
+							else
+								if attack == false and k == "x" and Sheathed == false and co6 <= cooldown6 then
+									attack = false
+									Kaigattack()
+									cooldown6 = 0
+								else
+									if attack == false and Sheathed == false and k == "c" and co7 <= cooldown7 then
+										shutgan()
+										cooldown7 = 0
+									else
+										if attack == false and Sheathed == false and k == "v" and co8 <= cooldown8 then
+											DoT()
+											cooldown8 = 0
+										end
+									end
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+end
+)
+	updateskills = function()
+	
+	if Sheathed == false then
+		text1.Text = "[Z]\n Kaiga\'s Bullet"
+		text2.Text = "[X]\n Bleeding Python"
+		text3.Text = "[C]\n Kaiga\'s Goodbye"
+		text4.Text = "[V]\n GH FF2 Neurotoxin Gas Bomb"
+	else
+		text1.Text = "[Z]\n Dodge"
+		text2.Text = "[X]\n Explosive GGJ9 \n 10.6\21583mm Round"
+		text3.Text = "[C]\n Toxic GGJ3 \n 7.62\21539mm Round"
+		text4.Text = "[V]\n Electric GGJ2 \n 9.3\21564mm Round"
+	end
+	if cooldown1 <= co1 then
+		cooldown1 = cooldown1 + 0.033333333333333
+	end
+	if cooldown2 <= co2 then
+		cooldown2 = cooldown2 + 0.033333333333333
+	end
+	if cooldown3 <= co3 then
+		cooldown3 = cooldown3 + 0.033333333333333
+	end
+	if cooldown4 <= co4 then
+		cooldown4 = cooldown4 + 0.033333333333333
+	end
+	if cooldown5 <= co5 then
+		cooldown5 = cooldown5 + 0.033333333333333
+	end
+	if cooldown6 <= co6 then
+		cooldown6 = cooldown6 + 0.033333333333333
+	end
+	if cooldown7 <= co7 then
+		cooldown7 = cooldown7 + 0.033333333333333
+	end
+	if cooldown8 <= co8 then
+		cooldown8 = cooldown8 + 0.033333333333333
+	end
+end
+
+	scope = Player.PlayerGui.ScopeGui
+	local Scoped = false
+	while true do
+		swait()
+		if Humanoid.Health ~= 0 then
+			if Character == nil then
+				break
+			end
+			Humanoid.PlatformStand = false
+			Humanoid.Sit = false
+			for i,v in pairs(Torso:GetChildren()) do
+				if v:IsA("BodyGyro") then
+					v:remove()
+				else
+					if v:IsA("BodyPosition") then
+						v:remove()
+					else
+						if v:IsA("BodyForce") then
+							v:remove()
+						else
+							if v:IsA("BodyVelocity") then
+								v:remove()
+							else
+								if v:IsA("BodyThrust") then
+									v:remove()
+								else
+									if v:IsA("BodyAngularVelocity") then
+										v:remove()
+									end
+								end
+							end
+						end
+					end
+				end
+			end
+			if Humanoid.Health <= 0 then
+				workspace.CurrentCamera.FieldOfView = 90
+			end
+			if Character == nil then
+				workspace.CurrentCamera.FieldOfView = 90
+			end
+			for _,v in pairs(scope:children()) do
+				v.Visible = Scoped
+			end
+			if aiming == true then
+				local aim = CFrame.new(RootPart.Position, mouse.Hit.p)
+				local direction = aim.lookVector
+				local headingA = math.atan2(direction.x, direction.z)
+				headingA = math.deg(headingA)
+				Humanoid.AutoRotate = false
+				RootPart.CFrame = CFrame.new(RootPart.Position) * angles(math.rad(0), math.rad(headingA - 180), math.rad(0))
+			else
+					Humanoid.AutoRotate = true
+					end
+					local dist = (Player.Character.Head.Position - workspace.CurrentCamera.CoordinateFrame.p).magnitude
+					if dist < 2 and aiming == true and Sheathed == true then
+						Scoped = true
+						if Sheathed == true then
+							workspace.CurrentCamera.FieldOfView = 6
+						end
+						game:GetService("UserInputService").MouseIconEnabled = false
+					end
+					if 2 < dist and aiming == true then
+						Scoped = false
+						if Sheathed == true then
+							workspace.CurrentCamera.FieldOfView = 60
+						end
+						game:GetService("UserInputService").MouseIconEnabled = true
+					end
+					if dist <= 9.5 and Sheathed == true and aiming == false and attack == false then
+						aim()
+						Humanoid.WalkSpeed = 5
+					elseif 9.5 < dist and Sheathed == true and attok == false then
+						Humanoid.WalkSpeed = 14
+						Scoped = false
+						attack = false
+						workspace.CurrentCamera.FieldOfView = 90
+						aiming = false
+					elseif 9.5 < dist and Sheathed == false and attack == false and aiming == false then
+						Humanoid.WalkSpeed = 16
+						Humanoid.AutoRotate = true
+						workspace.CurrentCamera.FieldOfView = 90
+					end
+					updateskills()
+					if Sheathed == true then
+						bar4:TweenSize(UDim2.new(1 * (cooldown4 / co4), 0, 1, 0), "Out", "Quad", 0.5)
+						bar3:TweenSize(UDim2.new(1 * (cooldown3 / co3), 0, 1, 0), "Out", "Quad", 0.5)
+						bar1:TweenSize(UDim2.new(1 * (cooldown1 / co1), 0, 1, 0), "Out", "Quad", 0.5)
+						bar2:TweenSize(UDim2.new(1 * (cooldown2 / co2), 0, 1, 0), "Out", "Quad", 0.5)
+					else
+						bar4:TweenSize(UDim2.new(1 * (cooldown8 / co8), 0, 1, 0), "Out", "Quad", 0.5)
+						bar3:TweenSize(UDim2.new(1 * (cooldown7 / co7), 0, 1, 0), "Out", "Quad", 0.5)
+						bar1:TweenSize(UDim2.new(1 * (cooldown5 / co5), 0, 1, 0), "Out", "Quad", 0.5)
+						bar2:TweenSize(UDim2.new(1 * (cooldown6 / co6), 0, 1, 0), "Out", "Quad", 0.5)
+					end
+					Torsovelocity = (RootPart.Velocity * Vector3.new(1, 0, 1)).magnitude
+					velocity = RootPart.Velocity.y
+					sine = sine + change
+					local hit, pos = rayCast(RootPart.Position, CFrame.new(RootPart.Position, RootPart.Position - Vector3.new(0, 1, 0)).lookVector, 4, Character)
+					if equipped == true or equipped == false then
+						if 1 < RootPart.Velocity.y and hit == nil then
+							Anim = "Jump"
+							if attack == false then
+								if Sheathed == true then
+									RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0 - 0.1 * math.cos((sine) / 4)) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+									Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(-10), math.rad(0), math.rad(0)), 0.3)
+									RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.6 - 0.1 * math.cos((sine) / 7), -0.2) * angles(math.rad(50), math.rad(0), math.rad(-30)), 0.3)
+									LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.6 - 0.1 * math.cos((sine) / 7), -0.2) * angles(math.rad(40), math.rad(0), math.rad(0)), 0.3)
+									RH.C0 = clerp(RH.C0, cf(1, -1 + 0.1 * math.cos((sine) / 4), 0) * RHCF * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+									LH.C0 = clerp(LH.C0, cf(-1, -1 + 0.1 * math.cos((sine) / 4), 0) * LHCF * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+									FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(-80), math.rad(0), math.rad(-30)), 0.3)
+									FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+								else
+									RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0 - 0.1 * math.cos((sine) / 4)) * angles(math.rad(10), math.rad(-10), math.rad(-70)), 0.3)
+									Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(0), math.rad(0), math.rad(70)), 0.3)
+									RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5 + 0.1 * math.cos((sine) / 5), 0) * angles(math.rad(30), math.rad(0), math.rad(-30)), 0.3)
+									LW.C0 = clerp(LW.C0, CFrame.new(-0.7, 0.5 + 0.1 * math.cos((sine) / 5), -0.5) * angles(math.rad(0), math.rad(-150), math.rad(-45)), 0.3)
+									RH.C0 = clerp(RH.C0, cf(1, -1.2 + 0.1 * math.cos((sine) / 4), 0) * RHCF * angles(math.rad(0), math.rad(-20), math.rad(0)), 0.3)
+									LH.C0 = clerp(LH.C0, cf(-1, -1 + 0.1 * math.cos((sine) / 4), 0) * LHCF * angles(math.rad(0), math.rad(10), math.rad(-20)), 0.3)
+									FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+									FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(-50), math.rad(0), math.rad(50)), 0.3)
+								end
+							end
+						else
+							if RootPart.Velocity.y < -1 and hit == nil then
+								Anim = "Fall"
+								if attack == false then
+									if Sheathed == true then
+										RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0 - 0.1 * math.cos((sine) / 4)) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+										Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(20), math.rad(0), math.rad(0)), 0.3)
+										RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.6 - 0.1 * math.cos((sine) / 7), -0.2) * angles(math.rad(70), math.rad(0), math.rad(-30)), 0.3)
+										LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.6 - 0.1 * math.cos((sine) / 7), -0.2) * angles(math.rad(60), math.rad(0), math.rad(0)), 0.3)
+										RH.C0 = clerp(RH.C0, cf(1, -1 + 0.1 * math.cos((sine) / 4), 0) * RHCF * angles(math.rad(0), math.rad(0), math.rad(20)), 0.3)
+										LH.C0 = clerp(LH.C0, cf(-1, -1 + 0.1 * math.cos((sine) / 4), 0) * LHCF * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+										FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(-80), math.rad(0), math.rad(-30)), 0.3)
+										FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+									else
+										RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0 - 0.1 * math.cos((sine) / 4)) * angles(math.rad(10), math.rad(-10), math.rad(-70)), 0.3)
+										Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(0), math.rad(0), math.rad(70)), 0.3)
+										RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5 + 0.1 * math.cos((sine) / 5), 0) * angles(math.rad(30), math.rad(0), math.rad(-30)), 0.3)
+										LW.C0 = clerp(LW.C0, CFrame.new(-0.7, 0.5 + 0.1 * math.cos((sine) / 5), -0.5) * angles(math.rad(0), math.rad(-150), math.rad(-45)), 0.3)
+										RH.C0 = clerp(RH.C0, cf(1, -1.2 + 0.1 * math.cos((sine) / 4), 0) * RHCF * angles(math.rad(0), math.rad(-20), math.rad(0)), 0.3)
+										LH.C0 = clerp(LH.C0, cf(-1, -1 + 0.1 * math.cos((sine) / 4), 0) * LHCF * angles(math.rad(0), math.rad(10), math.rad(-20)), 0.3)
+										FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+										FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(-50), math.rad(0), math.rad(50)), 0.3)
+									end
+								end
+							else
+								if Torsovelocity < 1 and hit ~= nil then
+									Anim = "Idle"
+									if attack == false then
+										change = 1
+										if Sheathed == true then
+											RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0 - 0.1 * math.cos((sine) / 4)) * angles(math.rad(0), math.rad(0), math.rad(-30)), 0.3)
+											Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(0), math.rad(0), math.rad(30)), 0.3)
+											RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5 - 0.1 * math.cos((sine) / 7), -0.2) * angles(math.rad(60), math.rad(0), math.rad(-30)), 0.3)
+											LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5 - 0.1 * math.cos((sine) / 7), -0.2) * angles(math.rad(50), math.rad(0), math.rad(0)), 0.3)
+											RH.C0 = clerp(RH.C0, cf(1, -1 + 0.1 * math.cos((sine) / 4), 0) * RHCF * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+											LH.C0 = clerp(LH.C0, cf(-1, -1 + 0.1 * math.cos((sine) / 4), 0) * LHCF * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+											FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(-70), math.rad(30), math.rad(-50)), 0.3)
+											FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+										else
+											RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0 - 0.1 * math.cos((sine) / 4)) * angles(math.rad(10), math.rad(-10), math.rad(-70)), 0.3)
+											Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(-10), math.rad(0), math.rad(70)), 0.3)
+											RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5 + 0.1 * math.cos((sine) / 5), 0) * angles(math.rad(30), math.rad(0), math.rad(-30)), 0.3)
+											LW.C0 = clerp(LW.C0, CFrame.new(-0.7, 0.5 + 0.1 * math.cos((sine) / 5), -0.5) * angles(math.rad(0), math.rad(-150), math.rad(-45)), 0.3)
+											RH.C0 = clerp(RH.C0, cf(1, -1.2 + 0.1 * math.cos((sine) / 4), 0) * RHCF * angles(math.rad(0), math.rad(-20), math.rad(10)), 0.3)
+											LH.C0 = clerp(LH.C0, cf(-1, -1 + 0.1 * math.cos((sine) / 4), 0) * LHCF * angles(math.rad(0), math.rad(10), math.rad(-10)), 0.3)
+											FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+											FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(-50), math.rad(0), math.rad(20 + 3 * math.cos((sine) / 5))), 0.3)
+										end
+									end
+								else
+									if 2 < Torsovelocity and hit ~= nil then
+										Anim = "Walk"
+										if attack == false then
+											if Sheathed == true then
+												RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0 - 0.1 * math.cos((sine) / 4)) * angles(math.rad(20), math.rad(0), math.rad(0 - 10 * math.cos((sine) / 6))), 0.3)
+												Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(-20), math.rad(0), math.rad(0 + 10 * math.cos((sine) / 6))), 0.3)
+												RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.5 - 0.1 * math.cos((sine) / 7), -0.2) * angles(math.rad(60), math.rad(0), math.rad(-30)), 0.3)
+												LW.C0 = clerp(LW.C0, CFrame.new(-1.5, 0.5 - 0.1 * math.cos((sine) / 7), -0.2) * angles(math.rad(50), math.rad(0), math.rad(0)), 0.3)
+												RH.C0 = clerp(RH.C0, cf(1, -1 + 0.1 * math.cos((sine) / 4), 0) * RHCF * angles(math.rad(0), math.rad(0), math.rad(0 + 50 * math.cos((sine) / 3))), 0.3)
+												LH.C0 = clerp(LH.C0, cf(-1, -1 + 0.1 * math.cos((sine) / 4), 0) * LHCF * angles(math.rad(0), math.rad(0), math.rad(0 + 50 * math.cos((sine) / 3))), 0.3)
+												FakeHandle2Weld.C0 = clerp(FakeHandle2Weld.C0, CFrame.new(0, 0, 0) * angles(math.rad(-70), math.rad(30), math.rad(-50)), 0.3)
+												FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(0), math.rad(0), math.rad(0)), 0.3)
+											else
+												RootJoint.C0 = clerp(RootJoint.C0, RootCF * cf(0, 0, 0 - 0.1 * math.cos((sine) / 5)) * angles(math.rad(10), math.rad(-10), math.rad(-70)), 0.3)
+												Torso.Neck.C0 = clerp(Torso.Neck.C0, NeckCF * angles(math.rad(0), math.rad(10), math.rad(70)), 0.3)
+												RW.C0 = clerp(RW.C0, CFrame.new(1.5, 0.6 + 0.1 * math.cos((sine) / 6), 0) * angles(math.rad(30), math.rad(0), math.rad(-30)), 0.3)
+												LW.C0 = clerp(LW.C0, CFrame.new(-0.5, 0.5 + 0.1 * math.cos((sine) / 6), -0.5) * angles(math.rad(0), math.rad(-160), math.rad(-50)), 0.3)
+												RH.C0 = clerp(RH.C0, cf(1, -1.2 + 0.1 * math.cos((sine) / 5), 0) * RHCF * angles(math.rad(0 - 20 * math.cos((sine) / 3)), math.rad(-20), math.rad(0 - 50 * math.cos((sine) / 3))), 0.3)
+												LH.C0 = clerp(LH.C0, cf(-1, -1 + 0.1 * math.cos((sine) / 5), 0) * LHCF * angles(math.rad(0 - 20 * math.cos((sine) / 3)), math.rad(10), math.rad(0 - 50 * math.cos((sine) / 3))), 0.3)
+												FakeHandleWeld.C0 = clerp(FakeHandleWeld.C0, CFrame.new(0, 0, 0) * angles(math.rad(-50), math.rad(0), math.rad(20 + 2 * math.cos((sine) / 6))), 0.3)
+											end
+										end
+									end
+								end
+							end
+						end
+					end
+					if 0 < #Effects then
+						for e = 1, #Effects do
+							if Effects[e] ~= nil then
+								local Thing = Effects[e]
+								if Thing ~= nil then
+									local Part = Thing[1]
+									local Mode = Thing[2]
+									local Delay = Thing[3]
+									local IncX = Thing[4]
+									local IncY = Thing[5]
+									local IncZ = Thing[6]
+									if Thing[1].Transparency <= 1 then
+										if Thing[2] == "Block1" then
+											Thing[1].CFrame = Thing[1].CFrame * CFrame.fromEulerAnglesXYZ(math.random(-50, 50), math.random(-50, 50), math.random(-50, 50))
+											Mesh = Thing[1].Mesh
+											Mesh.Scale = Mesh.Scale + Vector3.new(Thing[4], Thing[5], Thing[6])
+											Thing[1].Transparency = Thing[1].Transparency + Thing[3]
+										else
+											if Thing[2] == "BlockDeath" then
+												Thing[1].CFrame = Thing[1].CFrame * CFrame.fromEulerAnglesXYZ(math.random(-50, 50), math.random(-50, 50), math.random(-50, 50))
+												Mesh = Thing[1].Mesh
+												Mesh.Scale = Mesh.Scale + Vector3.new(Thing[4], Thing[5], Thing[6])
+												MagniDamage(Thing[1], Mesh.Scale.X / 5, 1, 3, 0, "Normal")
+												Thing[1].Transparency = Thing[1].Transparency + Thing[3]
+											else
+												if Thing[2] == "Block2" then
+													Thing[1].CFrame = Thing[1].CFrame
+													Mesh = Thing[7]
+													Mesh.Scale = Mesh.Scale + Vector3.new(Thing[4], Thing[5], Thing[6])
+													Thing[1].Transparency = Thing[1].Transparency + Thing[3]
+												else
+													if Thing[2] == "Cylinder" then
+														Mesh = Thing[1].Mesh
+														Mesh.Scale = Mesh.Scale + Vector3.new(Thing[4], Thing[5], Thing[6])
+														Thing[1].Transparency = Thing[1].Transparency + Thing[3]
+													else
+														if Thing[2] == "Blood" then
+															Mesh = Thing[7]
+															Thing[1].CFrame = Thing[1].CFrame * Vector3.new(0, 0.5, 0)
+															Mesh.Scale = Mesh.Scale + Vector3.new(Thing[4], Thing[5], Thing[6])
+															Thing[1].Transparency = Thing[1].Transparency + Thing[3]
+														else
+															if Thing[2] == "Elec" then
+																Mesh = Thing[1].Mesh
+																Mesh.Scale = Mesh.Scale + Vector3.new(Thing[7], Thing[8], Thing[9])
+																Thing[1].Transparency = Thing[1].Transparency + Thing[3]
+															else
+																if Thing[2] == "Disappear" then
+																	Thing[1].Transparency = Thing[1].Transparency + Thing[3]
+																else
+																	if Thing[2] == "Shatter" then
+																		Thing[1].Transparency = Thing[1].Transparency + Thing[3]
+																		Thing[4] = Thing[4] * CFrame.new(0, Thing[7], 0)
+																		Thing[1].CFrame = Thing[4] * CFrame.fromEulerAnglesXYZ(Thing[6], 0, 0)
+																		Thing[6] = Thing[6] + Thing[5]
+																	end
+																end
+															end
+														end
+													end
+												end
+											end
+										end
+									else
+										Part.Parent = nil
+										table.remove(Effects, e)
+									end
+								end
+							end
+						end
+					end
+				end
+			end
