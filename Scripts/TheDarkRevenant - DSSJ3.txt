@@ -1,4 +1,3 @@
-
 --[[
 User: TheDarkRevenant
 Script: DSSJ3
@@ -161,9 +160,9 @@ newWeld(root, torso, 0, -1, 0)
 torso.Weld.C1 = CFrame.new(0, -1, 0)
 ----------------------------------------------------
 z = Instance.new("Sound", char)
-z.SoundId = "rbxassetid://407426418"--303570180
+z.SoundId = "rbxassetid://282572614"--303570180
 z.Looped = true
-z.Pitch = 0.43
+z.Pitch = 1
 z.Volume = 1
 wait(.1)
 z:Play()
@@ -180,7 +179,7 @@ fx.Material = "SmoothPlastic"
 fx.Size = Vector3.new(1,1,1)
 fx.TopSurface = "SmoothNoOutlines"
 fx.BottomSurface = "SmoothNoOutlines"
-fx.BrickColor = BrickColor.new("Really black")
+fx.BrickColor = BrickColor.new("Lime green")
 fxm = Instance.new("SpecialMesh",fx)
 fxm.MeshType = "Sphere"
 fxm.Scale = Vector3.new(1,1,1)
@@ -194,7 +193,7 @@ end
 local m = Instance.new("Model")
 m.Name = "Hair"
 p1 = Instance.new("Part", m)
-p1.BrickColor = BrickColor.new("Really black")
+p1.BrickColor = BrickColor.new("Lime green")
 p1.FormFactor = Enum.FormFactor.Symmetric
 p1.Size = Vector3.new(1, 1, 1)
 p1.CFrame = CFrame.new(-2.49043155, 8.24595642, -3.40113306, -5.48362732e-006, -0.978699088, 0.205299795, 3.27825546e-007, -0.205299854, -0.978699148, 1, -5.28991222e-006, 1.48639083e-006)
@@ -224,7 +223,7 @@ b2.MeshType = Enum.MeshType.Head
 b2.Name = "Mesh"
 b2.Scale = Vector3.new(1.25, 1.25, 1.25)
 p3 = Instance.new("Part", m)
-p3.BrickColor = BrickColor.new("Really black")
+p3.BrickColor = BrickColor.new("Lime green")
 p3.FormFactor = Enum.FormFactor.Symmetric
 p3.Size = Vector3.new(2, 2, 2)
 p3.CFrame = CFrame.new(-1.70003617, 8.71796131, -3.4000442, 2.57710985e-006, 6.95607483e-008, -1.00000012, -1.20466638e-007, 1, 9.95640903e-009, 1.00000024, 3.81086345e-008, 2.56423846e-006)
@@ -240,7 +239,7 @@ b3.Name = "Mesh"
 b3.VertexColor = Vector3.new(0, 0, 0)
 b3.Scale = Vector3.new(1.04999995, 1.04999995, 1.04999995)
 p4 = Instance.new("Part", m)
-p4.BrickColor = BrickColor.new("Really black")
+p4.BrickColor = BrickColor.new("Lime green")
 p4.FormFactor = Enum.FormFactor.Symmetric
 p4.Size = Vector3.new(1, 1, 1)
 p4.CFrame = CFrame.new(-1.77981007, 8.84795475, -3.40016508, 5.79576135e-006, 7.9450956e-008, -1.00000012, -1.80071311e-007, 1, 1.98458743e-008, 1.00000024, 9.77132402e-008, 5.78289018e-006)
@@ -255,7 +254,7 @@ b4.MeshType = Enum.MeshType.FileMesh
 b4.Name = "Mesh"
 b4.VertexColor = Vector3.new(0, 0, 0)
 p5 = Instance.new("Part", m)
-p5.BrickColor = BrickColor.new("Really black")
+p5.BrickColor = BrickColor.new("Lime green")
 p5.FormFactor = Enum.FormFactor.Symmetric
 p5.Size = Vector3.new(1, 1, 1)
 p5.CFrame = CFrame.new(-1.70003772, 8.46796131, -3.40004301, -3.43517968e-007, 2.98088111e-007, -1, -1.00421907e-007, 1, 2.38484063e-007, 1.00000012, 1.80640072e-008, -3.56389592e-007)
@@ -271,7 +270,7 @@ b5.Name = "Mesh"
 b5.VertexColor = Vector3.new(0, 0, 0)
 b5.Scale = Vector3.new(1, 0.899999976, 1)
 p6 = Instance.new("Part", m)
-p6.BrickColor = BrickColor.new("Really black")
+p6.BrickColor = BrickColor.new("Lime green")
 p6.FormFactor = Enum.FormFactor.Symmetric
 p6.Size = Vector3.new(1, 1, 1)
 p6.CFrame = CFrame.new(-1.89967656, 8.58795834, -3.44990659, -5.81936433e-007, 5.36502284e-007, -0.99999994, -1.3998249e-007, 1, 4.76898265e-007, 1, 5.76247672e-008, -5.94808171e-007)
@@ -286,7 +285,7 @@ b6.MeshType = Enum.MeshType.FileMesh
 b6.Name = "Mesh"
 b6.VertexColor = Vector3.new(0, 0, 0)
 p7 = Instance.new("Part", m)
-p7.BrickColor = BrickColor.new("Really black")
+p7.BrickColor = BrickColor.new("Lime green")
 p7.FormFactor = Enum.FormFactor.Symmetric
 p7.Size = Vector3.new(1, 1, 1)
 p7.CFrame = CFrame.new(-1.89918542, 8.31796837, -3.50097537, -4.62727087e-007, 5.36502228e-007, -0.999999881, -1.39982518e-007, 1, 4.76898208e-007, 0.99999994, 5.76247459e-008, -4.75598938e-007)
@@ -301,7 +300,7 @@ b7.MeshType = Enum.MeshType.FileMesh
 b7.Name = "Mesh"
 b7.VertexColor = Vector3.new(0, 0, 0)
 p8 = Instance.new("Part", m)
-p8.BrickColor = BrickColor.new("Really black")
+p8.BrickColor = BrickColor.new("Lime green")
 p8.FormFactor = Enum.FormFactor.Symmetric
 p8.Size = Vector3.new(1, 1, 1)
 p8.CFrame = CFrame.new(-2.62433338, 7.66397905, -3.4010179, -1.17798254e-006, -0.805111349, 0.593123376, -2.5008859e-007, -0.593123615, -0.805111527, 0.999999881, -9.58229293e-007, 4.4941558e-007)
@@ -317,7 +316,7 @@ b8.Name = "Mesh"
 b8.VertexColor = Vector3.new(0, 0, 0)
 b8.Scale = Vector3.new(1, 1.60000002, 1.29999995)
 p9 = Instance.new("Part", m)
-p9.BrickColor = BrickColor.new("Really black")
+p9.BrickColor = BrickColor.new("Lime green")
 p9.FormFactor = Enum.FormFactor.Symmetric
 p9.Size = Vector3.new(2, 1, 2)
 p9.CFrame = CFrame.new(-1.76505995, 8.56096649, -3.40065479, -9.73168881e-007, -0.0995008349, -0.995037436, -1.70322267e-007, 0.995037675, -0.0995009243, 1, 1.13823972e-007, -6.80968242e-007)
@@ -333,7 +332,7 @@ b9.Name = "Mesh"
 b9.VertexColor = Vector3.new(0, 0, 0)
 b9.Scale = Vector3.new(1.01999998, 1.04999995, 1.04999995)
 p10 = Instance.new("Part", m)
-p10.BrickColor = BrickColor.new("Really black")
+p10.BrickColor = BrickColor.new("Lime green")
 p10.FormFactor = Enum.FormFactor.Symmetric
 p10.Size = Vector3.new(1, 1, 1)
 p10.CFrame = CFrame.new(-2.0207715, 9.06097031, -3.39961624, -1.10652763e-006, -0.683569431, -0.729885519, -2.85231891e-007, 0.729885638, -0.68356967, 1.00000012, -3.22293062e-007, -8.40051371e-007)
@@ -349,7 +348,7 @@ b10.Name = "Mesh"
 b10.VertexColor = Vector3.new(0, 0, 0)
 b10.Scale = Vector3.new(1, 1.60000002, 1.29999995)
 p11 = Instance.new("Part", m)
-p11.BrickColor = BrickColor.new("Really black")
+p11.BrickColor = BrickColor.new("Lime green")
 p11.FormFactor = Enum.FormFactor.Symmetric
 p11.Size = Vector3.new(1, 1, 1)
 p11.CFrame = CFrame.new(-2.16468835, 8.78595829, -3.40089417, -1.41617738e-006, -0.989475727, -0.144699216, -4.36450762e-007, 0.144699067, -0.989476085, 1.00000024, -9.47996682e-007, -7.38401468e-007)
@@ -365,7 +364,7 @@ b11.Name = "Mesh"
 b11.VertexColor = Vector3.new(0, 0, 0)
 b11.Scale = Vector3.new(1, 1.60000002, 1.29999995)
 p12 = Instance.new("Part", m)
-p12.BrickColor = BrickColor.new("Really black")
+p12.BrickColor = BrickColor.new("Lime green")
 p12.FormFactor = Enum.FormFactor.Custom
 p12.Size = Vector3.new(1, 3.5, 1)
 p12.CFrame = CFrame.new(-3.74216318, 6.74288082, -3.40101933, -1.20476273e-006, -0.553697288, 0.832718134, -3.31002866e-007, -0.832718611, -0.553697169, 1.00000036, -8.7345768e-007, 3.69213154e-007)
@@ -381,7 +380,7 @@ b12.Name = "Mesh"
 b12.VertexColor = Vector3.new(0, 0, 0)
 b12.Scale = Vector3.new(1, 3, 1.29999995)
 p13 = Instance.new("Part", m)
-p13.BrickColor = BrickColor.new("Really black")
+p13.BrickColor = BrickColor.new("Lime green")
 p13.FormFactor = Enum.FormFactor.Custom
 p13.Size = Vector3.new(1, 2, 1)
 p13.CFrame = CFrame.new(-3.32689047, 6.86741829, -3.40101862, -9.81709945e-007, -0.319307148, 0.947651446, -5.6545997e-007, -0.947651923, -0.31930691, 1.00000048, -8.39551717e-007, 1.79318391e-007)
@@ -397,7 +396,7 @@ b13.Name = "Mesh"
 b13.VertexColor = Vector3.new(0, 0, 0)
 b13.Scale = Vector3.new(1, 3, 1.29999995)
 p14 = Instance.new("Part", m)
-p14.BrickColor = BrickColor.new("Really black")
+p14.BrickColor = BrickColor.new("Lime green")
 p14.FormFactor = Enum.FormFactor.Custom
 p14.Size = Vector3.new(1, 2, 1)
 p14.CFrame = CFrame.new(-3.02689028, 7.96740961, -3.40101862, -1.33478545e-006, -0.750354111, 0.661036491, -5.20037702e-008, -0.661037207, -0.750354171, 1.0000006, -6.31296757e-007, 2.01137496e-007)
@@ -413,7 +412,7 @@ b14.Name = "Mesh"
 b14.VertexColor = Vector3.new(0, 0, 0)
 b14.Scale = Vector3.new(1, 3, 1.29999995)
 p15 = Instance.new("Part", m)
-p15.BrickColor = BrickColor.new("Really black")
+p15.BrickColor = BrickColor.new("Lime green")
 p15.FormFactor = Enum.FormFactor.Custom
 p15.Size = Vector3.new(1, 2.5, 1)
 p15.CFrame = CFrame.new(-2.96531463, 7.75924349, -2.90101862, 0.342019022, -0.520305753, 0.782499552, -1.1920929e-007, -0.832718909, -0.553697407, 0.939693451, 0.189374983, -0.284806281)
@@ -429,7 +428,7 @@ b15.Name = "Mesh"
 b15.VertexColor = Vector3.new(0, 0, 0)
 b15.Scale = Vector3.new(1, 3, 1.29999995)
 p16 = Instance.new("Part", m)
-p16.BrickColor = BrickColor.new("Really black")
+p16.BrickColor = BrickColor.new("Lime green")
 p16.FormFactor = Enum.FormFactor.Custom
 p16.Size = Vector3.new(1, 2.5, 1)
 p16.CFrame = CFrame.new(-2.96531439, 7.75924349, -3.80101967, -0.258820295, -0.534830391, 0.804343879, -1.78813934e-007, -0.832718968, -0.553697228, 0.96592629, -0.143308073, 0.215523779)
@@ -445,7 +444,7 @@ b16.Name = "Mesh"
 b16.VertexColor = Vector3.new(0, 0, 0)
 b16.Scale = Vector3.new(1, 3, 1.29999995)
 p17 = Instance.new("Part", m)
-p17.BrickColor = BrickColor.new("Really black")
+p17.BrickColor = BrickColor.new("Lime green")
 p17.FormFactor = Enum.FormFactor.Custom
 p17.Size = Vector3.new(1, 2.4000001, 1)
 p17.CFrame = CFrame.new(-2.69075108, 7.07788849, -3.40101933, -1.13248825e-006, -0.319307148, 0.947651625, -1.1920929e-006, -0.947652161, -0.319306791, 1.0000006, -1.54972076e-006, 1.04308128e-007)
@@ -461,7 +460,7 @@ b17.Name = "Mesh"
 b17.VertexColor = Vector3.new(0, 0, 0)
 b17.Scale = Vector3.new(1, 3, 1.29999995)
 p18 = Instance.new("Part", m)
-p18.BrickColor = BrickColor.new("Really black")
+p18.BrickColor = BrickColor.new("Lime green")
 p18.FormFactor = Enum.FormFactor.Custom
 p18.Size = Vector3.new(2, 2, 2)
 p18.CFrame = CFrame.new(-1.70003319, 8.71796608, -3.40004444, -2.37434961e-006, 1.78813934e-007, 1.00000036, -2.35242567e-007, 1.00000072, 3.27825546e-007, -1.0000006, 7.95440158e-009, -2.91315405e-006)
@@ -601,7 +600,7 @@ weld1.C0 = CFrame.new(0, 0, 0) * CFrame.Angles(math.rad(0), math.rad(0), math.ra
 ----------------------------------------------------
 GroundWave1 = function()
 	local HandCF = CFrame.new(root.Position - Vector3.new(0,3,0)) * CFrame.Angles(math.rad(90), math.rad(0), math.rad(0))
-	local Colors = {"Royal purple", "Really black"}
+	local Colors = {"Lime green", "Lime green"}
 		local wave = Instance.new("Part", torso)
 		wave.BrickColor = BrickColor.new(Colors[math.random(1,#Colors)])
 		wave.Anchored = true
@@ -630,7 +629,7 @@ end
 GroundWave = function()
         if Transforming == true then
                 local wave = Instance.new("Part", torso)
-                wave.BrickColor = BrickColor.new("Really black")
+                wave.BrickColor = BrickColor.new("Lime green")
                 wave.Anchored = true
                 wave.CanCollide = false
                 wave.Locked = true
@@ -681,7 +680,7 @@ end
 
 local HandCF = CFrame.new(root.Position - Vector3.new(0,3,0)) * CFrame.Angles(math.rad(90), math.rad(0), math.rad(0))
         local wave = Instance.new("Part", torso)
-        wave.BrickColor = BrickColor.new("Institutional white")
+        wave.BrickColor = BrickColor.new("Lime green")
         wave.Anchored = true
         wave.CanCollide = false
         wave.Locked = true
@@ -706,7 +705,7 @@ end)()
 hum.WalkSpeed = 16
 ----------------------------------------------------
 Blast = function()
-	local Colors = {"Really black", "Really black"}
+	local Colors = {"Lime green", "Lime green"}
 		local wave = Instance.new("Part", torso)
 		wave.BrickColor = BrickColor.new(Colors[math.random(1,#Colors)])
 		wave.Anchored = true
@@ -849,7 +848,7 @@ function Punch()
     part.Size=Vector3.new(.2,.2,.2)
     part.CFrame=root.CFrame*CFrame.new(0,1.5,-2.4)*CFrame.Angles(math.rad(0),0,0)
     part.Transparency=.7
-    part.BrickColor=BrickColor.new('Really black')
+    part.BrickColor=BrickColor.new('Lime green')
     mesh=Instance.new('SpecialMesh',part)
     mesh.MeshId='http://www.roblox.com/asset/?id=3270017'
     mesh.Scale=Vector3.new(3,3,3)
@@ -860,7 +859,7 @@ function Punch()
     part2.Size=Vector3.new(.2,.2,.2)
     part2.CFrame=root.CFrame*CFrame.new(0,1.5,-2.4)*CFrame.Angles(math.rad(90),0,0)
     part2.Transparency=.7
-    part2.BrickColor=BrickColor.new('Really black')
+    part2.BrickColor=BrickColor.new('Lime green')
     mesh2=Instance.new('SpecialMesh',part2)
     mesh2.MeshId='http://www.roblox.com/asset/?id=20329976'
     mesh2.Scale=Vector3.new(3,1.5,3)
@@ -1106,13 +1105,13 @@ mouse.KeyDown:connect(function(key)
 	sp.Size = Vector3.new(1,1,1)
 	sp.TopSurface = "SmoothNoOutlines"
 	sp.BottomSurface = "SmoothNoOutlines"
-	sp.BrickColor = BrickColor.new("Royal purple")
+	sp.BrickColor = BrickColor.new("Lime green")
 	spm = Instance.new("SpecialMesh",sp)
 	spm.MeshType = "Sphere"
 	spm.Scale = Vector3.new(21,21,21)
 	sp2 = Instance.new("Part", rarm)
 	sp2.Name = "Energy"
-	sp2.BrickColor = BrickColor.new("Royal purple")
+	sp2.BrickColor = BrickColor.new("Lime green")
 	sp2.Size = Vector3.new(1, 1, 1)
 	sp2.Shape = "Ball"
 	sp2.CanCollide = false
@@ -1200,7 +1199,7 @@ mouse.KeyDown:connect(function(key)
 	local V = Instance.new("ObjectValue",X)
 	V.Value = char
 	V.Name = "creator"
-	X.BrickColor = BrickColor.new("Royal purple")
+	X.BrickColor = BrickColor.new("Lime green")
 	X.Size = Vector3.new(2,2,2)
 	X.Material = "Neon"
 	local Z = Instance.new("SpecialMesh",X)
@@ -1232,7 +1231,7 @@ mouse.KeyDown:connect(function(key)
 			part3.Size=Vector3.new(1,1, 1)
 			part3.CFrame=X.CFrame
 			part3.Transparency=0
-			part3.BrickColor=BrickColor.new("Royal purple")
+			part3.BrickColor=BrickColor.new("Lime green")
 			local mesh3 = Instance.new("SpecialMesh",part3)
 			mesh3.MeshType = "Sphere"
 			mesh3.Scale = Vector3.new(1,1,1)
@@ -1263,7 +1262,7 @@ mouse.KeyDown:connect(function(key)
 			part7.Size=Vector3.new(1,1, 1)
 			part7.CFrame=X.CFrame
 			part7.Transparency=0
-			part7.BrickColor=BrickColor.new("Really black")
+			part7.BrickColor=BrickColor.new("Lime green")
 			local mesh7 = Instance.new("SpecialMesh",part7)
 			mesh7.MeshType = "Sphere"
 			mesh7.Scale = Vector3.new(0.1, 0.1, 0.1)
@@ -1514,7 +1513,7 @@ mouse.KeyDown:connect(function(key)
 				mesh.Scale=Vector3.new(2,2,2)
 				local part2=part:clone()
 				part2.Parent = rarm
-				part2.BrickColor=BrickColor.new("Royal purple")
+				part2.BrickColor=BrickColor.new("Lime green")
 				local part5=part:clone()
 				part5.Parent = rarm
 				part5.BrickColor=BrickColor.new("Magenta")
@@ -1531,7 +1530,7 @@ mouse.KeyDown:connect(function(key)
 				mesh6.Parent=part6
 				mesh6.Scale=Vector3.new(3, 3, 3)
 				local blast = Instance.new("Part", rarm)
-				blast.BrickColor = BrickColor.new("Really black")
+				blast.BrickColor = BrickColor.new("Lime green")
 				blast.Anchored = true
 				blast.CanCollide = false
 				blast.Locked = true
@@ -1544,7 +1543,7 @@ mouse.KeyDown:connect(function(key)
 				bm.Scale = Vector3.new(5,1,5)
 				bm.MeshId = "rbxassetid://3270017"
 				local blast2 = Instance.new("Part", rarm)
-				blast2.BrickColor = BrickColor.new("Really black")
+				blast2.BrickColor = BrickColor.new("Lime green")
 				blast2.Anchored = true
 				blast2.CanCollide = false
 				blast2.Locked = true
@@ -1557,7 +1556,7 @@ mouse.KeyDown:connect(function(key)
 				bm2.Scale = Vector3.new(3,1,3)
 				bm2.MeshId = "rbxassetid://3270017"
 				local blast3 = Instance.new("Part", rarm)
-				blast3.BrickColor = BrickColor.new("Really black")
+				blast3.BrickColor = BrickColor.new("Lime green")
 				blast3.Anchored = true
 				blast3.CanCollide = false
 				blast3.Locked = true
@@ -2093,7 +2092,7 @@ mouse.KeyDown:connect(function(key)
 				shot = shot + 1
 local rng = Instance.new("Part", larm)
 rng.Anchored = true
-rng.BrickColor = BrickColor.new("Royal purple")
+rng.BrickColor = BrickColor.new("Lime green")
 rng.CanCollide = false
 rng.FormFactor = 3
 rng.Name = "Ring"
@@ -2117,7 +2116,7 @@ rngm4.Parent = rng4
 rngm4.Scale = Vector3.new(6, 6, 1)
 local bem = Instance.new("Part", larm)
 bem.Anchored = true
-bem.BrickColor = BrickColor.new("Really black")
+bem.BrickColor = BrickColor.new("Lime green")
 bem.CanCollide = false
 bem.FormFactor = 3
 bem.Name = "Beam" .. shot
@@ -2130,7 +2129,7 @@ bemm.MeshType = 4
 bemm.Scale = Vector3.new(1, 4, 4)
 local out = Instance.new("Part", larm)
 out.Anchored = true
-out.BrickColor = BrickColor.new("Really black")
+out.BrickColor = BrickColor.new("Lime green")
 out.CanCollide = false
 out.FormFactor = 3
 out.Name = "Out"
@@ -2143,7 +2142,7 @@ outm.MeshId = "http://www.roblox.com/asset/?id=1033714"
 outm.Scale = Vector3.new(6, 4, 6)
 local bnd = Instance.new("Part", larm)
 bnd.Anchored = true
-bnd.BrickColor = BrickColor.new("Really black")
+bnd.BrickColor = BrickColor.new("Lime green")
 bnd.CanCollide = false
 bnd.FormFactor = 3
 bnd.Name = "Bend"
@@ -2433,7 +2432,7 @@ pt.FormFactor='Custom'
 pt.Size=Vector3.new(1,1,1)
 pt.CFrame=root.CFrame*CFrame.new(0,-1,0)
 pt.Transparency=.6
-pt.BrickColor=BrickColor.new('Really black')
+pt.BrickColor=BrickColor.new('Lime green')
 msh=Instance.new('SpecialMesh',pt)
 msh.MeshId='http://www.roblox.com/asset/?id=20329976'
 msh.Scale=Vector3.new(8,4,8)
@@ -2450,7 +2449,7 @@ custommath={25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47
 bl = Instance.new("Part", char)
 bl.Locked = true
 bl.Name = "Shell"
-bl.BrickColor = BrickColor.new("Really black")
+bl.BrickColor = BrickColor.new("Lime green")
 bl.Anchored = true
 bl.CanCollide = false
 bl.Transparency = 0
@@ -2551,7 +2550,7 @@ mouse.KeyDown:connect(function(key)
 			Debounces.NoIdl = true
 			Debounces.on = true
 				local shell = Instance.new("Part",torso)
-				shell.BrickColor = BrickColor.new("Royal purple")
+				shell.BrickColor = BrickColor.new("Lime green")
 				shell.Anchored = true
 				shell.CanCollide = false
 				shell.Locked = true
@@ -2562,7 +2561,7 @@ mouse.KeyDown:connect(function(key)
 				shellm.MeshType = "Sphere"
 				shellm.Scale = Vector3.new(1,1,1)
 				local shell2 = Instance.new("Part",torso)
-				shell2.BrickColor = BrickColor.new("Royal purple")
+				shell2.BrickColor = BrickColor.new("Lime green")
 				shell2.Anchored = true
 				shell2.CanCollide = false
 				shell2.Locked = true
@@ -2606,7 +2605,7 @@ local O = Instance.new("ObjectValue",X)
         local V = Instance.new("ObjectValue",X)
         V.Value = char
         V.Name = "creator"
-        X.BrickColor = BrickColor.new("Royal purple")
+        X.BrickColor = BrickColor.new("Lime green")
         X.Size = Vector3.new(1,1,1)
         --X.Material = "Neon"
         local Z = Instance.new("SpecialMesh",X)
@@ -2853,7 +2852,7 @@ mouse.KeyDown:connect(function(key)
 					for j,k in pairs(v.Character:GetChildren()) do
 						if k:IsA("BasePart") and k.Transparency >= 1 then
 							bawx=Instance.new("SelectionBox",cam)
-							bawx.Color = BrickColor.new("Bright red")
+							bawx.Color = BrickColor.new("Lime green")
 							bawx.Transparency = .5
 							bawx.Adornee = k
 						end
@@ -3260,46 +3259,76 @@ hum.MaxHealth = 9001
 wait(3)
 hum.Health = 9001
 
- -- LATF2 Lightning, Enjoy...
-LocalPlayer = game:GetService("Players").LocalPlayer
-char = player.Character
-local lastCF=char.Torso.Position
-local x1=Instance.new("Part",game.Workspace)
-x1.Name="Lightning"
-x1.Size=Vector3.new(1,1,1)
-x1.CanCollide=false
-x1.Anchored=true
-x1.Transparency=1
-spawn(function()
-        while true do
-                wait(-1)
-                x1.CFrame=char.Torso.CFrame*CFrame.Angles(math.rad(math.random(1,360)),math.rad(math.random(1,360)),math.rad(math.random(50,360)))*CFrame.new(0,0,2.6)
+function Lightning(Part0,Part1,Times,Offset,Color,Thickness,Trans) -- Lightning module
+    --[[Part0 = Vector3 (Start pos)
+		Part1 = Vector3 (End pos)
+		Times = number (Amount of lightning parts)
+		Offset = number (Offset)
+		Color = color (brickcolor value)
+		Thickness = number (thickness)
+		Trans = number (transparency)
+    ]]--
+    local magz = (Part0 - Part1).magnitude
+    local curpos = Part0
+    local trz = {-Offset,Offset}
+    for i=1,Times do
+        local li = Instance.new("Part", torso)
+		li.Name = "Lightning"
+		li.TopSurface =0
+		li.Material = "Neon"
+		li.BottomSurface = 0
+		li.Anchored = true
+		li.Locked = true
+		li.Transparency = Trans or 0.4
+		li.BrickColor = BrickColor.new(Color)
+		li.formFactor = "Custom"
+		li.CanCollide = false
+		li.Size = Vector3.new(Thickness,Thickness,magz/Times)
+        local Offzet = Vector3.new(trz[math.random(1,2)],trz[math.random(1,2)],trz[math.random(1,2)])
+        local trolpos = CFrame.new(curpos,Part1)*CFrame.new(0,0,magz/Times).p+Offzet
+        if Times == i then
+        local magz2 = (curpos - Part1).magnitude
+        li.Size = Vector3.new(Thickness,Thickness,magz2)
+        li.CFrame = CFrame.new(curpos,Part1)*CFrame.new(0,0,-magz2/2)
+        else
+        li.CFrame = CFrame.new(curpos,trolpos)*CFrame.new(0,0,magz/Times/2)
         end
-end)
-for i = 1,math.huge do
-        local dist2 = (lastCF-x1.Position).magnitude
-        local x2=Instance.new("Part",game.Workspace)
-        x2.Name="Lightning2"
-        x2.Size=Vector3.new(1,1,1)
-        x2.Material="Neon"
-        x2.BrickColor=BrickColor.new("Bright blue")
-        x2.CFrame=CFrame.new(lastCF,x1.Position)*CFrame.new(0,0,-dist2/2)
-        x2.CanCollide=false
-        x2.Anchored=true
-        local m = Instance.new("BlockMesh",x2)
-        m.Scale = Vector3.new(0.5,0.5,dist2)
-        lastCF=x1.Position
-        spawn(function()
-                for i = 1,20 do
-                        xx=m.Scale.x/2
-                        y=m.Scale.x/2
-                        m.Scale=m.Scale-Vector3.new(xx,y,0)
-                        wait()
-                end
-        end)
-        game.Debris:AddItem(x2,1.5)
-        wait()
+        curpos = li.CFrame*CFrame.new(0,0,magz/Times/2).p
+        game.Debris:AddItem(li,.1)
+    end
 end
-x1:Destroy()
+
+BodyParts = {} -- Parts to emit lightning effects from
+for _, v in pairs(char:GetChildren()) do
+    if v:IsA("Part") then
+        table.insert(BodyParts, v)
+    end
 end
--- ~CLarramore
+
+Bounding = {} -- Calculate the bounding boxes
+for _, v in pairs(BodyParts) do
+	local temp = {X=nil, Y=nil, Z=nil}
+	temp.X = v.Size.X/2 * 10
+	temp.Y = v.Size.Y/2 * 10
+	temp.Z = v.Size.Z/2 * 10
+	Bounding[v.Name] = temp
+	--table.insert(Bounding, v.Name, temp)
+end
+
+while wait(math.random(1,10)/10) do -- Emit the Lightning effects randomly
+	local Body1 = BodyParts[math.random(#BodyParts)]
+	local Body2 = BodyParts[math.random(#BodyParts)]
+	local Pos1 = Vector3.new(
+		math.random(-Bounding[Body1.Name].X, Bounding[Body1.Name].X)/10,
+		math.random(-Bounding[Body1.Name].Y, Bounding[Body1.Name].Y)/10,
+		math.random(-Bounding[Body1.Name].Z, Bounding[Body1.Name].Z)/10
+)
+	local Pos2 = Vector3.new(
+		math.random(-Bounding[Body2.Name].X, Bounding[Body2.Name].X)/10,
+		math.random(-Bounding[Body2.Name].Y, Bounding[Body2.Name].Y)/10,
+		math.random(-Bounding[Body2.Name].Z, Bounding[Body2.Name].Z)/10
+)
+	local SPos1 = Body1.Position + Pos1
+	local SPos2 = Body2.Position + Pos2
+	Lightning(SPos1, SPos2, 4, 3, "Bright blue", .3, .56)
+end
