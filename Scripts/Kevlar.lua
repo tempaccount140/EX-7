@@ -535,7 +535,7 @@ function Toggle()
 			0.2, false)
 
 		local Health = Player.Character.Humanoid.Health / Player.Character.Humanoid.MaxHealth
-		Player.Character.Humanoid.MaxHealth = Player.Character.Humanoid.MaxHealth + 200
+		Player.Character.Humanoid.MaxHealth = Player.Character.Humanoid.MaxHealth + 900
 		wait(0.1)
 		Player.Character.Humanoid.Health = Player.Character.Humanoid.MaxHealth * Health
 	else
