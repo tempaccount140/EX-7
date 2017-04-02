@@ -1,0 +1,32 @@
+--Credit to Autumn's "RemoteSpy" for the idea.
+--Rewritten by Lolonks(Clifford) for further efficiency, compatibility with dictionary and mixed table arguments.
+--Permission from Autumn to edit & release.
+local doRecord,doIgnore={['FireServer']=true,['InvokeServer']=true},{};
+local function displayTypes(tab)
+     local strOut,ind,retTab='','',{};
+     for i,v in pairs(tab)do
+          if type(i)~='number'then
+               ind='["'..i..'"] = '
+          end
+          if type(v)=='string'then
+               strOut=ind..'"'..v..'"'
+          elseif type(v)=='table'then
+               strOut=ind..'{'..displayTypes(v)..'}'
+          else
+               strOut=ind..(pcall(function()v:GetFullName()end) and v:GetFullName() or tostring(v))
+          end
+          retTab[#retTab+1]=strOut;
+     end
+     return #retTab<1 and 'No arguments passed.' or table.concat(retTab,', ')
+end
+local o_Index=getrawmetatable(game).__index
+local function n_Index(inst,str)
+     if doRecord[str]and not doIgnore[inst.Name]then
+          return function(_,...)
+               warn("\n"..getfenv(2).script:GetFullName()..' made a call to a '..inst.className..'.\nPath: '..inst:GetFullName()..'\nArgs: '..displayTypes({...}))
+               return o_Index(inst,str)(_,...)
+          end
+     end
+     return o_Index(inst,str)
+end
+getrawmetatable(game).__index=n_Index;
