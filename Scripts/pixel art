@@ -1,0 +1,320 @@
+print("Hello world!")
+wait(1)
+pl = 0
+local tick1 = Instance.new("Sound", game:service("Players").LocalPlayer.PlayerGui) 
+tick1.SoundId = "http://www.roblox.com/asset/?id=417042712" 
+tick1.Volume = 1
+tick1:play()
+
+local player = game:service("Players").LocalPlayer
+ply = game:service("Players")
+me = ply.LocalPlayer
+gui = me:findFirstChild("PlayerGui")
+
+sc = Instance.new("ScreenGui",gui)
+sc.Name = "ARB2"
+game:GetService("StarterGui").ResetPlayerGuiOnSpawn = false
+
+
+fxr1 = Instance.new("Frame",sc)
+fxr1.Size = UDim2.new(0,280,0,80)
+fxr1.Position = UDim2.new(0.5,-280/2,0.5,-80/2)
+fxr1.BackgroundColor3 = Color3.new(0.69,0.13,0.13)
+fxr1.BackgroundTransparency = 0
+
+
+fxr = Instance.new("Frame",sc)
+fxr.Size = UDim2.new(0,270,0,80)
+fxr.Position = UDim2.new(0.5,-270/2,0.5,-80/2)
+fxr.BackgroundColor3 = Color3.new(0.8,0.8,0.8)
+fxr.BackgroundTransparency = 0
+
+
+aa = 1
+b1 = Instance.new("TextButton", fxr)
+b1.Name = "b1"
+b1.Size = UDim2.new(0.0, 15, 0.0, 15)
+b1.Position = UDim2.new(0,8,0,8)
+b1.BackgroundColor3 = Color3.new(0.12,0.12,0.12)
+b1.BorderColor3 = Color3.new(0.12,0.12,0.12)
+b1.BackgroundTransparency = 0
+b1.Text = ""
+b1.MouseButton1Down:connect(function () 
+if aa == 1 then
+	aa = 2
+	b1.BackgroundColor3 = Color3.new(0.69,0.13,0.13)
+else
+	b1.BackgroundColor3 = Color3.new(0.12,0.12,0.12)
+	aa = 1
+end
+end)
+
+ab = 1
+b11 = Instance.new("TextButton", fxr)
+b11.Name = "b1"
+b11.Size = UDim2.new(0.0, 15, 0.0, 15)
+b11.Position = UDim2.new(0,32,0,8)
+b11.BackgroundColor3 = Color3.new(0.12,0.12,0.12)
+b11.BorderColor3 = Color3.new(0.12,0.12,0.12)
+b11.BackgroundTransparency = 0
+b11.Text = ""
+b11.MouseButton1Down:connect(function () 
+if ab == 1 then
+	ab = 2
+	b11.BackgroundColor3 = Color3.new(0.69,0.13,0.13)
+else
+	b11.BackgroundColor3 = Color3.new(0.12,0.12,0.12)
+	ab = 1
+end
+end)
+
+ac = 1
+b111 = Instance.new("TextButton", fxr)
+b111.Name = "b1"
+b111.Size = UDim2.new(0.0, 15, 0.0, 15)
+b111.Position = UDim2.new(0,56,0,8)
+b111.BackgroundColor3 = Color3.new(0.12,0.12,0.12)
+b111.BorderColor3 = Color3.new(0.12,0.12,0.12)
+b111.BackgroundTransparency = 0
+b111.Text = ""
+b111.MouseButton1Down:connect(function () 
+if ac == 1 then
+	ac = 2
+	b111.BackgroundColor3 = Color3.new(0.69,0.13,0.13)
+else
+	b111.BackgroundColor3 = Color3.new(0.12,0.12,0.12)
+	ac = 1
+end
+end)
+---
+---
+---
+
+
+ad = 1
+b21 = Instance.new("TextButton", fxr)
+b21.Name = "b1"
+b21.Size = UDim2.new(0.0, 15, 0.0, 15)
+b21.Position = UDim2.new(0,8,0,32)
+b21.BackgroundColor3 = Color3.new(0.12,0.12,0.12)
+b21.BorderColor3 = Color3.new(0.12,0.12,0.12)
+b21.BackgroundTransparency = 0
+b21.Text = ""
+b21.MouseButton1Down:connect(function () 
+if ad == 1 then
+	ad = 2
+	b21.BackgroundColor3 = Color3.new(0.69,0.13,0.13)
+else
+	b21.BackgroundColor3 = Color3.new(0.12,0.12,0.12)
+	ad = 1
+end
+end)
+
+ae = 1
+b121 = Instance.new("TextButton", fxr)
+b121.Name = "b1"
+b121.Size = UDim2.new(0.0, 15, 0.0, 15)
+b121.Position = UDim2.new(0,32,0,32)
+b121.BackgroundColor3 = Color3.new(0.12,0.12,0.12)
+b121.BorderColor3 = Color3.new(0.12,0.12,0.12)
+b121.BackgroundTransparency = 0
+b121.Text = ""
+b121.MouseButton1Down:connect(function () 
+if ae == 1 then
+	ae = 2
+	b121.BackgroundColor3 = Color3.new(0.69,0.13,0.13)
+else
+	b121.BackgroundColor3 = Color3.new(0.12,0.12,0.12)
+	ae = 1
+end
+end)
+
+af = 1
+b1115p = Instance.new("TextButton", fxr)
+b1115p.Name = "b1"
+b1115p.Size = UDim2.new(0.0, 15, 0.0, 15)
+b1115p.Position = UDim2.new(0,56,0,32)
+b1115p.BackgroundColor3 = Color3.new(0.12,0.12,0.12)
+b1115p.BorderColor3 = Color3.new(0.12,0.12,0.12)
+b1115p.BackgroundTransparency = 0
+b1115p.Text = ""
+b1115p.MouseButton1Down:connect(function () 
+if af == 1 then
+	af = 2
+	b1115p.BackgroundColor3 = Color3.new(0.69,0.13,0.13)
+else
+	b1115p.BackgroundColor3 = Color3.new(0.12,0.12,0.12)
+	af = 1
+end
+end)
+
+
+ar = 1
+b21s = Instance.new("TextButton", fxr)
+b21s.Name = "b1"
+b21s.Size = UDim2.new(0.0, 15, 0.0, 15)
+b21s.Position = UDim2.new(0,8,0,56)
+b21s.BackgroundColor3 = Color3.new(0.12,0.12,0.12)
+b21s.BorderColor3 = Color3.new(0.12,0.12,0.12)
+b21s.BackgroundTransparency = 0
+b21s.Text = ""
+b21s.MouseButton1Down:connect(function () 
+if ar == 1 then
+	ar = 2
+	b21s.BackgroundColor3 = Color3.new(0.69,0.13,0.13)
+else
+	b21s.BackgroundColor3 = Color3.new(0.12,0.12,0.12)
+	ar = 1
+end
+end)
+
+ag = 1
+bg1115 = Instance.new("TextButton", fxr)
+bg1115.Name = "b1"
+bg1115.Size = UDim2.new(0.0, 15, 0.0, 15)
+bg1115.Position = UDim2.new(0,56,0,56)
+bg1115.BackgroundColor3 = Color3.new(0.12,0.12,0.12)
+bg1115.BorderColor3 = Color3.new(0.12,0.12,0.12)
+bg1115.BackgroundTransparency = 0
+bg1115.Text = ""
+bg1115.MouseButton1Down:connect(function () 
+if ag == 1 then
+	ag = 2
+	bg1115.BackgroundColor3 = Color3.new(0.69,0.13,0.13)
+else
+	bg1115.BackgroundColor3 = Color3.new(0.12,0.12,0.12)
+	ag = 1
+end
+end)
+
+
+bg1115t = Instance.new("TextButton", fxr)
+bg1115t.Name = "b1"
+bg1115t.Size = UDim2.new(0.0, 155, 0.0, 15)
+bg1115t.Position = UDim2.new(0,100,0,8)
+bg1115t.BackgroundColor3 = Color3.new(0.12,0.12,0.12)
+bg1115t.BorderColor3 = Color3.new(0.12,0.12,0.12)
+bg1115t.BackgroundTransparency = 0
+bg1115t.TextColor3 = Color3.new(1,1,1)
+bg1115t.Text = "Steal Selected Player's Art."
+bg1115t.MouseButton1Down:connect(function () 
+if bg1115.BackgroundColor3 == Color3.new(0.69,0.13,0.13) then
+	game.ReplicatedStorage.Remote:InvokeServer("Save",Workspace.DrawBoards.DrawBoards["2"].Pixels,"Stolen_1")
+	print("1")	
+elseif b21s.BackgroundColor3 == Color3.new(0.69,0.13,0.13) then
+	game.ReplicatedStorage.Remote:InvokeServer("Save",Workspace.DrawBoards.DrawBoards["6"].Pixels,"Stolen_6")
+	print("6")
+elseif b1115p.BackgroundColor3 == Color3.new(0.69,0.13,0.13) then
+	game.ReplicatedStorage.Remote:InvokeServer("Save",Workspace.DrawBoards.DrawBoards["3"].Pixels,"Stolen_2")
+	print("2")
+elseif b121.BackgroundColor3 == Color3.new(0.69,0.13,0.13) then
+	game.ReplicatedStorage.Remote:InvokeServer("Save",Workspace.DrawBoards.DrawBoards["5"].Pixels,"Stolen_4")
+	print("4")
+elseif b21.BackgroundColor3 == Color3.new(0.69,0.13,0.13) then
+	game.ReplicatedStorage.Remote:InvokeServer("Save",Workspace.DrawBoards.DrawBoards["7"].Pixels,"Stolen_7")
+	print("7")
+elseif b111.BackgroundColor3 == Color3.new(0.69,0.13,0.13) then
+	game.ReplicatedStorage.Remote:InvokeServer("Save",Workspace.DrawBoards.DrawBoards["4"].Pixels,"Stolen_3")
+	print("3")
+elseif b11.BackgroundColor3 == Color3.new(0.69,0.13,0.13) then
+	game.ReplicatedStorage.Remote:InvokeServer("Save",Workspace.DrawBoards.DrawBoards["1"].Pixels,"Stolen_5")
+	print("5")
+elseif b1.BackgroundColor3 == Color3.new(0.69,0.13,0.13) then
+	game.ReplicatedStorage.Remote:InvokeServer("Save",Workspace.DrawBoards.DrawBoards["8"].Pixels,"Stolen_8")
+	print("8")
+end
+end)
+
+bg111t5t = Instance.new("TextButton", fxr)
+bg111t5t.Name = "b1"
+bg111t5t.Size = UDim2.new(0.0, 155, 0.0, 15)
+bg111t5t.Position = UDim2.new(0,100,0,32)
+bg111t5t.BackgroundColor3 = Color3.new(0.12,0.12,0.12)
+bg111t5t.BorderColor3 = Color3.new(0.12,0.12,0.12)
+bg111t5t.BackgroundTransparency = 0
+bg111t5t.TextColor3 = Color3.new(1,1,1)
+bg111t5t.Text = "Steal Public-Board"
+bg111t5t.MouseButton1Down:connect(function () 
+game.ReplicatedStorage.Remote:InvokeServer("Save",Workspace.PublicBoard.Pixels,"Stolen_Public")
+end)
+
+bg111t5tz = Instance.new("TextButton", fxr)
+bg111t5tz.Name = "b1"
+bg111t5tz.Size = UDim2.new(0.0, 155, 0.0, 15)
+bg111t5tz.Position = UDim2.new(0,100,0,56)
+bg111t5tz.BackgroundColor3 = Color3.new(0.12,0.12,0.12)
+bg111t5tz.BorderColor3 = Color3.new(0.12,0.12,0.12)
+bg111t5tz.BackgroundTransparency = 0
+bg111t5tz.TextColor3 = Color3.new(1,1,1)
+bg111t5tz.Text = "Draw on Current plots."
+bg111t5tz.MouseButton1Down:connect(function () 
+local x = tostring(game.Players.LocalPlayer)
+game.Workspace.PublicBoard.name.Value = x
+game.Workspace.DrawBoards.DrawBoards["1"].name.Value = x
+game.Workspace.DrawBoards.DrawBoards["2"].name.Value = x
+game.Workspace.DrawBoards.DrawBoards["3"].name.Value = x
+game.Workspace.DrawBoards.DrawBoards["4"].name.Value = x
+game.Workspace.DrawBoards.DrawBoards["5"].name.Value = x
+game.Workspace.DrawBoards.DrawBoards["6"].name.Value = x
+game.Workspace.DrawBoards.DrawBoards["7"].name.Value = x
+game.Workspace.DrawBoards.DrawBoards["8"].name.Value = x
+print("Setting Username")
+end)
+
+
+
+
+
+---
+---
+---
+
+tl1512 = Instance.new("TextLabel", fxr)
+tl1512.Size = UDim2.new(0.0, 2, 0.0, 20)
+tl1512.Position = UDim2.new(0,20,0,-30)
+tl1512.BackgroundColor3 = Color3.new(0,0,0)
+tl1512.Text ="Pixel"
+tl1512.FontSize = "Size12"
+tl1512.TextColor3 = Color3.new(0.12,0.12,0.12)
+tl1512.BackgroundTransparency = 1
+
+tl151 = Instance.new("TextLabel", fxr)
+tl151.Size = UDim2.new(0.0, 2, 0.0, 20)
+tl151.Position = UDim2.new(0,110,0,-30)
+tl151.BackgroundColor3 = Color3.new(0,0,0)
+tl151.Text ="Art |   DLLExploits"
+tl151.FontSize = "Size12"
+tl151.TextColor3 = Color3.new(0.12,0.12,0.12)
+tl151.BackgroundTransparency = 1
+
+ar = 1
+local r = game.Players.LocalPlayer 
+Mouse = r:GetMouse() 
+function keyb(key) 
+	if (key == "e") then
+		if ar == 1 then
+			ar = 0
+			fxr.Position = UDim2.new(99999,99999,99999,99999)
+			fxr1.Position = UDim2.new(99999,99999,99999,99999)
+		elseif ar == 0 then
+			fxr.Position = UDim2.new(0.5,-270/2,0.5,-80/2)
+			fxr1.Position = UDim2.new(0.5,-280/2,0.5,-80/2)
+			ar = 1
+		end
+	 end 
+end 
+Mouse.KeyDown:connect(keyb)
+
+    local hint = Instance.new("Hint",game.Players.LocalPlayer.PlayerGui)
+    hint.Text = "Please read Console!(F9) to avoid over-writing a stolen art!"
+    hint.Name = game.JobId
+    wait(5)
+    hint:Destroy()
+
+print'PixelMaster -- DLLExploits'
+print'-----------------------------'
+print'To avoid overwriting saved art, or sizes, PLEASE move, or rename until a random artwork is at top of saves.'
+print'Anything at the top is risk of over-write, and MAY be replaced forever'
+print'Also select only ONE place to steal at a time, multiple will probably break everything'
+print'If a new player joins, and you can not draw, just select the draw on others plot again'
+print'v1.0(initial release)'
