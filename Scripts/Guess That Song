@@ -1,0 +1,448 @@
+wait(1)
+
+ply = game:service("Players")
+me = ply.LocalPlayer
+gui = me:findFirstChild("PlayerGui")
+
+sc = Instance.new("ScreenGui",gui)
+sc.Name = "MakeGuis"
+game:GetService("StarterGui").ResetPlayerGuiOnSpawn = false
+
+fr = Instance.new("Frame",sc)
+fr.Size = UDim2.new(0.0, 150, 0.0, 35)
+fr.Position = UDim2.new(0,0.2,0.7, 0.2)
+fr.BackgroundColor3 = Color3.new(0.5,0.5,0.5)
+fr.BackgroundTransparency = 1
+
+fr2 = Instance.new("Frame",sc)
+fr2.Size = UDim2.new(0.0, 1980, 0.0, 30)
+fr2.Position = UDim2.new(9999,9999,9999,9999)
+fr2.BackgroundColor3 = Color3.new(0.5,0.5,0.5)
+fr2.BackgroundTransparency = 1
+--[[
+OPEN AND CLOSE BUTTON	
+--]]
+b1 = Instance.new("TextButton", fr)
+b1.Name = "b1"
+b1.Size = UDim2.new(0.0, 100, 0.0, 30)
+--b1.Position = UDim2.new(0,1055,0.8, -650)
+b1.BackgroundColor3 = Color3.new(0,0,0)
+b1.BorderColor3 = Color3.new(0, 0, 0)
+b1.BackgroundTransparency = 0.4
+b1.Text ="Open"
+b1.TextColor3 = Color3.new(1,1,1)
+b1.FontSize = "Size18"
+b1.MouseButton1Down:connect(function () 
+if b1.Text =="Close" then
+	b1.Text ="Open"
+	fr.Size = UDim2.new(0.0, 150, 0.0, 35)
+	fr2.Position = UDim2.new(9999,9999,9999,9999)
+elseif b1.Text =="Open" then
+	b1.Text ="Close"
+	fr2.Position = UDim2.new(0.115,0.2,0.7, 0.2)
+end
+end) 
+
+b21 = Instance.new("TextButton", fr2)
+b21.Name = "b1"
+b21.Size = UDim2.new(0.0, 60, 0.0, 22)
+b21.Position = UDim2.new(0.0015,0,0.12,0)
+b21.BackgroundColor3 = Color3.new(0,0,0)
+b21.BorderColor3 = Color3.new(0, 0, 0)
+b21.BackgroundTransparency = 0.4
+b21.Text ="Hide"
+b21.TextColor3 = Color3.new(1,1,1)
+b21.FontSize = "Size12"
+b21.MouseButton1Down:connect(function () 
+	if b21.Text =="Hide" then
+		b21.Text ="Show"
+	b111.Position = UDim2.new(9999,9999,9999,9999)
+	b1111.Position = UDim2.new(9999,9999,9999,9999)
+	b11111.Position = UDim2.new(9999,9999,9999,9999)
+	b111111.Position = UDim2.new(9999,9999,9999,9999)
+	b1111111.Position = UDim2.new(9999,9999,9999,9999)
+	b11111111.Position = UDim2.new(9999,9999,9999,9999)
+	b111111111.Position = UDim2.new(9999,9999,9999,9999)
+	b111111111.Position = UDim2.new(9999,9999,9999,9999)
+	b1111111111.Position = UDim2.new(9999,9999,9999,9999)
+	b11111111111.Position = UDim2.new(9999,9999,9999,9999)
+	b111111111.Position = UDim2.new(9999,9999,9999,9999)
+	b11111111111.Position = UDim2.new(9999,9999,9999,9999)
+	b1111111121.Position = UDim2.new(9999,9999,9999,9999)
+	elseif b21.Text =="Show" then
+	b111.Position = UDim2.new(0.0015,130,0.12,0)
+	b1111.Position = UDim2.new(0.0015,195,0.12,0)
+	b11111.Position = UDim2.new(0.0015,260,0.12,0)
+	b111111.Position = UDim2.new(0.0015,325,0.12,0)
+	b1111111.Position = UDim2.new(0.0015,390,0.12,0)
+	b11111111.Position = UDim2.new(0.0015,455,0.12,0)
+	b111111111.Position = UDim2.new(0.0015,585,0.12,0)
+	b1111111111.Position = UDim2.new(0.0015,650,0.12,0)
+	b11111111111.Position = UDim2.new(0.0015,715,0.12,0)
+	b1111111121.Position = UDim2.new(0.0015,520,0.12,0)
+	b21.Text ="Hide"
+	end
+end) 
+b11 = Instance.new("TextButton", fr2)
+b11.Name = "b1"
+b11.Size = UDim2.new(0.0, 60, 0.0, 22)
+b11.Position = UDim2.new(0.0015,65,0.12,0)
+b11.BackgroundColor3 = Color3.new(0,0,0)
+b11.BorderColor3 = Color3.new(0, 0, 0)
+b11.BackgroundTransparency = 0.4
+b11.Text ="KillAll"
+b11.TextColor3 = Color3.new(1,1,1)
+b11.FontSize = "Size12"
+b11.MouseButton1Down:connect(function () 
+	game.ReplicatedStorage.Events.Color:FireServer("Red")
+	game.ReplicatedStorage.Events.Color:FireServer("Purple")
+	game.ReplicatedStorage.Events.Color:FireServer("Peach")
+	game.ReplicatedStorage.Events.Color:FireServer("Blue")
+	game.ReplicatedStorage.Events.Color:FireServer("Yellow")
+	game.ReplicatedStorage.Events.Color:FireServer("White")
+	game.ReplicatedStorage.Events.Color:FireServer("Pink")
+	game.ReplicatedStorage.Events.Color:FireServer("Green")
+	game.ReplicatedStorage.Events.Color:FireServer("Brown")
+	game.ReplicatedStorage.Events.Color:FireServer("Cyan")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Red")
+	game.ReplicatedStorage.Events.Color:FireServer("Purple")
+	game.ReplicatedStorage.Events.Color:FireServer("Peach")
+	game.ReplicatedStorage.Events.Color:FireServer("Blue")
+	game.ReplicatedStorage.Events.Color:FireServer("Yellow")
+	game.ReplicatedStorage.Events.Color:FireServer("White")
+	game.ReplicatedStorage.Events.Color:FireServer("Pink")
+	game.ReplicatedStorage.Events.Color:FireServer("Green")
+	game.ReplicatedStorage.Events.Color:FireServer("Brown")
+	game.ReplicatedStorage.Events.Color:FireServer("Cyan")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Red")
+	game.ReplicatedStorage.Events.Color:FireServer("Purple")
+	game.ReplicatedStorage.Events.Color:FireServer("Peach")
+	game.ReplicatedStorage.Events.Color:FireServer("Blue")
+	game.ReplicatedStorage.Events.Color:FireServer("Yellow")
+	game.ReplicatedStorage.Events.Color:FireServer("White")
+	game.ReplicatedStorage.Events.Color:FireServer("Pink")
+	game.ReplicatedStorage.Events.Color:FireServer("Green")
+	game.ReplicatedStorage.Events.Color:FireServer("Brown")
+	game.ReplicatedStorage.Events.Color:FireServer("Cyan")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Red")
+	game.ReplicatedStorage.Events.Color:FireServer("Purple")
+	game.ReplicatedStorage.Events.Color:FireServer("Peach")
+	game.ReplicatedStorage.Events.Color:FireServer("Blue")
+	game.ReplicatedStorage.Events.Color:FireServer("Yellow")
+	game.ReplicatedStorage.Events.Color:FireServer("White")
+	game.ReplicatedStorage.Events.Color:FireServer("Pink")
+	game.ReplicatedStorage.Events.Color:FireServer("Green")
+	game.ReplicatedStorage.Events.Color:FireServer("Brown")
+	game.ReplicatedStorage.Events.Color:FireServer("Cyan")
+end) 
+a = 1
+b211 = Instance.new("TextButton", fr2)
+b211.Name = "b1"
+b211.Size = UDim2.new(0.0, 60, 0.0, 22)
+b211.Position = UDim2.new(0.0015,65,0.12,30)
+b211.BackgroundColor3 = Color3.new(0,0,0)
+b211.BorderColor3 = Color3.new(0, 0, 0)
+b211.BackgroundTransparency = 0.4
+b211.Text ="Auto"
+b211.TextColor3 = Color3.new(1,1,1)
+b211.FontSize = "Size12"
+b211.MouseButton1Down:connect(function () 
+	a = 1
+while a == 1 do
+		game.ReplicatedStorage.Events.Color:FireServer("Red")
+	game.ReplicatedStorage.Events.Color:FireServer("Purple")
+	game.ReplicatedStorage.Events.Color:FireServer("Peach")
+	game.ReplicatedStorage.Events.Color:FireServer("Blue")
+	game.ReplicatedStorage.Events.Color:FireServer("Yellow")
+	game.ReplicatedStorage.Events.Color:FireServer("White")
+	game.ReplicatedStorage.Events.Color:FireServer("Pink")
+	game.ReplicatedStorage.Events.Color:FireServer("Green")
+	game.ReplicatedStorage.Events.Color:FireServer("Brown")
+	game.ReplicatedStorage.Events.Color:FireServer("Cyan")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Red")
+	game.ReplicatedStorage.Events.Color:FireServer("Purple")
+	game.ReplicatedStorage.Events.Color:FireServer("Peach")
+	game.ReplicatedStorage.Events.Color:FireServer("Blue")
+	game.ReplicatedStorage.Events.Color:FireServer("Yellow")
+	game.ReplicatedStorage.Events.Color:FireServer("White")
+	game.ReplicatedStorage.Events.Color:FireServer("Pink")
+	game.ReplicatedStorage.Events.Color:FireServer("Green")
+	game.ReplicatedStorage.Events.Color:FireServer("Brown")
+	game.ReplicatedStorage.Events.Color:FireServer("Cyan")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Red")
+	game.ReplicatedStorage.Events.Color:FireServer("Purple")
+	game.ReplicatedStorage.Events.Color:FireServer("Peach")
+	game.ReplicatedStorage.Events.Color:FireServer("Blue")
+	game.ReplicatedStorage.Events.Color:FireServer("Yellow")
+	game.ReplicatedStorage.Events.Color:FireServer("White")
+	game.ReplicatedStorage.Events.Color:FireServer("Pink")
+	game.ReplicatedStorage.Events.Color:FireServer("Green")
+	game.ReplicatedStorage.Events.Color:FireServer("Brown")
+	game.ReplicatedStorage.Events.Color:FireServer("Cyan")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Red")
+	game.ReplicatedStorage.Events.Color:FireServer("Purple")
+	game.ReplicatedStorage.Events.Color:FireServer("Peach")
+	game.ReplicatedStorage.Events.Color:FireServer("Blue")
+	game.ReplicatedStorage.Events.Color:FireServer("Yellow")
+	game.ReplicatedStorage.Events.Color:FireServer("White")
+	game.ReplicatedStorage.Events.Color:FireServer("Pink")
+	game.ReplicatedStorage.Events.Color:FireServer("Green")
+	game.ReplicatedStorage.Events.Color:FireServer("Brown")
+	game.ReplicatedStorage.Events.Color:FireServer("Cyan")
+	wait(20)
+end
+end) 
+b2111 = Instance.new("TextButton", fr2)
+b2111.Name = "b1"
+b2111.Size = UDim2.new(0.0, 60, 0.0, 22)
+b2111.Position = UDim2.new(0.0015,65,0.12,60)
+b2111.BackgroundColor3 = Color3.new(0,0,0)
+b2111.BorderColor3 = Color3.new(0, 0, 0)
+b2111.BackgroundTransparency = 0.4
+b2111.Text ="Stop"
+b2111.TextColor3 = Color3.new(1,1,1)
+b2111.FontSize = "Size12"
+b2111.MouseButton1Down:connect(function () 
+	b211.Text = "Wait!"
+	a = 2
+	wait(30)
+	b211.Text = "Auto"
+end)
+bt = Instance.new("TextButton", fr2)
+bt.Name = "b1"
+bt.Size = UDim2.new(0.0, 60, 0.0, 22)
+bt.Position = UDim2.new(0.0015,0,0.12,30)
+bt.BackgroundColor3 = Color3.new(0,0,0)
+bt.BorderColor3 = Color3.new(0, 0, 0)
+bt.BackgroundTransparency = 0.4
+bt.Text ="BTools"
+bt.TextColor3 = Color3.new(1,1,1)
+bt.FontSize = "Size12"
+bt.MouseButton1Down:connect(function () 
+	Instance.new('HopperBin', game.Players.LocalPlayer.Backpack).BinType = 2
+	Instance.new('HopperBin', game.Players.LocalPlayer.Backpack).BinType = 3
+	Instance.new('HopperBin', game.Players.LocalPlayer.Backpack).BinType = 4
+
+end)
+btq = Instance.new("TextButton", fr2)
+btq.Name = "b1"
+btq.Size = UDim2.new(0.0, 60, 0.0, 22)
+btq.Position = UDim2.new(0.0015,0,0.12,60)
+btq.BackgroundColor3 = Color3.new(0,0,0)
+btq.BorderColor3 = Color3.new(0, 0, 0)
+btq.BackgroundTransparency = 0.4
+btq.Text ="Move(on)"
+btq.TextColor3 = Color3.new(1,1,1)
+btq.FontSize = "Size12"
+btq.MouseButton1Down:connect(function () 
+game.Workspace:findFirstChild(game.Players.LocalPlayer.Name).Torso.Anchored = false
+game.Workspace:findFirstChild(game.Players.LocalPlayer.Name).Head.Anchored = false
+game.Workspace:findFirstChild(game.Players.LocalPlayer.Name)["Left Arm"].Anchored = false
+game.Workspace:findFirstChild(game.Players.LocalPlayer.Name)["Right Arm"].Anchored = false
+game.Workspace:findFirstChild(game.Players.LocalPlayer.Name)["Right Leg"].Anchored = false
+game.Workspace:findFirstChild(game.Players.LocalPlayer.Name)["Left Leg"].Anchored = false
+game.Workspace:findFirstChild(game.Players.LocalPlayer.Name).HumanoidRootPart.Anchored = false
+game.Workspace:findFirstChild(game.Players.LocalPlayer.Name).Humanoid.WalkSpeed = 16
+end)
+
+
+b111 = Instance.new("TextButton", fr2)
+b111.Name = "White"
+b111.Size = UDim2.new(0.0, 60, 0.0, 22)
+b111.Position = UDim2.new(0.0015,130,0.12,0)
+b111.BackgroundColor3 = Color3.new(1,1,1) --
+b111.BorderColor3 = Color3.new(0, 0, 0)
+b111.BackgroundTransparency = 0.4
+b111.Text =""
+b111.TextColor3 = Color3.new(1,1,1)
+b111.FontSize = "Size12"
+b111.MouseButton1Down:connect(function () 
+	game.ReplicatedStorage.Events.Color:FireServer("White")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("White")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("White")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("White")
+end) 
+b1111 = Instance.new("TextButton", fr2)
+b1111.Name = "Peach"
+b1111.Size = UDim2.new(0.0, 60, 0.0, 22)
+b1111.Position = UDim2.new(0.0015,195,0.12,0)
+b1111.BackgroundColor3 = Color3.new(1, 0.8, 0.6) --
+b1111.BorderColor3 = Color3.new(0, 0, 0)
+b1111.BackgroundTransparency = 0.4
+b1111.Text =""
+b1111.TextColor3 = Color3.new(1,1,1)
+b1111.FontSize = "Size18"
+b1111.MouseButton1Down:connect(function () 
+	game.ReplicatedStorage.Events.Color:FireServer("Peach")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Peach")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Peach")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Peach")
+end) 
+b11111 = Instance.new("TextButton", fr2)
+b11111.Name = "pink"
+b11111.Size = UDim2.new(0.0, 60, 0.0, 22)
+b11111.Position = UDim2.new(0.0015,260,0.12,0)
+b11111.BackgroundColor3 = Color3.new(1, 0.4, 0.8) --
+b11111.BorderColor3 = Color3.new(0, 0, 0)
+b11111.BackgroundTransparency = 0.4
+b11111.Text =""
+b11111.TextColor3 = Color3.new(1,1,1)
+b11111.FontSize = "Size18"
+b11111.MouseButton1Down:connect(function () 
+	game.ReplicatedStorage.Events.Color:FireServer("Pink")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Pink")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Pink")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Pink")
+	
+end) 
+b111111 = Instance.new("TextButton", fr2)
+b111111.Name = "blue"
+b111111.Size = UDim2.new(0.0, 60, 0.0, 22)
+b111111.Position = UDim2.new(0.0015,325,0.12,0)
+b111111.BackgroundColor3 = Color3.new(0.0352941, 0.537255, 0.811765) --
+b111111.BorderColor3 = Color3.new(0, 0, 0)
+b111111.BackgroundTransparency = 0.4
+b111111.Text =""
+b111111.TextColor3 = Color3.new(1,1,1)
+b111111.FontSize = "Size18"
+b111111.MouseButton1Down:connect(function () 
+	game.ReplicatedStorage.Events.Color:FireServer("Blue")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Blue")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Blue")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Blue")
+	
+end) 
+b1111111 = Instance.new("TextButton", fr2)
+b1111111.Name = "green"
+b1111111.Size = UDim2.new(0.0, 60, 0.0, 22)
+b1111111.Position = UDim2.new(0.0015,390,0.12,0)
+b1111111.BackgroundColor3 = Color3.new(0.356863, 0.603922, 0.298039) --
+b1111111.BorderColor3 = Color3.new(0, 0, 0)
+b1111111.BackgroundTransparency = 0.4
+b1111111.Text =""
+b1111111.TextColor3 = Color3.new(1,1,1)
+b1111111.FontSize = "Size18"
+b1111111.MouseButton1Down:connect(function () 
+	game.ReplicatedStorage.Events.Color:FireServer("Green")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Green")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Green")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Green")
+end) 
+
+b11111111 = Instance.new("TextButton", fr2)
+b11111111.Name = "purp"
+b11111111.Size = UDim2.new(0.0, 60, 0.0, 22)
+b11111111.Position = UDim2.new(0.0015,455,0.12,0)
+b11111111.BackgroundColor3 = Color3.new(0.482353, 0.184314, 0.482353) --
+b11111111.BorderColor3 = Color3.new(0, 0, 0)
+b11111111.BackgroundTransparency = 0.4
+b11111111.Text =""
+b11111111.TextColor3 = Color3.new(1,1,1)
+b11111111.FontSize = "Size18"
+b11111111.MouseButton1Down:connect(function () 
+	game.ReplicatedStorage.Events.Color:FireServer("Purple")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Purple")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Purple")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Purple")
+end) 
+b1111111121 = Instance.new("TextButton", fr2)
+b1111111121.Name = "red"
+b1111111121.Size = UDim2.new(0.0, 60, 0.0, 22)
+b1111111121.Position = UDim2.new(0.0015,520,0.12,0)
+b1111111121.BackgroundColor3 = Color3.new(2,0,0) --
+b1111111121.BorderColor3 = Color3.new(0, 0, 0)
+b1111111121.BackgroundTransparency = 0.4
+b1111111121.Text =""
+b1111111121.TextColor3 = Color3.new(1,1,1)
+b1111111121.FontSize = "Size18"
+b1111111121.MouseButton1Down:connect(function () 
+	game.ReplicatedStorage.Events.Color:FireServer("Red")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Red")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Red")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Red")
+end) 
+b111111111 = Instance.new("TextButton", fr2)
+b111111111.Name = "brown"
+b111111111.Size = UDim2.new(0.0, 60, 0.0, 22)
+b111111111.Position = UDim2.new(0.0015,585,0.12,0)
+b111111111.BackgroundColor3 = Color3.new(0.588235, 0.333333, 0.333333) --
+b111111111.BorderColor3 = Color3.new(0, 0, 0)
+b111111111.BackgroundTransparency = 0.4
+b111111111.Text =""
+b111111111.TextColor3 = Color3.new(1,1,1)
+b111111111.FontSize = "Size18"
+b111111111.MouseButton1Down:connect(function () 
+	game.ReplicatedStorage.Events.Color:FireServer("Brown")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Brown")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Brown")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Brown")
+end) 
+b1111111111 = Instance.new("TextButton", fr2)
+b1111111111.Name = "cyan"
+b1111111111.Size = UDim2.new(0.0, 60, 0.0, 22)
+b1111111111.Position = UDim2.new(0.0015,650,0.12,0)
+b1111111111.BackgroundColor3 = Color3.new(0, 1, 1) --
+b1111111111.BorderColor3 = Color3.new(0, 0, 0)
+b1111111111.BackgroundTransparency = 0.4
+b1111111111.Text =""
+b1111111111.TextColor3 = Color3.new(1,1,1)
+b1111111111.FontSize = "Size18"
+b1111111111.MouseButton1Down:connect(function () 
+	game.ReplicatedStorage.Events.Color:FireServer("Cyan")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Cyan")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Cyan")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Cyan")
+end) 
+b11111111111 = Instance.new("TextButton", fr2)
+b11111111111.Name = "yellow"
+b11111111111.Size = UDim2.new(0.0, 60, 0.0, 22)
+b11111111111.Position = UDim2.new(0.0015,715,0.12,0)
+b11111111111.BackgroundColor3 = Color3.new(0.960784, 0.803922, 0.188235)
+b11111111111.BorderColor3 = Color3.new(0, 0, 0)
+b11111111111.BackgroundTransparency = 0.4
+b11111111111.Text =""
+b11111111111.TextColor3 = Color3.new(1,1,1)
+b11111111111.FontSize = "Size18"
+b11111111111.MouseButton1Down:connect(function () 
+	game.ReplicatedStorage.Events.Color:FireServer("Yellow")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Yellow")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Yellow")
+	wait(1)
+	game.ReplicatedStorage.Events.Color:FireServer("Yellow")
+end) 
+
