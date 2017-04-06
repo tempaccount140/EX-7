@@ -1,0 +1,6 @@
+print("Loading MLG HAXOR by LuaFuncX #0381")
+while wait() do
+for _,v in pairs(game.Players:GetPlayers()) do
+game.ReplicatedStorage.FE.Damage:FireServer(v.Character, 100, "STRYFE", true)
+end
+end
