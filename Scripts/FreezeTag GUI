@@ -1,0 +1,203 @@
+wait(1)
+game.Players.LocalPlayer.PlayerGui.PlayerGUI.FrozenFrame:Destroy()
+game.Players.LocalPlayer.PlayerGui.PlayerGUI.PurchaseThawFrame:Destroy()
+game.Players.LocalPlayer.PlayerGui.PlayerGUI.PurchaseGearFrame:Destroy()
+game.ReplicatedStorage.Resources.IceBlur:Destroy()
+game.ReplicatedStorage.Resources.IceHue:Destroy()
+game.ReplicatedStorage.Resources.Frozen:Destroy()
+
+ply = game:service("Players")
+me = ply.LocalPlayer
+gui = me:findFirstChild("PlayerGui")
+
+sc = Instance.new("ScreenGui",gui)
+sc.Name = "MakeGuis"
+game:GetService("StarterGui").ResetPlayerGuiOnSpawn = false
+
+fr = Instance.new("Frame",sc)
+fr.Size = UDim2.new(0.0, 150, 0.0, 35)
+fr.Position = UDim2.new(0,0.2,0.7, 0.2)
+fr.BackgroundColor3 = Color3.new(0.5,0.5,0.5)
+fr.BackgroundTransparency = 1
+--[[
+OPEN AND CLOSE BUTTON	
+--]]
+b1 = Instance.new("TextButton", fr)
+b1.Name = "b1"
+b1.Size = UDim2.new(0.0, 150, 0.0, 35)
+--b1.Position = UDim2.new(0,1055,0.8, -650)
+b1.BackgroundColor3 = Color3.new(0.5,0.5,0.5)
+b1.BorderColor3 = Color3.new(0, 0, 0)
+b1.BackgroundTransparency = 0
+b1.Text ="Hack Menu"
+b1.TextColor3 = Color3.new(1,1,1)
+b1.FontSize = "Size18"
+b1.MouseButton1Down:connect(function () 
+if b1.Text =="Close" then
+	b1.Text ="Hack Menu"
+	fr.Size = UDim2.new(0.0, 150, 0.0, 35)
+	b2.Position = UDim2.new(99999, 99999, 9999, 9999)
+	b3.Position = UDim2.new(99999, 99999, 9999, 9999)
+	b4.Position = UDim2.new(99999, 99999, 9999, 9999)
+	b5.Position = UDim2.new(99999, 99999, 9999, 9999)
+	b6.Position = UDim2.new(99999, 99999, 9999, 9999)
+	b7.Position = UDim2.new(99999, 99999, 9999, 9999)
+elseif b1.Text =="Hack Menu" then
+	b1.Text ="Close"
+	b2.Position = UDim2.new(-1, 150, 0.0, 40)
+	b3.Position = UDim2.new(-1, 150, 0.0, 80)
+	b4.Position = UDim2.new(-1, 150, 0.0, 120)
+	b5.Position = UDim2.new(-1, 150, 0.0, 160)
+	b6.Position = UDim2.new(-1, 150, 0.0, 200)
+	b7.Position = UDim2.new(-1, 305, 0.0, 40)
+	fr.Size = UDim2.new(0.0, 150, 0.0, 300)
+end
+end) 
+--[[
+TELE PLAYERS 	
+--]]
+b2 = Instance.new("TextButton", fr)
+b2.Name = "b2"
+b2.Size = UDim2.new(0.0, 150, 0.0, 35)
+b2.Position = UDim2.new(99999, 99999, 9999, 9999)
+b2.BackgroundColor3 = Color3.new(0.5,0.5,0.5)
+b2.BorderColor3 = Color3.new(0, 0, 0)
+b2.BackgroundTransparency = 0
+b2.Text ="Tele Players"
+b2.TextColor3 = Color3.new(1,1,1)
+b2.FontSize = "Size18"
+b2.MouseButton1Down:connect(function () 
+	x = 1
+while x < 50 do
+local target = CFrame.new(game.Players.LocalPlayer.Character.Torso.Position)
+for i, player in ipairs(game.Players:GetChildren()) do
+   if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+      player.Character.HumanoidRootPart.CFrame = target + Vector3.new(0, 0, 0)
+   end
+end
+	x = x + 4
+	wait(0.8)
+end
+end)
+--[[
+SET TAGGER	
+--]]
+b3 = Instance.new("TextButton", fr)
+b3.Name = "b3"
+b3.Size = UDim2.new(0.0, 150, 0.0, 35)
+b3.Position = UDim2.new(99999, 99999, 9999, 9999)
+b3.BackgroundColor3 = Color3.new(0.5,0.5,0.5)
+b3.BorderColor3 = Color3.new(0, 0, 0)
+b3.BackgroundTransparency = 0
+b3.Text ="Set as Tagger"
+b3.TextColor3 = Color3.new(1,1,1)
+b3.FontSize = "Size18"
+b3.MouseButton1Down:connect(function () 
+game.Players.LocalPlayer.TeamColor = game.Teams["Taggers"].TeamColor
+end)
+--[[
+Set as RUNNER
+--]]
+b4 = Instance.new("TextButton", fr)
+b4.Name = "b4"
+b4.Size = UDim2.new(0.0, 150, 0.0, 35)
+b4.Position = UDim2.new(99999, 99999, 9999, 9999)
+b4.BackgroundColor3 = Color3.new(0.5,0.5,0.5)
+b4.BorderColor3 = Color3.new(0, 0, 0)
+b4.BackgroundTransparency = 0
+b4.Text ="Set as Runner"
+b4.TextColor3 = Color3.new(1,1,1)
+b4.FontSize = "Size18"
+b4.MouseButton1Down:connect(function () 
+game.Players.LocalPlayer.TeamColor = game.Teams["Runners"].TeamColor
+end)
+--[[
+GET GEAR
+--]]
+b5 = Instance.new("TextButton", fr)
+b5.Name = "b5"
+b5.Size = UDim2.new(0.0, 150, 0.0, 35)
+b5.Position = UDim2.new(99999, 99999, 9999, 9999)
+b5.BackgroundColor3 = Color3.new(0.5,0.5,0.5)
+b5.BorderColor3 = Color3.new(0, 0, 0)
+b5.BackgroundTransparency = 0
+b5.Text ="Get Gear"
+b5.TextColor3 = Color3.new(1,1,1)
+b5.FontSize = "Size18"
+b5.MouseButton1Down:connect(function () 
+game.ReplicatedStorage.GameTools["XRayGoggles"]:Clone().Parent = game.Players.LocalPlayer.Backpack
+game.ReplicatedStorage.GameTools["JetBoost"]:Clone().Parent = game.Players.LocalPlayer.Backpack
+game.ReplicatedStorage.GameTools["GrappleCrossBow"]:Clone().Parent = game.Players.LocalPlayer.Backpack
+end)
+--[[
+REMOVE DOORS
+--]]
+b6 = Instance.new("TextButton", fr)
+b6.Name = "b6"
+b6.Size = UDim2.new(0.0, 150, 0.0, 35)
+b6.Position = UDim2.new(99999, 99999, 9999, 9999)
+b6.BackgroundColor3 = Color3.new(0.5,0.5,0.5)
+b6.BorderColor3 = Color3.new(0, 0, 0)
+b6.BackgroundTransparency = 0
+b6.Text ="Remove Doors"
+b6.TextColor3 = Color3.new(1,1,1)
+b6.FontSize = "Size18"
+b6.MouseButton1Down:connect(function () 
+local part = game.Workspace.Lobby.VIPDoorPart
+part:Destroy()
+
+local part2 = game.Workspace.Lobby.GroupDoor
+part2:Destroy()
+end)
+--[[
+Unfreeze //Took way to long to make this, you better love it you cucks <3
+--]]
+b7 = Instance.new("TextButton", fr)
+b7.Name = "b7"
+b7.Size = UDim2.new(0.0, 150, 0.0, 35)
+b7.Position = UDim2.new(99999, 99999, 9999, 9999)
+b7.BackgroundColor3 = Color3.new(0.5,0.5,0.5)
+b7.BorderColor3 = Color3.new(0, 0, 0)
+b7.BackgroundTransparency = 0
+b7.Text ="Unfreeze"
+b7.TextColor3 = Color3.new(1,1,1)
+b7.FontSize = "Size18"
+b7.MouseButton1Down:connect(function () 
+game.Workspace:findFirstChild(game.Players.LocalPlayer.Name).Torso.Anchored = false
+game.Workspace:findFirstChild(game.Players.LocalPlayer.Name).Head.Anchored = false
+game.Workspace:findFirstChild(game.Players.LocalPlayer.Name)["Left Arm"].Anchored = false
+game.Workspace:findFirstChild(game.Players.LocalPlayer.Name)["Right Arm"].Anchored = false
+game.Workspace:findFirstChild(game.Players.LocalPlayer.Name)["Right Leg"].Anchored = false
+game.Workspace:findFirstChild(game.Players.LocalPlayer.Name)["Left Leg"].Anchored = false
+game.Workspace:findFirstChild(game.Players.LocalPlayer.Name).HumanoidRootPart.Anchored = false
+game.Workspace:findFirstChild(game.Players.LocalPlayer.Name).IceBlock:Destroy()
+end)
+
+
+
+    local hint = Instance.new("Hint",game.Players.LocalPlayer.PlayerGui)
+    hint.Text = "Loaded FreezeTag Commands by DLLExploits(BrainJason#5395). Please read Console!(F9)"
+    hint.Name = game.JobId
+    wait(5)
+    hint:Destroy()
+
+print("Hello, and thanks for using FreezeTag Commands by BrainJason/DllExploits")
+print("This will just explain commands")
+print("Run ROBLOX fullscreen or GUI may bug for your screen")
+print("also thanks victiny1223#3554 for helping me with one thing")
+print("------------------------------------------------")
+print("Tele Players: Teleports players to you(clientside) to freeze them. Lasts for about 10-15 seconds.")
+print("May require more than one round. Do not click more than once. Let it run, and go again if needed.")
+print("---------")
+print("Set as Tagger: This is clientside, but you can freeze players")
+print("This has some fun interactions. Try playing around")
+print("---------")
+print("Set as Runner: Sets you to runner. Fun interactions especially if you start as a tagger")
+print("---------")
+print("Get Gear: Will spawn you the only gear that works clientisde")
+print("---------")
+print("Remote Doors: Will remove VIP and Group doors so you can go in")
+print("---------")
+print("Unfreeze: Will unfreeze you fully :)")
+print("---------")
+print("Sub to my youtube. Just search up DLLExploits.")
