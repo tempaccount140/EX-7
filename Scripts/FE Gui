@@ -1,0 +1,457 @@
+-- Objects
+wait(1)
+if game.CoreGui:findFirstChild("FE GUI") then
+game.CoreGui["FE GUI"]:remove()
+end
+teamcolor = ""
+local FEGUI = Instance.new("ScreenGui")
+local Open = Instance.new("TextButton")
+local Frame = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local FEKill = Instance.new("TextButton")
+local PlayerNameLoop = Instance.new("TextBox")
+local FEKillLoop = Instance.new("TextButton")
+local FEKillLoopS = Instance.new("TextButton")
+local FEPunish = Instance.new("TextButton")
+local TCF = Instance.new("TextButton")
+local PlayerName = Instance.new("TextBox")
+local FeTeamColor = Instance.new("TextBox")
+Friend1 = Instance.new("TextBox")
+Friend2 = Instance.new("TextBox")
+Friend3 = Instance.new("TextBox")
+Friend4 = Instance.new("TextBox")
+Friend5 = Instance.new("TextBox")
+Friend6 = Instance.new("TextBox")
+local CG = game.CoreGui
+
+-- Properties
+
+FEGUI.Name = "FE GUI"
+FEGUI.Parent = CG
+local CGG = CG["FE GUI"]
+
+Open.Name = "Open"
+Open.Parent = FEGUI
+Open.BackgroundColor3 = Color3.new(0.12,0.12,0.12)
+Open.Position = UDim2.new(0, 0, 0, 300)
+Open.Size = UDim2.new(0, 105, 0, 25)
+Open.Font = Enum.Font.Cartoon
+Open.FontSize = Enum.FontSize.Size18
+Open.Text = "Open \/ Close"
+Open.TextSize = 18
+Open.TextColor3 = Color3.new(1,1,1)
+Open.BackgroundColor3 = Color3.new(0.12,0.12,0.12)
+Open.BackgroundTransparency = 0
+
+Frame.Parent = FEGUI
+Frame.BackgroundColor3 = Color3.new(0.12,0.12,0.12)
+Frame.Position = UDim2.new(0, 400, 0, 188)
+Frame.Size = UDim2.new(0, 300, 0, 260)
+Frame.Active = true
+Frame.Draggable = true
+Frame.Visible = false
+
+Title.Name = "Title"
+Title.Parent = Frame
+Title.BackgroundColor3 = Color3.new(0.04,0.04,0.04)
+Title.Size = UDim2.new(0, 300, 0, 30)
+Title.Font = Enum.Font.Code
+Title.FontSize = Enum.FontSize.Size18
+Title.Text = "FE Kill GUI - //DLLExplois Edit"
+Title.TextColor3 = Color3.new(1, 1, 1)
+Title.TextSize = 16
+Title.BorderColor3 = Color3.new(0.12,0.12,0.12)
+
+
+FEKill.Name = "FEKill"
+FEKill.Parent = Frame
+FEKill.BackgroundColor3 = Color3.new(0.368627, 0.654902, 1)
+FEKill.Position = UDim2.new(0, 15, 0, 63)
+FEKill.Size = UDim2.new(0, 270, 0, 15)
+FEKill.Font = Enum.Font.Fantasy
+FEKill.FontSize = Enum.FontSize.Size18
+FEKill.Text = "FE Kill"
+FEKill.TextColor3 = Color3.new(1, 1, 1)
+FEKill.TextSize = 12
+
+lp = 1
+
+function loopko()
+			local Players = game:GetService("Players")
+	    local Mouse = game.Players.LocalPlayer:GetMouse() 
+		for i, v in next, Players:GetPlayers() do
+				if v.Name == game.Players.LocalPlayer.Name then
+				else
+					v:Move(Vector3.new(math.huge*0))
+					wait(0.3)
+					v:Move(Vector3.new(math.huge*0))
+					wait(0.3)
+					v:Move(Vector3.new(math.huge*0))
+					wait(0.3)
+					v:Move(Vector3.new(math.huge*0))
+					wait(0.3)
+					v:Move(Vector3.new(math.huge*0))
+					wait(0.3)
+					v:Move(Vector3.new(math.huge*0))
+					wait(0.3)
+					v:Move(Vector3.new(math.huge*0))
+					wait(0.3)
+					v:Move(Vector3.new(math.huge*0))
+					wait(0.3)
+					v:Move(Vector3.new(math.huge*0))
+					wait(0.3)
+					v:Move(Vector3.new(math.huge*0))
+					wait(0.3)
+					v:Move(Vector3.new(math.huge*0))
+					wait(0.3)
+					v:Move(Vector3.new(math.huge*0))
+				end
+		end
+end
+
+
+FeTeamColor.Name = "FeTeamColor"
+FeTeamColor.Parent = Frame
+FeTeamColor.BackgroundColor3 = Color3.new(0.2,0.2,0.2)
+FeTeamColor.Position = UDim2.new(0, 15, 0, 235)
+FeTeamColor.Size = UDim2.new(0, 270, 0, 15)
+FeTeamColor.Font = Enum.Font.Fantasy
+FeTeamColor.FontSize = Enum.FontSize.Size18
+FeTeamColor.Text = "Team Name"
+FeTeamColor.TextColor3 = Color3.new(1, 1, 1)
+FeTeamColor.TextSize = 12
+FeTeamColor.BorderColor3 = Color3.new(0.2,0.2,0.2)
+
+fnl = Friend1.Text or Friend2.Text or Friend3.Text or Friend4.Text or Friend5.Text or Friend6.Text 
+
+FEKillLoop.Name = "FEKill"
+FEKillLoop.Parent = Frame
+FEKillLoop.BackgroundColor3 = Color3.new(0.368627, 0.654902, 1)
+FEKillLoop.Position = UDim2.new(0, 15, 0, 105)
+FEKillLoop.Size = UDim2.new(0, 270, 0, 15)
+FEKillLoop.Font = Enum.Font.Fantasy
+FEKillLoop.FontSize = Enum.FontSize.Size18
+FEKillLoop.Text = "FE Kill Loop"
+FEKillLoop.TextColor3 = Color3.new(1, 1, 1)
+FEKillLoop.TextSize = 12
+FEKillLoop.MouseButton1Down:connect(function () 
+	if PlayerNameLoop.Text == "others" then
+			l =0
+			while l == 0 do
+				wait(1)
+			local Players = game:GetService("Players")
+			local Mouse = game.Players.LocalPlayer:GetMouse() 
+			for i, v in next, Players:GetPlayers() do
+				if v.Name == game.Players.LocalPlayer.Name then
+				else
+					v:Move(Vector3.new(math.huge*0))
+				end
+			end
+			end
+	elseif PlayerNameLoop.Text == "team" then
+			l =0
+			while l == 0 do
+				wait(1)
+			local Players = game:GetService("Players")
+			local Mouse = game.Players.LocalPlayer:GetMouse() 
+			for i, v in next, Players:GetPlayers() do
+				if v.Name == game.Players.LocalPlayer.Name then
+				elseif v.TeamColor == game.Teams[FeTeamColor.Text].TeamColor and v.Name ~= Friend1.Text and v.Name ~= Friend2.Text and v.Name ~= Friend3.Text and v.Name ~= Friend4.Text and v.Name ~= Friend5.Text and v.Name ~= Friend6.Text then
+					v:Move(Vector3.new(math.huge*0))
+					end			
+			end
+			end
+	else
+		l =0
+			while l == 0 do
+				wait(1)
+		local char = game.Players[PlayerNameLoop.Text].Character
+		local target = game.Players[PlayerNameLoop.Text]
+		repeat
+		wait()
+		target:Move(Vector3.new(math.huge*0))
+		until target.Character:FindFirstChild'Head' == nil
+		wait(1)	
+	end
+end
+end)
+FEKillLoopS.Name = "FEKill"
+FEKillLoopS.Parent = Frame
+FEKillLoopS.BackgroundColor3 = Color3.new(0.368627, 0.654902, 1)
+FEKillLoopS.Position = UDim2.new(0, 15, 0, 124)
+FEKillLoopS.Size = UDim2.new(0, 270, 0, 15)
+FEKillLoopS.Font = Enum.Font.Fantasy
+FEKillLoopS.FontSize = Enum.FontSize.Size18
+FEKillLoopS.Text = "Loop Stop"
+FEKillLoopS.TextColor3 = Color3.new(1, 1, 1)
+FEKillLoopS.TextSize = 12
+FEKillLoopS.MouseButton1Down:connect(function () 
+	l = 1
+l = 1
+l = 1
+l = 1
+l = 1
+l = 1
+l = 1
+wait(0.2)
+	l = 1
+l = 1
+l = 1
+l = 1
+l = 1
+l = 1
+l = 1
+wait(0.2)
+	l = 1
+l = 1
+l = 1
+l = 1
+l = 1
+l = 1
+l = 1
+wait(2)
+l = 0
+end)
+PlayerName.Name = "PlayerName"
+PlayerName.Parent = Frame
+PlayerName.BackgroundColor3 = Color3.new(0.2,0.2,0.2)
+PlayerName.Position = UDim2.new(0, 15, 0, 39)
+PlayerName.Size = UDim2.new(0, 270, 0, 20)
+PlayerName.Font = Enum.Font.SciFi
+PlayerName.FontSize = Enum.FontSize.Size18
+PlayerName.Text = "Player"
+PlayerName.TextColor3 = Color3.new(1, 1, 1)
+PlayerName.TextSize = 18
+PlayerName.BorderColor3 = Color3.new(0.12,0.12,0.12)
+
+
+-- FRIENDS--
+
+Friend1.Name = "Friend1"
+Friend1.Parent = Frame
+Friend1.BackgroundColor3 = Color3.new(0.2,0.2,0.2)
+Friend1.Position = UDim2.new(0, 15, 0, 160)
+Friend1.Size = UDim2.new(0, 133, 0, 15)
+Friend1.Font = Enum.Font.SciFi
+Friend1.FontSize = Enum.FontSize.Size18
+Friend1.Text = "Friend Name"
+Friend1.TextColor3 = Color3.new(1, 1, 1)
+Friend1.TextSize = 14
+Friend1.BorderColor3 = Color3.new(0.12,0.12,0.12)
+
+Friend2.Name = "Friend2"
+Friend2.Parent = Frame
+Friend2.BackgroundColor3 = Color3.new(0.2,0.2,0.2)
+Friend2.Position = UDim2.new(0, 150, 0, 160)
+Friend2.Size = UDim2.new(0, 133, 0, 15)
+Friend2.Font = Enum.Font.SciFi
+Friend2.FontSize = Enum.FontSize.Size18
+Friend2.Text = "Friend Name"
+Friend2.TextColor3 = Color3.new(1, 1, 1)
+Friend2.TextSize = 14
+Friend2.BorderColor3 = Color3.new(0.12,0.12,0.12)
+
+Friend3.Name = "Friend3"
+Friend3.Parent = Frame
+Friend3.BackgroundColor3 = Color3.new(0.2,0.2,0.2)
+Friend3.Position = UDim2.new(0, 15, 0, 177)
+Friend3.Size = UDim2.new(0, 133, 0, 15)
+Friend3.Font = Enum.Font.SciFi
+Friend3.FontSize = Enum.FontSize.Size18
+Friend3.Text = "Friend Name"
+Friend3.TextColor3 = Color3.new(1, 1, 1)
+Friend3.TextSize = 14
+Friend3.BorderColor3 = Color3.new(0.12,0.12,0.12)
+
+Friend4.Name = "Friend4"
+Friend4.Parent = Frame
+Friend4.BackgroundColor3 = Color3.new(0.2,0.2,0.2)
+Friend4.Position = UDim2.new(0, 150, 0, 177)
+Friend4.Size = UDim2.new(0, 133, 0, 15)
+Friend4.Font = Enum.Font.SciFi
+Friend4.FontSize = Enum.FontSize.Size18
+Friend4.Text = "Friend Name"
+Friend4.TextColor3 = Color3.new(1, 1, 1)
+Friend4.TextSize = 14
+Friend4.BorderColor3 = Color3.new(0.12,0.12,0.12)
+
+Friend5.Name = "Friend5"
+Friend5.Parent = Frame
+Friend5.BackgroundColor3 = Color3.new(0.2,0.2,0.2)
+Friend5.Position = UDim2.new(0, 15, 0, 194)
+Friend5.Size = UDim2.new(0, 133, 0, 15)
+Friend5.Font = Enum.Font.SciFi
+Friend5.FontSize = Enum.FontSize.Size18
+Friend5.Text = "Friend Name"
+Friend5.TextColor3 = Color3.new(1, 1, 1)
+Friend5.TextSize = 14
+Friend5.BorderColor3 = Color3.new(0.12,0.12,0.12)
+
+Friend6.Name = "Friend6"
+Friend6.Parent = Frame
+Friend6.BackgroundColor3 = Color3.new(0.2,0.2,0.2)
+Friend6.Position = UDim2.new(0, 150, 0, 194)
+Friend6.Size = UDim2.new(0, 133, 0, 15)
+Friend6.Font = Enum.Font.SciFi
+Friend6.FontSize = Enum.FontSize.Size18
+Friend6.Text = "Friend Name"
+Friend6.TextColor3 = Color3.new(1, 1, 1)
+Friend6.TextSize = 14
+Friend6.BorderColor3 = Color3.new(0.12,0.12,0.12)
+
+tl = Instance.new("TextLabel", Frame)
+tl.Size = UDim2.new(0.0, 2, 0.0, 20)
+tl.Position = UDim2.new(0, 38, 0, 140)
+tl.BackgroundColor3 = Color3.new(0,0,0)
+tl.Text ="Whitelist"
+tl.FontSize = "Size8"
+tl.TextColor3 = Color3.new(1,1,1)
+tl.BackgroundTransparency = 1
+
+tl1 = Instance.new("TextLabel", Frame)
+tl1.Size = UDim2.new(0.0, 2, 0.0, 20)
+tl1.Position = UDim2.new(0, 165, 0, 135)
+tl1.BackgroundColor3 = Color3.new(0,0,0)
+tl1.Text ="__________________________"
+tl1.FontSize = "Size8"
+tl1.TextColor3 = Color3.new(1,1,1)
+tl1.BackgroundTransparency = 1
+
+
+xtl = Instance.new("TextLabel", Frame)
+xtl.Size = UDim2.new(0.0, 2, 0.0, 20)
+xtl.Position = UDim2.new(0, 40, 0, 210)
+xtl.BackgroundColor3 = Color3.new(0,0,0)
+xtl.Text ="TeamName"
+xtl.FontSize = "Size8"
+xtl.TextColor3 = Color3.new(1,1,1)
+xtl.BackgroundTransparency = 1
+
+xtl1 = Instance.new("TextLabel", Frame)
+xtl1.Size = UDim2.new(0.0, 2, 0.0, 20)
+xtl1.Position = UDim2.new(0, 165, 0, 205)
+xtl1.BackgroundColor3 = Color3.new(0,0,0)
+xtl1.Text ="__________________________"
+xtl1.FontSize = "Size8"
+xtl1.TextColor3 = Color3.new(1,1,1)
+xtl1.BackgroundTransparency = 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---FRIENDS---
+
+
+PlayerNameLoop.BorderColor3 = Color3.new(0.12,0.12,0.12)
+PlayerNameLoop.Name = "PlayerName"
+PlayerNameLoop.Parent = Frame
+PlayerNameLoop.BackgroundColor3 = Color3.new(0.2,0.2,0.2)
+PlayerNameLoop.Position = UDim2.new(0, 15, 0, 82)
+PlayerNameLoop.Size = UDim2.new(0, 270, 0, 20)
+PlayerNameLoop.Font = Enum.Font.SciFi
+PlayerNameLoop.FontSize = Enum.FontSize.Size18
+PlayerNameLoop.Text = "Player"
+PlayerNameLoop.TextColor3 = Color3.new(1, 1, 1)
+PlayerNameLoop.TextSize = 18
+
+CGG.Frame.FEKill.MouseButton1Down:connect(function()
+if PlayerName.Text == "all" then
+			local Players = game:GetService("Players")
+	        local Mouse = game.Players.LocalPlayer:GetMouse() 
+		    for i, v in next, Players:GetPlayers() do
+				if v.Name == game.Players.LocalPlayer.Name or v.Name == Friend1.text or v.Name == Friend3.text or v.Name == Friend4.text or v.Name == Friend5.text or v.Name == Friend6.text or v.Name == Friend2.text then
+				else
+					v:Move(Vector3.new(math.huge*0))
+				end
+			end
+elseif PlayerName.Text == "others" then
+	aa = 1
+		local Players = game:GetService("Players")
+	    local Mouse = game.Players.LocalPlayer:GetMouse() 
+		for i, v in next, Players:GetPlayers() do
+				if v.Name == game.Players.LocalPlayer.Name or v.Name == Friend1.text or v.Name == Friend3.text or v.Name == Friend4.text or v.Name == Friend5.text or v.Name == Friend6.text or v.Name == Friend2.text then
+				else
+					v:Move(Vector3.new(math.huge*0))
+					wait(0.3)
+					v:Move(Vector3.new(math.huge*0))
+					wait(0.3)
+					v:Move(Vector3.new(math.huge*0))
+					wait(0.3)
+					v:Move(Vector3.new(math.huge*0))
+					wait(0.3)
+					v:Move(Vector3.new(math.huge*0))
+					wait(0.3)
+					v:Move(Vector3.new(math.huge*0))
+					wait(0.3)
+					v:Move(Vector3.new(math.huge*0))
+					wait(0.3)
+					v:Move(Vector3.new(math.huge*0))
+					wait(0.3)
+					v:Move(Vector3.new(math.huge*0))
+					wait(0.3)
+					v:Move(Vector3.new(math.huge*0))
+					wait(0.3)
+					v:Move(Vector3.new(math.huge*0))
+					wait(0.3)
+					v:Move(Vector3.new(math.huge*0))
+					wait(0.3)
+				end
+		end
+elseif PlayerName.Text == "team" then
+			local Players = game:GetService("Players")
+			local Mouse = game.Players.LocalPlayer:GetMouse() 
+			for i, v in next, Players:GetPlayers() do
+				if v.Name == game.Players.LocalPlayer.Name then
+				elseif v.TeamColor == game.Teams[FeTeamColor.Text].TeamColor and v.Name ~= Friend1.Text and v.Name ~= Friend2.Text and v.Name ~= Friend3.Text and v.Name ~= Friend4.Text and v.Name ~= Friend5.Text and v.Name ~= Friend6.Text then
+					v:Move(Vector3.new(math.huge*0))
+					wait(0.2)
+					v:Move(Vector3.new(math.huge*0))
+					wait(0.2)
+					v:Move(Vector3.new(math.huge*0))
+					wait(0.2)
+					v:Move(Vector3.new(math.huge*0))
+					wait(0.2)
+					v:Move(Vector3.new(math.huge*0))
+					end			
+			end
+	else
+		local char = game.Players[PlayerName.Text].Character
+		local target = game.Players[PlayerName.Text]
+		repeat
+		wait()
+		target:Move(Vector3.new(math.huge*0))
+		until target.Character:FindFirstChild'Head' == nil		
+	end
+end)
+
+
+Open.MouseButton1Down:connect(function()
+Frame.Visible = not Frame.Visible
+end)
+
+print("Scripted edited and custom code added by DllExploits (BrainJason#5395")
+print("Thanks to daymon#5488 for lua help/inspirations")
+print("Thanks to whomever created the original FE kill")
+print("Please note the OTHERS command is buggy, and use ALL whenever you can!")
+print("Also, sometimes you need to press the button more than once!")
+print("USERNAMES ARE CASE SENSITIVE - all, others, team is LOWERCASE!")
+print("---------------------------------------")
+print("Commands are as follows:")
+print("Playername(Explainitory")
+print("all - Kills all players, besides you and anyone in whitelist")
+print("others - Kills others, besides you and anyone in whitelist(Please use all, this is a defunct command, but works")
+print("team - Kills players with the team specified at bottom")
