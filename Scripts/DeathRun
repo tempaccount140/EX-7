@@ -1,0 +1,203 @@
+wait(1)
+
+ply = game:service("Players")
+me = ply.LocalPlayer
+gui = me:findFirstChild("PlayerGui")
+
+sc = Instance.new("ScreenGui",gui)
+sc.Name = "DLLExploits"
+game:GetService("StarterGui").ResetPlayerGuiOnSpawn = false
+
+fr = Instance.new("Frame",sc)
+fr.Size = UDim2.new(0.0, 150, 0.0, 35)
+fr.Position = UDim2.new(0,0.2,0.7, 0.2)
+fr.BackgroundColor3 = Color3.new(0.5,0.5,0.5)
+fr.BackgroundTransparency = 1
+
+fr2 = Instance.new("Frame",sc)
+fr2.Size = UDim2.new(0.0, 1980, 0.0, 30)
+fr2.Position = UDim2.new(9999,9999,9999,9999)
+fr2.BackgroundColor3 = Color3.new(0.5,0.5,0.5)
+fr2.BackgroundTransparency = 1
+--[[
+OPEN AND CLOSE BUTTON	
+--]]
+b1 = Instance.new("TextButton", fr)
+b1.Name = "b1"
+b1.Size = UDim2.new(0.0, 100, 0.0, 30)
+--b1.Position = UDim2.new(0,1055,0.8, -650)
+b1.BackgroundColor3 = Color3.new(0,0,0)
+b1.BorderColor3 = Color3.new(0, 0, 0)
+b1.BackgroundTransparency = 0.4
+b1.Text ="Open"
+b1.TextColor3 = Color3.new(1,1,1)
+b1.FontSize = "Size18"
+b1.MouseButton1Down:connect(function () 
+if b1.Text =="Close" then
+	b1.Text ="Open"
+	fr.Size = UDim2.new(0.0, 150, 0.0, 35)
+	fr2.Position = UDim2.new(9999,9999,9999,9999)
+elseif b1.Text =="Open" then
+	b1.Text ="Close"
+	fr2.Position = UDim2.new(0.115,0.2,0.7, 0.2)
+end
+end) 
+
+b21 = Instance.new("TextButton", fr2)
+b21.Name = "b1"
+b21.Size = UDim2.new(0.0, 60, 0.0, 22)
+b21.Position = UDim2.new(0.0015,0,0.12,0)
+b21.BackgroundColor3 = Color3.new(0,0,0)
+b21.BorderColor3 = Color3.new(0, 0, 0)
+b21.BackgroundTransparency = 0.4
+b21.Text ="Start"
+b21.TextColor3 = Color3.new(1,1,1)
+b21.FontSize = "Size12"
+b21.MouseButton1Down:connect(function () 
+function getMoney()
+for k,v in pairs(game.Workspace.CurrentMap.Game.Pickups:GetChildren()) do
+if v.ClassName == "Part" then
+v.CFrame = game.Players.LocalPlayer.Character.Torso.CFrame
+else
+end
+end
+end
+
+function killKillers()
+for k,player in pairs(game.Players:GetChildren()) do
+if player.TeamColor == game.Teams["Killers"].TeamColor then
+repeat
+local target = CFrame.new(player.Character.Torso.Position)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = target
+wait(0.2)
+x = x + 1
+until x == 30
+end
+end
+x = 1
+end
+
+
+loop = 1
+while loop == 1 do
+if game.Players.LocalPlayer.TeamColor == game.Teams["Killers"].TeamColor then
+	wait(19)
+    game.Players.LocalPlayer.Character.Humanoid.Health = 0
+elseif game.Players.LocalPlayer.TeamColor == game.Teams["Runners"].TeamColor then
+	wait(15)
+if game.Workspace.CurrentMap.Meta.MapName.Value == "Castle Defense" then --Confirmed teleport values
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-94.8,190,-239)
+getMoney()
+wait(1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-111,222,-447)
+wait(1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-217,240,-549)
+wait(1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-293,241,-489)
+end		
+	
+if game.Workspace.CurrentMap.Meta.MapName.Value == "Ice Cavern" then --Confirmed Teleport Values
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-127,31,-148)
+getMoney()
+wait(1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-262,18,-309)
+wait(1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-142,20,-317)
+end
+
+if game.Workspace.CurrentMap.Meta.MapName.Value == "Isla Louca" then --Confirmed Teleport Values
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(819,83,-1558)
+getMoney()
+wait(1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1108,93,-1517)
+wait(1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1108,108,-1703)
+end	
+
+if game.Workspace.CurrentMap.Meta.MapName.Value == "Safety First!" then --Confirmed Teleport Values
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(430,95,-408)
+getMoney()
+wait(1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(157,110,-398)
+wait(0.2)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(143,115,-269)
+wait(0.2)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(458,128,-143)
+end	
+
+if game.Workspace.CurrentMap.Meta.MapName.Value == "Jurassic Volcano" then --Confirmed Teleport Values
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(882,120,-1319)
+getMoney()
+wait(1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(861,120,-1106)
+wait(1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1064,107,-892)
+end	
+
+if game.Workspace.CurrentMap.Meta.MapName.Value == "Training Course" then --Confirmed Teleport Values
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1220,-104,-1092)
+getMoney()
+wait(1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1107,-81,-752)
+wait(1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(916,-81,-518)
+end	
+
+if game.Workspace.CurrentMap.Meta.MapName.Value == "Corrupted Jungle" then -- Confirmed teleport values
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(852,107,-1890)
+getMoney()
+wait(1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(533,109,-1876)
+wait(1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(514,109,-1650)
+end	
+wait(1)
+x = 1
+killKillers()
+wait(15)
+end
+wait(1)
+end
+end) 
+b11 = Instance.new("TextButton", fr2)
+b11.Name = "b1"
+b11.Size = UDim2.new(0.0, 60, 0.0, 22)
+b11.Position = UDim2.new(0.0015,65,0.12,0)
+b11.BackgroundColor3 = Color3.new(0,0,0)
+b11.BorderColor3 = Color3.new(0, 0, 0)
+b11.BackgroundTransparency = 0.4
+b11.Text ="Stop"
+b11.TextColor3 = Color3.new(1,1,1)
+b11.FontSize = "Size12"
+b11.MouseButton1Down:connect(function () 
+loop = 2
+wait(0.2)
+loop = 2
+wait(0.2)
+loop = 2
+wait(0.2)
+loop = 2
+wait(0.2)
+loop = 2
+wait(0.2)
+end) 
+
+    local hint = Instance.new("Hint",game.Players.LocalPlayer.PlayerGui)
+    hint.Text = "There is a chance of the loop BREAKING if you become KILLER! Unfortunetly I can not fix this."
+    hint.Name = game.JobId
+    wait(5)
+    hint:Destroy()
+
+local hint = Instance.new("Hint",game.Players.LocalPlayer.PlayerGui)
+    hint.Text = "If this happens, and you stop teleporting, simply hit stop, and THEN start again, do not just hit start."
+    hint.Name = game.JobId
+    wait(7)
+    hint:Destroy()
+
+local hint = Instance.new("Hint",game.Players.LocalPlayer.PlayerGui)
+    hint.Text = "Hit start ONCE to beging and wait!"
+    hint.Name = game.JobId
+    wait(5)
+    hint:Destroy()
+
+print("BrainJason#5395/DllExploits")
