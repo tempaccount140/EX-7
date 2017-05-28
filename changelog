@@ -1,4 +1,4 @@
-EX-7 v0.2.6 Alpha Buyer Release 25/05/17
+EX-7 v0.2.7 Alpha Buyer Release 25/05/17
 *Removed unused junk from the code, making EX-7's file size smaller
 *Added checks to custom implementations so no more random crashes from using them!
 *GetObjects is being buggy af for some reason, working on it!
