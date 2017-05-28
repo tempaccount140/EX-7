@@ -1,1 +1,15 @@
-yeah boy
+EX-7 Trouble Shooting Guide:
+
+Q: EX-7 keeps crashing every time I execute a script!
+A: Speak to AzuLX on discord or ask a member of the offical EX-7 discord for help.
+
+Q: EX-7 wont inject!
+A: Make sure you have the x86 version of the Visual C++ Redistributable 
+(https://www.microsoft.com/en-gb/download/details.aspx?id=48145)
+and also make sure your pc's anti virus is excluding EX-7.exe and EX-7.dll
+
+Q: When I try to execute a script, I get a messagebox saying OP_something, what does this mean?
+A: Although this may now be extinct in the version of EX-7 you're using, 
+EX-7 will only output this error if you're running a script that EX-7 cannot support. Ask the community
+
+For information regarding EX-7 overall, read the EX-7 Frequently asked questions page @ https://buyex7.com/faq.html
